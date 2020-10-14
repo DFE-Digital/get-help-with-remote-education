@@ -1,0 +1,19 @@
+@import 'variables';
+
+.app-cookie-banner {
+    padding: 15px 0px 10px;
+    background-color: $cookie-banner-background;
+
+    &-actions {
+        display: block;
+    };
+
+    #{&}__link {
+        color: $cookie-banner-text;
+    };
+}
+
+.inline-message {
+    display: inline;
+    line-height: 2;
+}
