@@ -20,6 +20,10 @@ function updateBanner() {
     document.getElementById("cookieConfirmation").style.display = "block";
 }
 
+function unhideBanner() {
+    document.getElementById("appCookieBanner").style.display = "block";
+}
+
 function hideBanner() {
     document.getElementById("appCookieBanner").style.display = "none";
 }
@@ -29,4 +33,4 @@ function acceptAllCookies() {
     updateBanner();
 }
 
-export { setCookie, getCookie, checkForCookies, acceptAllCookies, hideBanner };
+export { setCookie, getCookie, checkForCookies, acceptAllCookies, hideBanner, unhideBanner };

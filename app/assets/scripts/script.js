@@ -3,8 +3,8 @@ import * as cookieOptions from './cookie_consent';
 
 initAll();
 
-if(cookieOptions.checkForCookies("ghre_allow_cookies")) {
-    cookieOptions.hideBanner(); // Hide cookies if consent already given
+if(!cookieOptions.checkForCookies("ghre_allow_cookies")) {
+    cookieOptions.unhideBanner(); // Hide cookies if consent already given
 };
 
 document.getElementById("acceptCookies").onclick = cookieOptions.acceptAllCookies;
