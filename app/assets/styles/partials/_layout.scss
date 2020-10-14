@@ -3,11 +3,12 @@
 .app-cookie-banner {
     padding: 15px 0px 10px;
     background-color: $cookie-banner-background;
-
-    &-actions {
+    &__actions {
         display: block;
     };
-
+    &__confirmation {
+        display: none;
+    };
     #{&}__link {
         color: $cookie-banner-text;
     };
@@ -16,4 +17,9 @@
 .inline-message {
     display: inline;
     line-height: 2;
+    &--right {
+        display: inline;
+        float: right;
+        line-height: 2;
+    };
 }

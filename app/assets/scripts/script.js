@@ -1,6 +1,11 @@
 import { initAll } from 'govuk-frontend';
-import { test } from './cookie_consent'
+import * as cookieOptions from './cookie_consent';
 
 initAll();
 
-document.getElementById("acceptCookies").onclick = test;
+if(cookieOptions.checkForCookies("ghre_allow_cookies")) {
+    cookieOptions.hideBanner(); // Hide cookies if consent already given
+};
+
+document.getElementById("acceptCookies").onclick = cookieOptions.acceptAllCookies;
+document.getElementById("hideButton").onclick = cookieOptions.hideBanner;
