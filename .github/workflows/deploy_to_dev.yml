@@ -28,4 +28,4 @@ jobs:
           cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_PASSWORD_DEV }}"
           cf target -o dfe-teacher-services -s get-help-with-remote-education-dev
           cf target
-          ls
+          cf push -b staticfile_buildpack -p app get-help-with-remote-education-prototype-dev-pipe
