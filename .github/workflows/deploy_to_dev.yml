@@ -19,15 +19,13 @@ jobs:
         run: |
           curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&source=github" | tar -zx
           sudo mv cf /usr/local/bin
-          
+
       - name: deploy to gov.uk paas
         id: deploy-to-paas
         shell: bash
         run: |
           cf api https://api.london.cloud.service.gov.uk
-          cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_USER_PASSWORD }}"
+          cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_PASSWORD_DEV }}"
           cf target -o dfe-teacher-services -s get-help-with-remote-education-dev
           cf target
           ls
-    
-     
