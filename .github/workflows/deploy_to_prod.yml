@@ -1,0 +1,30 @@
+# This is a basic workflow that is manually triggered
+
+name: Deploy to Prod
+
+# Workflow will run on manual trigger
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy-to-paas-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Install CloudFoundry CLI
+        shell: bash
+        id: install-cf-cli
+        run: |
+          curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&source=github" | tar -zx
+          sudo mv cf /usr/local/bin
+      - name: deploy to gov.uk paas
+        id: deploy-to-paas
+        shell: bash
+        run: |
+          cf api https://api.london.cloud.service.gov.uk
+          cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
+          cf target -o dfe-teacher-services -s get-help-with-remote-education-prod
+          cf target
+          cf push -b staticfile_buildpack -p app get-help-with-remote-education-prototype-prod
