@@ -27,3 +27,4 @@ jobs:
           cf auth "${{ secrets.CF_USER_STAGING }}" "${{ secrets.CF_PASSWORD_STAGING }}"
           cf target -o dfe-teacher-services -s get-help-with-remote-education-staging
           cf target
+          cf push -b staticfile_buildpack -p app get-help-with-remote-education-prototype-staging
