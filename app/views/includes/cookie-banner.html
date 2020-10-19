@@ -1,7 +1,21 @@
 {% if shouldShowCookieMessage %}
+  <script>
+    function setCookie(name, value, expiry) {
+      let date = new Date();
+      date.setTime(date.getTime() + (expiry * 24 * 60 * 60 * 1000));
+      let expires = "expires=" + date.toUTCString();
+      document.cookie = name + "=" + value + ";path=/; expires=" + expires + ";"
+    }
+
+    function acceptCookie() {
+      setCookie("seen_cookie_message", "yes", 1)
+    }
+  </script>
+
   <div class="app-cookie-banner">
     <p class="app-cookie-banner__message">
       {{cookieText | safe }}
+      <button onclick="acceptCookie()">Accept cookies</button>
     </p>
   </div>
 {% endif %}
