@@ -20,7 +20,6 @@ const middleware = [
   require('./lib/middleware/extensions/extensions.js')
 ]
 const config = require('./app/config.js')
-const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
 const utils = require('./lib/utils.js')
@@ -38,7 +37,6 @@ if (fs.existsSync('./app/v6/routes.js')) {
 }
 
 const app = express()
-const documentationApp = express()
 
 if (useV6) {
   console.log('/app/v6/routes.js detected - using v6 compatibility mode')
@@ -47,9 +45,7 @@ if (useV6) {
 
 // Set cookies for use in cookie banner.
 app.use(cookieParser())
-documentationApp.use(cookieParser())
 app.use(utils.handleCookies(app))
-documentationApp.use(utils.handleCookies(documentationApp))
 
 // Set up configuration variables
 var releaseVersion = packageJson.version
