@@ -1,0 +1,27 @@
+$cookie-banner-background: #f3f2f1;
+$cookie-banner-text: #0b0c0c;
+
+.app-cookie-banner {
+    display: none;
+    padding: 15px 0px 10px;
+    background-color: $cookie-banner-background;
+    &__actions {
+        display: block;
+    };
+    &__confirmation {
+        display: none;
+    };
+    #{&}__link {
+        color: $cookie-banner-text;
+    };
+}
+
+.inline-message {
+    display: inline;
+    line-height: 2;
+    &--right {
+        display: inline;
+        float: right;
+        line-height: 2;
+    };
+}
