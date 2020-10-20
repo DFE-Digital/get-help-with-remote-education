@@ -1,24 +1,27 @@
+$cookie-banner-background: #f3f2f1;
+$cookie-banner-text: #0b0c0c;
+
 .app-cookie-banner {
-  @include govuk-font(16);
-  @include govuk-text-colour;
-
-  box-sizing: border-box;
-  width: 100%;
-
-  padding-top: govuk-spacing(3);
-  padding-right: govuk-spacing(3);
-  padding-bottom: govuk-spacing(3);
-  padding-left: govuk-spacing(3);
-  background-color: lighten(desaturate(govuk-colour("light-blue"), 8.46), 42.55);
+    display: none;
+    padding: 15px 0px 10px;
+    background-color: $cookie-banner-background;
+    &__actions {
+        display: block;
+    };
+    &__confirmation {
+        display: none;
+    };
+    #{&}__link {
+        color: $cookie-banner-text;
+    };
 }
 
-.app-cookie-banner__message {
-  margin: 0;
-  @include govuk-width-container;
-}
-
-@include govuk-media-query($media-type: print) {
-  .app-cookie-banner {
-    display: none !important;
-  }
+.inline-message {
+    display: inline;
+    line-height: 2;
+    &--right {
+        display: inline;
+        float: right;
+        line-height: 2;
+    };
 }
