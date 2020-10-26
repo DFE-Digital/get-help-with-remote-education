@@ -30,6 +30,10 @@ jobs:
           npm install
           bundle install
       
+      - name: run tests
+        run: |
+          bundle exec rspec
+      
       - name: build
         run: |
           bundle exec middleman build
