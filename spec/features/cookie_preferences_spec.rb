@@ -4,6 +4,6 @@ RSpec.feature "View Cookie Preferences Page", type: :feature do
     scenario "Navigate to Cookie Preferences page" do
         visit "/cookie_preferences.html"
 
-        expect(page).to have_text("Meow Preferences")
+        expect(page).to have_text("Cookie Preferences")
     end
 end
