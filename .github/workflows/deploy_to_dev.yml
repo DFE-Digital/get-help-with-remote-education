@@ -13,6 +13,13 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
       - name: Install CloudFoundry CLI
         shell: bash
         id: install-cf-cli
