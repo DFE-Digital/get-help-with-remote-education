@@ -13,12 +13,29 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
       - name: Install CloudFoundry CLI
         shell: bash
         id: install-cf-cli
         run: |
           curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&source=github" | tar -zx
           sudo mv cf /usr/local/bin
+
+      - name: install dependencies
+        run: |
+          npm install
+          bundle install
+      
+      - name: build
+        run: |
+          bundle exec middleman build
+
       - name: deploy to gov.uk paas
         id: deploy-to-paas
         shell: bash
@@ -27,4 +44,4 @@ jobs:
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
           cf target -o dfe-teacher-services -s get-help-with-remote-education-prod
           cf target
-          cf push -b staticfile_buildpack -p app get-help-with-remote-education-prototype-prod
+          cf push -b staticfile_buildpack -p build get-help-with-remote-education-prod
