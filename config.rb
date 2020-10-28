@@ -1,3 +1,5 @@
+require 'html-proofer'
+
 # Activate and configure extensions
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 
@@ -44,10 +46,14 @@ set :images_dir, "dist/images"
 set :js_dir, "dist/javascripts"
 
 activate :external_pipeline,
-name: :gulp,
-command: build? ? "./node_modules/gulp/bin/gulp.js" : "echo",
-source: ".tmp",
-latency: 1
+  name: :gulp,
+  command: build? ? "./node_modules/gulp/bin/gulp.js" : "echo",
+  source: ".tmp",
+  latency: 1
+
+after_build do |builder|
+  HTMLProofer.check_directory(config[:build_dir], { :assume_extension => true }).run
+end
 
 configure :build do
 
