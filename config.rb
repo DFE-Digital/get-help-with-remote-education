@@ -47,7 +47,7 @@ set :js_dir, "dist/javascripts"
 
 activate :external_pipeline,
   name: :gulp,
-  command: build? ? "./node_modules/gulp/bin/gulp.js" : "echo",
+  command: build? ? "./node_modules/gulp/bin/gulp.js --production" : "echo",
   source: ".tmp",
   latency: 1
 

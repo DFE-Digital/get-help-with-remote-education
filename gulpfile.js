@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const yargs = require('yargs');
 const webpack = require('webpack-stream');
 const cssnano = require("cssnano");
 const atImport = require('postcss-import');
@@ -7,6 +8,9 @@ const plugins = require("gulp-load-plugins")({
     DEBUG: false,
     pattern: ['gulp-*', 'del'],
 });
+
+// Get env
+const environment = (yargs.argv.production === undefined) ? 'development' : 'production';
 
 // Set paths
 const
@@ -80,7 +84,7 @@ function css() {
 // Optimise Scripts
 function js() {
     return gulp.src(scripts.in)
-        .pipe(webpack(getWebpackOptions(('development'))))
+        .pipe(webpack(getWebpackOptions((environment))))
         .pipe(plugins.uglify(uglifyOptions))
         .pipe(plugins.rename({ basename: "application", suffix: ".min" }))
         .pipe(gulp.dest(scripts.out));
@@ -105,14 +109,6 @@ const build = gulp.series(
     gulp.parallel(css, js, img, fface)
 );
 
-const test = gulp.series(
-    clean,
-    css,
-    js,
-    fface,
-    img
-)
-
 // Exports
 exports.clean = clean;
 exports.css = css;
@@ -120,7 +116,6 @@ exports.js = js;
 exports.fface = fface;
 exports.img = img
 exports.build = build;
-exports.test = test;
 
 // Default Task
 exports.default = build;
