@@ -35,6 +35,10 @@ jobs:
       - name: run tests
         run: |
           bundle exec rspec
+
+      - name: add basic auth
+        run: |
+          echo "${{ secrets.BASIC_AUTH_USER }}":"${{ secrets.BASIC_AUTH_HASHED_PASSWORD }}" > source/Staticfile.auth
       
       - name: build
         run: |
