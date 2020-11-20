@@ -5,12 +5,11 @@ function checkForCookies(name) {
 
 function getCookie(name) {
   let cookieArray = document.cookie.split(';');
-  return cookieArray.find(cookieCrumb => cookieCrumb.substring(name.length, 0) === name);
+  return cookieArray.find(cookieCrumb => cookieCrumb.substring(name.length, 0) === name).split('=')[1];
 }
 
 function setCookie(name, value, expiry) {
   let date = new Date();
-  console.log('woof');
   date.setTime(date.getTime() + (expiry * 24 * 60 * 60 * 1000));
   let expires = "expires=" + date.toUTCString();
   document.cookie = name + "=" + value + ";" + expires + ";path=/; sameSite=none; Secure";
