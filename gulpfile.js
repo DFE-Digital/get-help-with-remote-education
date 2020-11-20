@@ -109,7 +109,9 @@ const build = gulp.series(
     gulp.parallel(css, js, img, fface)
 );
 
-const watch = gulp.watch(scripts.in, js);
+const watch = () => {
+    gulp.watch(scripts.in, js);
+}
 
 // Exports
 exports.clean = clean;
