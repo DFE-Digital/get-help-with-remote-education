@@ -17,8 +17,15 @@ function submitCookiePreferences(e) {
   document.querySelector('div[data-cookie-confirmation]').style.display = 'block';
 }
 
+var cookieConsentAccept = 'input[value="cookie-consent-accept"]'
+var cookiePreferencesForm = 'cookie-preferences-form'
+
 if(cookieConsentValue() == 'true') {
-  document.querySelector('input[value="cookie-consent-accept"]').checked = true;
+  if(document.querySelector(cookieConsentAccept)) {
+    document.querySelector(cookieConsentAccept).checked = true;
+  }
 }
 
-document.getElementById('cookie-preferences-form').addEventListener("submit", submitCookiePreferences, false)
+if(document.getElementById(cookiePreferencesForm)) {
+  document.getElementById(cookiePreferencesForm).addEventListener("submit", submitCookiePreferences, false)
+}
