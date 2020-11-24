@@ -1,4 +1,5 @@
-import { checkForCookies, getCookie, setCookie } from './cookie_helper'
+import { checkForCookies, getCookie, setCookie, allowAnalyticsCookies } from './cookie_helper'
+import { trackPageView } from './google_analytics'
 
 function updateBanner() {
   document.getElementById("cookieActionsContainer").style.display = "none";
@@ -36,9 +37,13 @@ function cookieConsentValue() {
 
 if (!cookieConsentGiven()) {
   unhideBanner(); // unhide cookie banner if consent not given
-};
+}
 
 document.getElementById("acceptCookies").onclick = acceptAllCookies;
 document.getElementById("hideButton").onclick = hideBanner;
 
-export { acceptAllCookies, hideBanner, unhideBanner, consentToCookies, withdrawCookieConsent, cookieConsentValue };
+if (allowAnalyticsCookies()) {
+  trackPageView();
+}
+
+export { acceptAllCookies, hideBanner, unhideBanner, consentToCookies, withdrawCookieConsent, cookieConsentValue }

@@ -151,6 +151,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (~> 3.33)
+  dotenv (~> 2.7, >= 2.7.6)
   html-proofer (~> 3.16)
   middleman (~> 4.2)
   middleman-autoprefixer (~> 2.7)

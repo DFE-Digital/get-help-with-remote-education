@@ -27,4 +27,10 @@ function setCookie(name, value, expiry) {
   document.cookie = name + "=" + value + ";" + expires + ";path=/; sameSite=none; Secure";
 }
 
-export { setCookie, getCookie, checkForCookies }
+function allowAnalyticsCookies() {
+  if(getCookie("ghre_allow_cookies")) {
+    return true
+  }
+}
+
+export { setCookie, getCookie, checkForCookies, allowAnalyticsCookies }

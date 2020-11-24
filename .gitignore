@@ -1,3 +1,4 @@
+.env
 .bundle
 .cache
 .DS_Store

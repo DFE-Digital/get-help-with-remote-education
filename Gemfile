@@ -10,4 +10,5 @@ group :development do
   gem 'rake', '~> 13.0'
   gem 'rspec', '~> 3.9'
   gem 'capybara', '~> 3.33'
+  gem 'dotenv', '~> 2.7', '>= 2.7.6'
 end
