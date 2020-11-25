@@ -37,6 +37,8 @@ jobs:
           bundle exec rspec
 
       - name: build
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
         run: |
           bundle exec middleman build
 
