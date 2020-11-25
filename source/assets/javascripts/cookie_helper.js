@@ -28,7 +28,7 @@ function setCookie(name, value, expiry) {
 }
 
 function allowAnalyticsCookies() {
-  if(getCookie("ghre_allow_cookies")) {
+  if(getCookie("ghre_allow_cookies") === "true") {
     return true
   }
 }
