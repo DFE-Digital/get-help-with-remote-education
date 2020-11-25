@@ -1,6 +1,9 @@
+import jsCookie from 'js-cookie';
+
 //Used to access and update google analytics
 var currentScript = document.currentScript;
 var analyticsID = "";
+var cookieSuffix = "";
 
 if (currentScript.hasAttribute("data-ga-id")) {
     analyticsID = currentScript.getAttribute("data-ga-id");
@@ -20,4 +23,14 @@ function initGoogleAnalytics(isDisabled) {
     gtag('config', analyticsID);
 }
 
-export { initGoogleAnalytics }
+function removeAnalyticsCookies() {
+    if (currentScript.hasAttribute("data-ga-id")) {
+      analyticsID = currentScript.getAttribute("data-ga-id");
+      cookieSuffix = analyticsID.substring(2, analyticsID.length);
+    }
+  
+    jsCookie.remove("_ga");
+    jsCookie.remove("_ga_" + cookieSuffix);
+  }
+
+export { initGoogleAnalytics, removeAnalyticsCookies }
