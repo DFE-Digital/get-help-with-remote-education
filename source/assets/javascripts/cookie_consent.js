@@ -1,5 +1,5 @@
 import { checkForCookies, getCookie, setCookie, allowAnalyticsCookies } from './cookie_helper'
-import { trackPageView } from './google_analytics'
+import { initGoogleAnalytics } from './google_analytics'
 
 function updateBanner() {
   document.getElementById("cookieActionsContainer").style.display = "none";
@@ -43,7 +43,9 @@ document.getElementById("acceptCookies").onclick = acceptAllCookies;
 document.getElementById("hideButton").onclick = hideBanner;
 
 if (allowAnalyticsCookies()) {
-  trackPageView();
+  initGoogleAnalytics(false);
+} else {
+  initGoogleAnalytics(true);
 }
 
 export { acceptAllCookies, hideBanner, unhideBanner, consentToCookies, withdrawCookieConsent, cookieConsentValue }

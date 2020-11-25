@@ -114,7 +114,7 @@
       </div>
     </footer>
     <% if ENV["GOOGLE_ANALYTICS_ID"] %>
-      <script src=<%="https://www.googletagmanager.com/gtag/js?id=#{ENV['GOOGLE_ANALYTICS_ID']}" %>></script>
+      <script async src=<%="https://www.googletagmanager.com/gtag/js?id=#{ENV['GOOGLE_ANALYTICS_ID']}" %>></script>
       <%= javascript_include_tag "application.min", type: "text/javascript", data: { "ga-id" => ENV['GOOGLE_ANALYTICS_ID'] }  %>
     <% else %>
       <%= javascript_include_tag "application.min", type: "text/javascript" %>
