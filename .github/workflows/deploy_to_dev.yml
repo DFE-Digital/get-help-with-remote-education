@@ -14,11 +14,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: Set build env variables
-        shell: bash
-        run: |
-          export GOOGLE_ANALYTICS_ID=G-TKWDN6X8GD
-
       - name: setup ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -42,6 +37,8 @@ jobs:
           bundle exec rspec
 
       - name: build
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
         run: |
           bundle exec middleman build
 
