@@ -8,7 +8,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy-to-paas-dev:
+  deploy-to-paas-prod:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -41,6 +41,8 @@ jobs:
           bundle exec rspec
 
       - name: build
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
         run: |
           bundle exec middleman build
 
