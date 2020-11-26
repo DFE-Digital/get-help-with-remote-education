@@ -20,7 +20,7 @@ function initGoogleAnalytics(isDisabled) {
     window.dataLayer = window.dataLayer || [];
     
     gtag('js', new Date());
-    gtag('config', analyticsID, { cookie_domain: window.location.hostname });
+    gtag('config', analyticsID);
 }
 
 function removeAnalyticsCookies() {
@@ -29,8 +29,8 @@ function removeAnalyticsCookies() {
       cookieSuffix = analyticsID.substring(2, analyticsID.length);
     }
   
-    jsCookie.remove("_ga", { path: '/', domain: window.location.hostname });
-    jsCookie.remove("_ga_" + cookieSuffix, { path: '/', domain: window.location.hostname });
+    jsCookie.remove("_ga", { path: '/', domain: "." + window.location.hostname });
+    jsCookie.remove("_ga_" + cookieSuffix, { path: '/', domain: "." + window.location.hostname });
   }
 
 export { initGoogleAnalytics, removeAnalyticsCookies }
