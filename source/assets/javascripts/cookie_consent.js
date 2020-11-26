@@ -1,5 +1,5 @@
 import { checkForCookies, getCookie, setCookie } from './cookie_helper';
-import { initGoogleAnalytics, removeAnalyticsCookies } from './google_analytics';
+import { initGoogleAnalytics, removeAnalyticsCookies, checkForAnalyticsCookies } from './google_analytics';
 
 function updateBanner() {
   document.getElementById("cookieActionsContainer").style.display = "none";
@@ -36,10 +36,11 @@ function cookieConsentValue() {
   return getCookie("ghre_allow_cookies");
 }
 
-
 function allowAnalyticsCookies() {
   if(getCookie("ghre_allow_cookies") === "true") {
     return true
+  } else {
+    return false
   }
 }
 
@@ -52,9 +53,10 @@ document.getElementById("hideButton").onclick = hideBanner;
 
 if (allowAnalyticsCookies()) {
   initGoogleAnalytics(false);
-} else {
-  initGoogleAnalytics(true);
+} else if (checkForAnalyticsCookies()) {
   removeAnalyticsCookies();
+} else {
+
 }
 
 export { acceptAllCookies, hideBanner, unhideBanner, consentToCookies, withdrawCookieConsent, cookieConsentValue }

@@ -7,10 +7,7 @@ var cookieSuffix = "";
 
 if (currentScript.hasAttribute("data-ga-id")) {
     analyticsID = currentScript.getAttribute("data-ga-id");
-}
-
-function gtag() {
-    dataLayer.push(arguments);
+    cookieSuffix = analyticsID.substring(2, analyticsID.length);
 }
 
 function initGoogleAnalytics(isDisabled) {
@@ -19,18 +16,25 @@ function initGoogleAnalytics(isDisabled) {
     window[gaDisable] = isDisabled;
     window.dataLayer = window.dataLayer || [];
     
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    
     gtag('js', new Date());
-    gtag('config', analyticsID);
+    gtag('config', analyticsID, {
+      'cookie_domain': document.domain
+    });
+}
+
+function checkForAnalyticsCookies() {
+  if (jsCookie.get("_ga") || jsCookie.get("_ga" + cookieSuffix)) {
+    return true;
+  }
 }
 
 function removeAnalyticsCookies() {
-    if (currentScript.hasAttribute("data-ga-id")) {
-      analyticsID = currentScript.getAttribute("data-ga-id");
-      cookieSuffix = analyticsID.substring(2, analyticsID.length);
-    }
-  
-    jsCookie.remove("_ga", { path: '/', domain: "." + window.location.hostname });
-    jsCookie.remove("_ga_" + cookieSuffix, { path: '/', domain: "." + window.location.hostname });
-  }
+    jsCookie.remove("_ga", { path: '/', domain: document.domain });
+    jsCookie.remove("_ga_" + cookieSuffix, { path: '/', domain: document.domain });
+}
 
-export { initGoogleAnalytics, removeAnalyticsCookies }
+export { initGoogleAnalytics, removeAnalyticsCookies, checkForAnalyticsCookies }
