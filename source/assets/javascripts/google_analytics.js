@@ -29,8 +29,8 @@ function removeAnalyticsCookies() {
       cookieSuffix = analyticsID.substring(2, analyticsID.length);
     }
   
-    jsCookie.remove("_ga");
-    jsCookie.remove("_ga_" + cookieSuffix);
+    jsCookie.remove("_ga", { path: '/', domain: '.get-help-with-remote-education-dev.london.cloudapps.digital'});
+    jsCookie.remove("_ga_" + cookieSuffix, { path: '/', domain: '.get-help-with-remote-education-dev.london.cloudapps.digital'});
   }
 
 export { initGoogleAnalytics, removeAnalyticsCookies }
