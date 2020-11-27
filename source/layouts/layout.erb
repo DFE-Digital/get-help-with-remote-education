@@ -2,7 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>GOV.UK - Get Help with Remote Education</title>
+  <% if current_page.data.title %>
+    <title><%= current_page.data.title + " - Get Help with Remote Education - GOV.UK"%></title>
+  <% else %>
+    <title>Get Help with Remote Education - GOV.UK</title>
+  <% end %>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0c0c">
   
@@ -91,6 +95,9 @@
           </span>
         </p>
       </div>
+    <% if current_page.data.back_link %>
+      <a href="/" class="govuk-back-link">Back</a>
+    <% end %>
     <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
     <%= yield %>
     </main>
