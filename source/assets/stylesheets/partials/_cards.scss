@@ -13,7 +13,6 @@
     padding-bottom: 20px;
     border-bottom: 3px solid #005ea5;
     box-sizing: border-box;
-    min-height: 22rem;
   }
   
   @media (min-width: 40.0625em) {
@@ -25,6 +24,12 @@
   @media (min-width: 40.0625em) {
     .govuk-card {
       padding-bottom: 30px;
+    }
+  }
+
+  @media (min-width: 40.0625em) {
+    .govuk-card {
+      min-height: 22rem;
     }
   }
   
