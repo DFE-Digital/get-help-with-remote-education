@@ -6,7 +6,7 @@ USER root
 
 # dependencies relied upon to build native-extension gems etc
 RUN apk update
-RUN apk add libxml2-dev libxslt-dev build-base postgresql-dev tzdata
+RUN apk add libxml2-dev libxslt-dev build-base postgresql-dev tzdata sqlite-dev
 # Fix incompatibility with slim tzdata from 2020b onwards
 # see https://github.com/tzinfo/tzinfo/issues/120 for details
 RUN wget https://data.iana.org/time-zones/tzdb/tzdata.zi -O /usr/share/zoneinfo/tzdata.zi && \
@@ -47,7 +47,7 @@ EXPOSE $APP_PORT
 
 # precompile assets
 RUN yarn
-ARG RAILS_ENV=development
+ARG RAILS_ENV=production
 RUN RAILS_ENV=${RAILS_ENV} SECRET_KEY_BASE=$(bin/rake secret) bundle exec rails webpacker:compile
 
 # Render the 'too many requests' error page
@@ -61,5 +61,5 @@ ENV GIT_BRANCH=${GIT_BRANCH}
 RUN echo "[{'commit_sha': '${GIT_COMMIT_SHA}', 'branch': '${GIT_BRANCH}'}]" > ./.gitinfo.json
 
 # run the rails server
-ARG RAILS_ENV=development
+ARG RAILS_ENV=production
 CMD bundle exec rake db:migrate && bundle exec rails s -e ${RAILS_ENV} -p ${APP_PORT} --binding=0.0.0.0
