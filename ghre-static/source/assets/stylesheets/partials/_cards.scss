@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  
+
   .govuk-card__flex-item {
     display: flex;
     overflow: hidden;
@@ -28,6 +28,12 @@
   }
 
   @media (min-width: 40.0625em) {
+    .govuk-card {
+      min-height: 38.5rem;
+    }
+  }
+
+  @media (min-width: 62.125em) {
     .govuk-card {
       min-height: 22rem;
     }
