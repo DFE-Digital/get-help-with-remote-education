@@ -13,6 +13,7 @@ WORKDIR $APP_HOME
 
 ADD Gemfile $APP_HOME/Gemfile
 ADD Gemfile.lock $APP_HOME/Gemfile.lock
+ADD .ruby-version $APP_HOME/.ruby-version
 
 RUN apk add --update --no-cache --virtual build-dependances \
  build-base  && \
