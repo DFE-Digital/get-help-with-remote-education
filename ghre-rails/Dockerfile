@@ -1,65 +1,32 @@
 FROM ruby:2.7.2-alpine
+ARG COMMIT_SHA
+RUN apk add --update --no-cache tzdata && \
+    cp /usr/share/zoneinfo/Europe/London /etc/localtime && \
+    echo "Europe/London" > /etc/timezone
 
-ARG APPNAME=get-help-with-remote-education
+RUN apk add --update --no-cache --virtual runtime-dependances \
+ yarn sqlite-dev
 
-USER root
+ENV APP_HOME /app
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
 
-# dependencies relied upon to build native-extension gems etc
-RUN apk update
-RUN apk add libxml2-dev libxslt-dev build-base postgresql-dev tzdata sqlite-dev
-# Fix incompatibility with slim tzdata from 2020b onwards
-# see https://github.com/tzinfo/tzinfo/issues/120 for details
-RUN wget https://data.iana.org/time-zones/tzdb/tzdata.zi -O /usr/share/zoneinfo/tzdata.zi && \
-    /usr/sbin/zic -b fat /usr/share/zoneinfo/tzdata.zi
+ADD Gemfile $APP_HOME/Gemfile
+ADD Gemfile.lock $APP_HOME/Gemfile.lock
 
-RUN apk add nodejs postgresql-contrib libpq yarn less
+RUN apk add --update --no-cache --virtual build-dependances \
+ build-base  && \
+ bundle install --jobs=4 && \
+ apk del build-dependances
 
-ENV RAILS_ROOT /var/www/${APPNAME}
-RUN mkdir -p $RAILS_ROOT
-WORKDIR $RAILS_ROOT
+ADD package.json $APP_HOME/package.json
+ADD yarn.lock $APP_HOME/yarn.lock
+RUN yarn install --frozen-lockfile
 
-RUN addgroup deploy && adduser -S -u 1001 -s bash -D -G deploy deploy
-RUN chown deploy:deploy /var/www/${APPNAME}
+ADD . $APP_HOME/
 
-ENV BUNDLER_VERSION 2.1.4
-RUN gem install bundler
-RUN chown -R deploy:deploy /usr/local/bundle/
-USER 1001
+ENV SHA=${COMMIT_SHA}
 
-# make it easier to get a rails console when ssh-ed on
-RUN echo "PATH=/usr/local/bundle/bin:/usr/local/bundle/gems/bin:/usr/local/sbin:/usr/local/bin:${PATH}" >> /home/deploy/.profile
-RUN echo "cd ${RAILS_ROOT}" >> /home/deploy/.profile
-RUN chown deploy:deploy /home/deploy/.profile
+RUN bundle exec rake assets:precompile
 
-# install all gems
-COPY --chown=deploy:deploy Gemfile Gemfile.lock .ruby-version ./
-ARG BUNDLE_FLAGS="--jobs 2"
-RUN bundle config set no-cache 'true'
-# RUN bundle config set without 'development test'
-RUN bundle install
-RUN bundle package --all
-
-COPY --chown=deploy:deploy . .
-
-# allow access to port 3000
-ENV APP_PORT 3000
-EXPOSE $APP_PORT
-
-# precompile assets
-RUN yarn
-ARG RAILS_ENV=production
-RUN RAILS_ENV=${RAILS_ENV} SECRET_KEY_BASE=$(bin/rake secret) bundle exec rails webpacker:compile
-
-# Render the 'too many requests' error page
-# RUN RAILS_ENV=${RAILS_ENV} SECRET_KEY_BASE=$(bin/rake secret) bundle exec rake release:render_429_to_file
-
-# Cache the git commit sha & branch
-ARG GIT_COMMIT_SHA=""
-ARG GIT_BRANCH=""
-ENV GIT_COMMIT_SHA=${GIT_COMMIT_SHA}
-ENV GIT_BRANCH=${GIT_BRANCH}
-RUN echo "[{'commit_sha': '${GIT_COMMIT_SHA}', 'branch': '${GIT_BRANCH}'}]" > ./.gitinfo.json
-
-# run the rails server
-ARG RAILS_ENV=production
-CMD bundle exec rake db:migrate && bundle exec rails s -e ${RAILS_ENV} -p ${APP_PORT} --binding=0.0.0.0
+CMD bundle exec rails server -b 0.0.0.0
