@@ -1,0 +1,12 @@
+---
+applications:
+- name: get-help-with-remote-education-rails-dev
+  disk_quota: 1G
+  memory: 1G
+  instances: 1
+  env:
+    RAILS_ENV: development
+  docker:
+    image: dfedigital/get-help-with-remote-education-dev:latest
+  services:
+  - logit-ssl-drain
