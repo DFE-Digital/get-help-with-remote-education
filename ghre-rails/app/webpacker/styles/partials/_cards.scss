@@ -17,11 +17,11 @@
     @media (min-width: 40.0625em) {
       margin-bottom: 30px;
       padding-bottom: 30px;
-      min-height: 44.125rem;
+      min-height: 43.5rem;
     }
 
     @media (min-width: 62.125em) {
-      min-height: 24.425rem;
+      min-height: 24rem;
     }
   }
   
@@ -117,6 +117,10 @@
         font-weight: bold;
         padding: .25em .5em;
       }
+    }
+
+    h2.govuk-heading-m {
+      margin-bottom: 10px;
     }
   }
   
