@@ -1,8 +1,8 @@
 <% page_title = "Supporting pupils and students with special educational needs and disabilities (SEND)"%>
 <%= content_for :page_title, page_title%>
----
-back_link: true
----
+<%= content_for :before_content do %>
+  <a href="/" class="govuk-back-link">Back</a>
+<% end %>
 <h1 class="govuk-heading-xl">
   Supporting pupils and students with special educational needs and disabilities (SEND)
 </h1>

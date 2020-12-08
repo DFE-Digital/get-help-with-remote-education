@@ -1,8 +1,8 @@
 <% page_title = "Good traching practice and resources"%>
 <%= content_for :page_title, page_title%>
----
-back_link: true
----
+<%= content_for :before_content do %>
+  <a href="/" class="govuk-back-link">Back</a>
+<% end %>
 <h1 class="govuk-heading-xl">
   Good teaching practice and resources
 </h1>

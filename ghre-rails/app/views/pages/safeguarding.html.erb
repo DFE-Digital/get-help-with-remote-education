@@ -1,8 +1,8 @@
 <% page_title = "Safeguarding"%>
 <%= content_for :page_title, page_title%>
----
-back_link: true
----
+<%= content_for :before_content do %>
+  <a href="/" class="govuk-back-link">Back</a>
+<% end %>
 <h1 class="govuk-heading-xl">
   Safeguarding
 </h1>
