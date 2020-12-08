@@ -29,7 +29,7 @@
 
   @media (min-width: 40.0625em) {
     .govuk-card {
-      min-height: 22rem;
+      min-height: 24.425rem;
     }
   }
   
@@ -99,25 +99,32 @@
   .govuk-card__content {
     padding-top: 15px;
     padding-bottom: 0;
-  }
-  
-  @media (min-width: 40.0625em) {
-    .govuk-card__content {
+
+    @media (min-width: 40.0625em) {
       padding-top: 20px;
     }
-  }
-  
-  .govuk-card__content p {
-    margin-bottom: 0;
-  }
-  
-  .govuk-card__content p + p {
-    margin-top: 15px;
-  }
-  
-  @media (min-width: 40.0625em) {
-    .govuk-card__content p + p {
-      margin-top: 20px;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    p + p {
+      margin-top: 15px;
+      @media (min-width: 40.0625em) {
+        margin-top: 20px;
+      }
+    }
+
+    span.updated-meta {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: normal;
+      &.new {
+        background: #1d70b8;
+        color: #fff;
+        font-weight: bold;
+        padding: .25em .5em;
+      }
     }
   }
   
