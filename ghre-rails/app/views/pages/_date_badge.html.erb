@@ -1,0 +1,8 @@
+<% shifted_date = Date.today - 7.days %>
+<% parsed_date = update_date.to_date %>
+
+<% if parsed_date < shifted_date %>
+    <span class="govuk-heading-m updated-meta"><%= parsed_date.strftime('%d %B') %></span>
+<% else %>
+    <span class="govuk-heading-m updated-meta new"><%= parsed_date.strftime('%d %B') %></span>
+<% end %>
