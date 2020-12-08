@@ -30,7 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   statutory_obligations:
     update_date: "08/12/2020"
   safeguarding:
