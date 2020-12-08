@@ -6,6 +6,8 @@ applications:
   instances: 1
   env:
     RAILS_ENV: production
+    RACK_ENV: production
+    RAILS_SERVE_STATIC_FILES: true
   docker:
     image: dfedigital/get-help-with-remote-education-dev:latest
   services:
