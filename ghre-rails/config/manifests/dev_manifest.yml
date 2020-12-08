@@ -5,7 +5,7 @@ applications:
   memory: 1G
   instances: 1
   env:
-    RAILS_ENV: development
+    RAILS_ENV: production
   docker:
     image: dfedigital/get-help-with-remote-education-dev:latest
   services:
