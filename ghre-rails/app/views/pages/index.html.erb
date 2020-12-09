@@ -1,3 +1,4 @@
+<% date = Date.today %>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
@@ -11,6 +12,7 @@
     <div class="govuk-card govuk-card--contained">
       <div class="govuk-card__content">
         <h2 class="govuk-heading-m"><a href="statutory-obligations.html" class="govuk-link">Statutory obligations and expectations</a></h2>
+        <%= render "date_badge", update_date: t('statutory_obligations.update_date').to_date, today: date %>
         <p class="govuk-body">Information for schools and further education (FE) colleges on expectations and how to comply with legal responsibilities when pupils and students cannot come into school or college due to coronavirus (COVID-19).
         </p>
       </div>
@@ -20,6 +22,7 @@
     <div class="govuk-card govuk-card--contained">
       <div class="govuk-card__content">
         <h2 class="govuk-heading-m"><a href="safeguarding.html" class="govuk-link">Safeguarding</a></h2>
+        <%= render "date_badge", update_date: t('safeguarding.update_date').to_date, today: date %>
         <p class="govuk-body">Safeguarding procedures schools and FE colleges must follow when teaching remotely and planning remote education strategies.
         </p>
       </div>
@@ -29,6 +32,7 @@
     <div class="govuk-card govuk-card--contained">
       <div class="govuk-card__content">
         <h2 class="govuk-heading-m"><a href="good-teaching-practice.html" class="govuk-link">Good teaching practice and resources</a></h2>
+        <%= render "date_badge", update_date: t('good_teaching_practice.update_date').to_date, today: date %>
         <p class="govuk-body">Remote education resources, including lessons from Oak National Academy, as well as guidance, subject-specific lesson plans and webinars on teaching remotely.
         </p>
       </div>
@@ -49,6 +53,7 @@
     <div class="govuk-card govuk-card--contained">
       <div class="govuk-card__content">
         <h2 class="govuk-heading-m"><a href="send.html" class="govuk-link">Supporting pupils and students with special educational needs and disabilities (SEND)</a></h2>
+        <%= render "date_badge", update_date: t('send.update_date').to_date, today: date %>
         <p class="govuk-body">How to support pupils and students with special educational needs and disabilities (SEND) and write contingency plans for remote education.
         </p>
       </div>
@@ -58,6 +63,7 @@
     <div class="govuk-card govuk-card--contained">
       <div class="govuk-card__content">
         <h2 class="govuk-heading-m"><a href="support-for-recovery.html" class="govuk-link">Support for recovery and catch-up</a></h2>
+        <%= render "date_badge", update_date: t('support_for_recovery.update_date').to_date, today: date %>
         <p class="govuk-body">Support to stop pupils and students falling behind, including the £650 million catch-up premium funding and in-school support through the National Tutoring Programme (NTP).
         </p>
       </div>

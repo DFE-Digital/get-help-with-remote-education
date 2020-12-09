@@ -1,0 +1,6 @@
+<% shifted_date = today - 2.weeks %>
+<% if update_date < shifted_date %>
+  <span class="govuk-heading-m updated-meta">updated <%= update_date.strftime('%-d %B') %></span>
+<% else %>
+  <span class="govuk-heading-m updated-meta new">NEW - updated <%= update_date.strftime('%-d %B') %></span>
+<% end %>
