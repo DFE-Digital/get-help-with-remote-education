@@ -1,0 +1,23 @@
+<% shifted_date = today - 2.weeks %>
+
+<% if update_date >= shifted_date %>
+  <div class="update-summary">
+    <span class="govuk-heading-s update-summary-meta">updated <%= update_date.strftime('%-d %B') %></span>
+    <% if show_updates == "true" %>
+      <a href="?show_updates=false">
+        <span class="govuk-link govuk-link--no-visited-state">hide updates</span>
+      </a>
+      <div class="update-summary-content">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            added new section, <a href="#<%= id %>"><%= section %></a>
+          </li>
+        </ul>
+      </div>
+    <% else %>
+      <a href="?show_updates=true">
+        <span class="govuk-link govuk-link--no-visited-state">show updates</span>
+      </a>
+    <% end %>
+  </div>
+<% end %>
