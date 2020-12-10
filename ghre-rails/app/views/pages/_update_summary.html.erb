@@ -4,19 +4,19 @@
   <div class="update-summary">
     <span class="govuk-heading-s update-summary-meta">updated <%= update_date.strftime('%-d %B') %></span>
     <% if show_updates == "true" %>
-      <a href="?show_updates=false">
-        <span class="govuk-link govuk-link--no-visited-state">hide updates</span>
+      <a href="?show_updates=false" class="govuk-link govuk-link--no-visited-state">
+        <span>hide updates</span>
       </a>
       <div class="update-summary-content">
         <ul class="govuk-list govuk-list--bullet">  
           <% updated_sections.each do |section| %>
             <% if section[:action] == "add" %>
             <li>
-              added new section, <a href="#<%= section[:id] %>"><%= section[:description] %></a>
+              added new section, <a href="#<%= section[:id] %>" class="govuk-link" ><%= section[:description] %></a>
             </li>
             <% elsif section[:action] == "update" %>
             <li>
-              updated section, <a href="#<%= section[:id] %>"><%= section[:description] %></a>
+              updated section, <a href="#<%= section[:id] %>" class="govuk-link" ><%= section[:description] %></a>
             </li>
             <% elsif section[:action] == "remove" %>
             <li>
@@ -28,8 +28,8 @@
         </ul>
       </div>
     <% else %>
-      <a href="?show_updates=true">
-        <span class="govuk-link govuk-link--no-visited-state">show updates</span>
+      <a href="?show_updates=true" class="govuk-link govuk-link--no-visited-state">
+        <span>show updates</span>
       </a>
     <% end %>
   </div>
