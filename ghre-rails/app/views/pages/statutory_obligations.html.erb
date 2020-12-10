@@ -15,7 +15,7 @@
     <h2 class="govuk-heading-l">
       Schools
     </h2>
-    <%= render 'update_summary', update_date: t('statutory_obligations.update_date').to_date, today: @date, show_updates: @show_updates, id: "attendance-register", section: "Recording in the attendance register" %>
+    <%= render 'update_summary', show_updates: @show_updates, today: @date, update_date: t('statutory_obligations.schools.update_date').to_date, updated_sections: t('statutory_obligations.schools.updated_sections') %>
     <h3 class="govuk-heading-m">
       Remote education expectations and duties
     </h3>

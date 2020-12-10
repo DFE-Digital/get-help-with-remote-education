@@ -8,10 +8,23 @@
         <span class="govuk-link govuk-link--no-visited-state">hide updates</span>
       </a>
       <div class="update-summary-content">
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            added new section, <a href="#<%= id %>"><%= section %></a>
-          </li>
+        <ul class="govuk-list govuk-list--bullet">  
+          <% updated_sections.each do |section| %>
+            <% if section[:action] == "add" %>
+            <li>
+              added new section, <a href="#<%= section[:id] %>"><%= section[:description] %></a>
+            </li>
+            <% elsif section[:action] == "update" %>
+            <li>
+              updated section, <a href="#<%= section[:id] %>"><%= section[:description] %></a>
+            </li>
+            <% elsif section[:action] == "remove" %>
+            <li>
+              removed section, <%= section[:description] %>
+            </li>
+            <% else %>
+            <% end %>
+          <% end %>
         </ul>
       </div>
     <% else %>
