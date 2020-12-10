@@ -29,6 +29,28 @@
 
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
+    <% unless cookies[:ghre_allow_cookies].present? %>
+      <div class="app-cookie-banner app-cookie-banner--hidden" id="appCookieBanner" aria-label="cookie banner">
+        <div class="govuk-width-container">
+          <div class="app-cookie-banner__container" id="cookieActionsContainer">
+            <p class="govuk-body">
+              We use cookies to <a href="/cookie_preferences.html" class="govuk-link app-cookie-banner__link">collect information</a> about how you use the service.
+            </p>
+            <div class="app-cookie-banner__actions">
+              <input type="button" id="acceptCookies" class="govuk-button govuk-!-margin-bottom-2" value="Accept all cookies" />
+              <p class="inline-message govuk-body">
+                or <%= link_to 'set your cookie preferences', settings_cookie_preferences_path, class: 'govuk-link app-cookie-banner__link' %>
+              </p>
+            </div>
+          </div>
+          <div class="app-cookie-banner__confirmation" id="cookieConfirmation">
+            <p class="inline-message govuk-body">Cookie preferences have been saved</p>
+            <p class="inline-message--right govuk-body"><a href="" id="hideButton" value="Hide" class="govuk-link app-cookie-banner__link">Hide</a></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <header class="govuk-header" role="banner" data-module="govuk-header">
       <div class="govuk-header__container govuk-width-container">
         <div class="govuk-header__logo">
@@ -97,6 +119,10 @@
         </div>
       </div>
     </footer>
+    <% unless cookies[:ghre_allow_cookies].present? %>
+      <%= javascript_pack_tag 'cookie_banner', defer: true %>
+    <% end %>
+
     <% if ENV['GOOGLE_ANALYTICS_ID'] && cookies[:ghre_allow_cookies] == "true" %>
       <script async src=<%="https://www.googletagmanager.com/gtag/js?id=#{ENV['GOOGLE_ANALYTICS_ID']}" %>></script>
       <%= javascript_pack_tag 'google_analytics', defer: true, 'data-ga-id': ENV['GOOGLE_ANALYTICS_ID'] %>
