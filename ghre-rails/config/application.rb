@@ -19,7 +19,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module GovukRailsBoilerplate
+module GetHelpWithRemoteEducation
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -30,6 +30,11 @@ module GovukRailsBoilerplate
     # the framework and any gems in your application.
 
     config.exceptions_app = routes
+
+    config.action_dispatch.default_headers = {
+      'Content-Security-Policy' => "default-src 'self' https://www.google-analytics.com; script-src 'self' 'sha256-IWjjekDxqqURWMjVH447fuaAvoZKwpDwLS0ZdcJ+Ey4=' https://www.googletagmanager.com https://www.google-analytics.com;",
+    }
+
 
     config.middleware.use Rack::Deflater
   end
