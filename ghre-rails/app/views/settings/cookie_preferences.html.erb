@@ -1,13 +1,15 @@
 <h1 class="govuk-heading-xl">Cookie preferences</h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-cookies__success--hidden govuk-success-summary" aria-labelledby="success-message" tabindex="-1" role="alert" data-cookie-confirmation="true">
-      <div class="govuk-success-summary__title">
-        <h2 class="govuk-heading-m" id="success-message">
-          Your cookie preferences have been saved
-        </h2>
+    <% if flash[:cookie_preferences_updated] %>
+      <div class="govuk-success-summary" data-qa="cookie-consent-success-message" aria-labelledby="success-message" tabindex="-1" role="alert" data-cookie-confirmation="true">
+        <div class="govuk-success-summary__title">
+          <h2 class="govuk-heading-m" id="success-message">
+            Your cookie preferences have been saved
+          </h2>
+        </div>
       </div>
-    </div>
+    <% end %>
     <p class="govuk-body">
       We use Google Analytics software to collect information about how you use the 'Get Help with Remote Education' service. We do this to help make
       sure the site is meeting the needs of its users and to help us make improvements. Whilst these cookies don't collect your name or address,
@@ -21,7 +23,7 @@
       <li>what you click on while you’re visiting the site</li>
     </ul>
     <p class="govuk-body">We don't allow Google to use or share our analytics data</p>
-    <form id="cookie-preferences-form">
+    <%= form_with(url: settings_cookie_preferences_path, method: 'post') do |f| %>
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -31,13 +33,21 @@
           </legend>
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cookie-consent-accept" name="cookie-consent" type="radio" value="cookie-consent-accept">
+              <input class="govuk-radios__input" id="cookie-consent-accept" data-qa="cookie-consent-accept" name="cookie-consent" type="radio" value="cookie-consent-accept" <%= 'checked' if @consented_to_cookies %>>
               <label class="govuk-label govuk-radios__label" for="cookie-consent-accept">
                 Yes, opt in to Google Analytics cookies
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cookie-consent-deny" name="cookie-consent" type="radio" value="cookie-consent-deny" checked>
+              <input 
+                class="govuk-radios__input" 
+                id="cookie-consent-deny" 
+                data-qa="cookie-consent-deny" 
+                name="cookie-consent" 
+                type="radio" 
+                value="cookie-consent-deny" 
+                <%= 'checked' unless @consented_to_cookies %>
+              >
               <label class="govuk-label govuk-radios__label" for="cookie-consent-deny">
                 No, do not track my website usage
               </label>
@@ -45,8 +55,8 @@
           </div>
         </fieldset>
       </div>
-      <button type="submit" class="govuk-button" data-module="govuk-button">Save changes</button>
-    </form>
+      <%= f.submit("Save changes", class: "govuk-button", data: { qa: "submit", module: "govuk-button"})%>
+    <% end %>
     <h2 class="govuk-heading-l">How we use cookies</h2>
     <h3 class="govuk-heading-m">Essential cookies</h3>
     <p class="govuk-body">Essential 'Get Help with Remote Education' service cookies include:</p>
