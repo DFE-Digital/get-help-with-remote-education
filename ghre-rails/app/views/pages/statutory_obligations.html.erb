@@ -32,9 +32,9 @@
       for more information. The direction poses no additional expectations on the quality of remote education expected of schools beyond those set out in the guidance for full opening.
     </p>
     <% if @show_updates == "true" %>
-      <span id="attendance-register" class="updated-content active">
+      <div id="attendance-register" class="updated-content active" data-qa="active-updated-content">
     <% else %>
-      <span id="attendance-register" class="updated-content">
+      <div id="attendance-register" class="updated-content" data-qa="inactive-updated-content">
     <% end %>
       <h3 class="govuk-heading-m">
         Recording in the attendance register
@@ -56,7 +56,7 @@
       <p class="govuk-body">
         Schools should keep a record of, and monitor pupils’ and students’ engagement with remote education, but this does not need to be tracked in the attendance register.
       </p>
-    </span>
+    </div>
     <h2 class="govuk-heading-l">
       Further education
     </h2>

@@ -4,7 +4,7 @@
   <div class="update-summary">
     <span class="govuk-heading-s update-summary-meta">updated <%= update_date.strftime('%-d %B') %></span>
     <% if show_updates == "true" %>
-      <a href="?show_updates=false" class="govuk-link govuk-link--no-visited-state">
+      <a href="?show_updates=false" class="govuk-link govuk-link--no-visited-state" data-qa="updates-hide">
         <span>hide updates</span>
       </a>
       <div class="update-summary-content">
@@ -28,7 +28,7 @@
         </ul>
       </div>
     <% else %>
-      <a href="?show_updates=true" class="govuk-link govuk-link--no-visited-state">
+      <a href="?show_updates=true" class="govuk-link govuk-link--no-visited-state" data-qa="updates-show">
         <span>show updates</span>
       </a>
     <% end %>

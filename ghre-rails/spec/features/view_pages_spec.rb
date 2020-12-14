@@ -18,20 +18,4 @@ RSpec.feature "View pages", type: :feature do
 
     expect(page).to have_text("Statutory obligations and expectations")
   end
-
-  scenario "Navigate to statutory obligations and show updates" do
-    visit pages_path(page: "statutory-obligations", show_updates: "true")
-
-    expect(page).to have_css('.updated-content.active', text: "Recording in the attendance register")
-    expect(page).to have_text("added new section")
-    expect(page).to have_text("hide updates")
-  end
-
-  scenario "Navigate to statutory obligations and hide updates" do
-    visit pages_path(page: "statutory-obligations", show_updates: "false")
-
-    expect(page).to have_no_css('.updated-content.active', text: "Recording in the attendance register")
-    expect(page).to have_no_text("added new section")
-    expect(page).to have_text("show updates")
-  end
 end
