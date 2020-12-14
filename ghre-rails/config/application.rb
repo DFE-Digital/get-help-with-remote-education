@@ -31,11 +31,6 @@ module GetHelpWithRemoteEducation
 
     config.exceptions_app = routes
 
-    config.action_dispatch.default_headers = {
-      'Content-Security-Policy' => "default-src 'self' https://www.google-analytics.com; script-src 'self' 'sha256-IWjjekDxqqURWMjVH447fuaAvoZKwpDwLS0ZdcJ+Ey4=' https://www.googletagmanager.com https://www.google-analytics.com;",
-    }
-
-
     config.middleware.use Rack::Deflater
   end
 end
