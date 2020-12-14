@@ -20,12 +20,6 @@
       </a>.
     </p>
     <h2 class="govuk-heading-l">Get devices for those who cannot attend school</h2>
-    <%= render 'update_summary', show_updates: @show_updates, today: @date, update_date: t('send.get_devices.update_date').to_date, updated_sections: t('send.get_devices.updated_sections') %>
-    <% if @show_updates == "true" %>
-      <div id="get-devices" class="updated-content active">
-    <% else %>
-      <div id="get-devices" class="updated-content">
-    <% end %>
     <p class="govuk-body">
       Where a child or young person has been advised not to attend school by a GP or specialist clinician, and does not have access to a device, their school 
       should contact the Department for Education (DfE), so that we can help them to provide support. You can read further guidance on 
@@ -33,7 +27,6 @@
         getting laptops and tablets for those who cannot attend school
       </a>.
     </p>
-    </div>
     <h2 class="govuk-heading-l">Support for low-income families</h2>
     <p class="govuk-body">
       Further support for low-income families with disabled and critically ill children, including helping to buy specialist equipment, has been made 
