@@ -66,4 +66,4 @@ if(allowAnalyticsCookies()) {
   initGoogleAnalytics(false);
 }
 
-export { initGoogleAnalytics, removeAnalyticsCookies, checkForAnalyticsCookies }
+export { initGoogleAnalytics }
