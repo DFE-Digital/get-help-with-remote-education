@@ -1,0 +1,14 @@
+---
+applications:
+- name: get-help-with-remote-education-rails-staging
+  disk_quota: 1G
+  memory: 1G
+  instances: 1
+  env:
+    RAILS_ENV: production
+    RACK_ENV: production
+    RAILS_SERVE_STATIC_FILES: true
+  docker:
+    image: dfedigital/get-help-with-remote-education-staging:latest
+  services:
+  - logit-ssl-drain
