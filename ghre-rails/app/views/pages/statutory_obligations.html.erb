@@ -15,6 +15,7 @@
     <h2 class="govuk-heading-l">
       Schools
     </h2>
+    <%= render 'update_summary', show_updates: @show_updates, today: @date, update_date: t('statutory_obligations.schools.update_date').to_date, updated_sections: t('statutory_obligations.schools.updated_sections') %>
     <h3 class="govuk-heading-m">
       Remote education expectations and duties
     </h3>
@@ -30,26 +31,32 @@
       <a class="govuk-link" href="https://www.gov.uk/government/publications/remote-education-temporary-continuity-direction-explanatory-note">remote education temporary continuity direction explanatory note</a>
       for more information. The direction poses no additional expectations on the quality of remote education expected of schools beyond those set out in the guidance for full opening.
     </p>
-    <h3 class="govuk-heading-m">
-      Recording in the attendance register
-    </h3>
-    <p class="govuk-body">
-      Schools must continue to complete the attendance register for pupils who are receiving remote education. Sessions should be recorded as 'not attending in
-      circumstances related to coronavirus' (code X) where a pupil is absent because their travel to, or attendance at, school would be:
-    </p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>contrary to guidance relating to the incidence or transmission of coronavirus (COVID-19) from Public Health England (PHE) and/or the Department of Health and Social Care (DHSC)</li>
-      <li>prohibited by any legislation (or statutory directions) relating to the incidence or transmission of coronavirus (COVID-19)</li>
-    </ul>
-    <p class="govuk-body">
-      Read the addendum on
-      <a class="govuk-link" href="https://www.gov.uk/government/publications/school-attendance/addendum-recording-attendance-in-relation-to-coronavirus-covid-19-during-the-2020-to-2021-academic-year">recording attendance in relation to coronavirus (COVID-19)</a>
-      for further information. Where there is a different reason for absence, read the
-      <a class="govuk-link" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/907535/School_attendance_guidance_for_2020_to_2021_academic_year.pdf">school attendance guidance.</a>
-    </p>
-    <p class="govuk-body">
-      Schools should keep a record of, and monitor pupils’ and students’ engagement with remote education, but this does not need to be tracked in the attendance register.
-    </p>
+    <% if @show_updates == "true" %>
+      <div id="attendance-register" class="updated-content active" data-qa="active-updated-content">
+    <% else %>
+      <div id="attendance-register" class="updated-content" data-qa="inactive-updated-content">
+    <% end %>
+      <h3 class="govuk-heading-m">
+        Recording in the attendance register
+      </h3>
+      <p class="govuk-body">
+        Schools must continue to complete the attendance register for pupils who are receiving remote education. Sessions should be recorded as 'not attending in
+        circumstances related to coronavirus' (code X) where a pupil is absent because their travel to, or attendance at, school would be:
+      </p>    
+      <ul class="govuk-list govuk-list--bullet">
+        <li>contrary to guidance relating to the incidence or transmission of coronavirus (COVID-19) from Public Health England (PHE) and/or the Department of Health and Social Care (DHSC)</li>
+        <li>prohibited by any legislation (or statutory directions) relating to the incidence or transmission of coronavirus (COVID-19)</li>
+      </ul>
+      <p class="govuk-body">
+        Read the addendum on
+        <a class="govuk-link" href="https://www.gov.uk/government/publications/school-attendance/addendum-recording-attendance-in-relation-to-coronavirus-covid-19-during-the-2020-to-2021-academic-year">recording attendance in relation to coronavirus (COVID-19)</a>
+        for further information. Where there is a different reason for absence, read the
+        <a class="govuk-link" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/907535/School_attendance_guidance_for_2020_to_2021_academic_year.pdf">school attendance guidance.</a>
+      </p>
+      <p class="govuk-body">
+        Schools should keep a record of, and monitor pupils’ and students’ engagement with remote education, but this does not need to be tracked in the attendance register.
+      </p>
+    </div>
     <h2 class="govuk-heading-l">
       Further education
     </h2>

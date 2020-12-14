@@ -31,12 +31,20 @@
 
 en:
   statutory_obligations:
-    update_date: "08/12/2020"
-  safeguarding:
-    update_date: "01/11/2020"
-  good_teaching_practice:
-    update_date: "15/11/2020"
+    last_update_date: "08/12/2020"
+    schools:
+      update_date: "08/12/2020"
+      updated_sections:
+      - description: Recording in the attendance register
+        id: attendance-register
+        action: add
   send:
-    update_date: "02/12/2020"
+    last_update_date: "02/12/2020"
+    get_devices:
+      update_date: "02/12/2020"
+      updated_sections:
+      - description: Get devices for those who cannot attend school
+        id: get-devices
+        action: update
   support_for_recovery:
-    update_date: "01/11/2020"
+    last_update_date: "01/11/2020"

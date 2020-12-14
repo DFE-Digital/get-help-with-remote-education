@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "pages#index"
-  get "/:page", to: "pages#show"
+  get "/:page", to: "pages#show", as: :pages
 
   get "/settings/cookie-preferences", to: "settings#cookie_preferences"
   post "/settings/cookie-preferences", to: "settings#update_cookie_preferences"
