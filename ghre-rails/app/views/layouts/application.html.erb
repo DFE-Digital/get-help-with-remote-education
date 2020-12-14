@@ -29,6 +29,10 @@
 
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
+    <% unless cookies[:ghre_allow_cookies].present? %>
+      <%= render partial: 'layouts/cookie_banner' %>
+    <% end %>
+
     <header class="govuk-header" role="banner" data-module="govuk-header">
       <div class="govuk-header__container govuk-width-container">
         <div class="govuk-header__logo">
@@ -97,6 +101,10 @@
         </div>
       </div>
     </footer>
+    <% unless cookies[:ghre_allow_cookies].present? %>
+      <%= javascript_pack_tag 'cookie_banner', defer: true %>
+    <% end %>
+
     <% if ENV['GOOGLE_ANALYTICS_ID'] && cookies[:ghre_allow_cookies] == "true" %>
       <script async src=<%="https://www.googletagmanager.com/gtag/js?id=#{ENV['GOOGLE_ANALYTICS_ID']}" %>></script>
       <%= javascript_pack_tag 'google_analytics', defer: true, 'data-ga-id': ENV['GOOGLE_ANALYTICS_ID'] %>

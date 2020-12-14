@@ -54,17 +54,6 @@ function initGoogleAnalytics(isDisabled) {
   initExternalLinkTracking();
 }
 
-function checkForAnalyticsCookies() {
-  if (jsCookie.get("_ga") || jsCookie.get("_ga" + cookieSuffix)) {
-    return true;
-  }
-}
-
-function removeAnalyticsCookies() {
-  jsCookie.remove("_ga", { path: '/', domain: document.domain });
-  jsCookie.remove("_ga_" + cookieSuffix, { path: '/', domain: document.domain });
-}
-
 function allowAnalyticsCookies() {
   if(jsCookie.get("ghre_allow_cookies") === "true") {
     return true
