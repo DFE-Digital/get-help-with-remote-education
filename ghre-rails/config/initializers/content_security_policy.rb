@@ -7,8 +7,8 @@
 # "default-src 'self' https://www.google-analytics.com; 
 #   script-src 'self' 'sha256-IWjjekDxqqURWMjVH447fuaAvoZKwpDwLS0ZdcJ+Ey4=' https://www.googletagmanager.com https://www.google-analytics.com;",Rails.application.config.content_security_policy do |policy|
 Rails.application.config.content_security_policy do |policy|
-  policy.default_src :self, :https, "https://www.google-analytics.com"
-  policy.script_src  :self, :https, "https://www.googletagmanager.com", "https://www.google-analytics.com"
+  policy.default_src :self, "https://www.google-analytics.com"
+  policy.script_src  :self, "https://www.googletagmanager.com", "https://www.google-analytics.com"
 
   #   policy.font_src    :self, :https, :data
   #   policy.img_src     :self, :https, :data
