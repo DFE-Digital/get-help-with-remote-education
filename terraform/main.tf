@@ -10,5 +10,5 @@ module prometheus_all {
   paas_exporter_password   = var.monitoring_password
   # alertmanager_config      = file("${path.module}/files/alertmanager.yml")
   grafana_admin_password = var.grafana_admin_password
-  # grafana_json_dashboards  = [file("${path.module}/files/paas_dashboard.json")]
+  grafana_json_dashboards  = [file("${path.module}/dashboards/web_traffic.json")]
 }
