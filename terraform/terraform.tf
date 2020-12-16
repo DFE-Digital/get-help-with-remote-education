@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 0.14.2"
   backend "s3" {
     key     = "terraform.tfstate"
     region  = "eu-west-2"
