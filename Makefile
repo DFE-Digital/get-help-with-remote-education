@@ -14,6 +14,8 @@ terraform-init:
 	$(eval export TF_VAR_monitoring_username=$(monitoring_username))
 	$(eval export TF_VAR_monitoring_password=$(monitoring_password))
 	$(eval export TF_VAR_grafana_admin_password=$(grafana_admin_password))
+	$(eval export TF_VAR_statuscake_username=$(statuscake_username))
+	$(eval export TF_VAR_statuscake_apikey=$(statuscake_apikey))
 	$(if $(paas_username), $(eval export TF_VAR_paas_username=$(paas_username)))
 	$(if $(paas_password), $(eval export TF_VAR_paas_password=$(paas_password)))
 	$(if $(paas_sso_passcode), $(eval export TF_VAR_paas_sso_passcode=$(paas_sso_passcode)))
