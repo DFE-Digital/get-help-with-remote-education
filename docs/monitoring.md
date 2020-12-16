@@ -63,7 +63,11 @@ Export AWS profile set up above
 ```
 % export AWS_PROFILE=ghre-monitoring-prod
 ```
-
+Statuscake
+```
+export statuscake_username=gggg
+export statuscake_apikey=hhhh
+```
 ### Plan changes
 ```
 % make prod monitoring-plan
@@ -73,4 +77,3 @@ Export AWS profile set up above
 ```
 % make prod monitoring-apply
 ```
-
