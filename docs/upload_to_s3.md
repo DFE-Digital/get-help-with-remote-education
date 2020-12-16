@@ -2,7 +2,7 @@
 
 The Get Help with Remote Education (GHRE) service relies on AWS S3 for hosting content on the rapid-testing page (https://get-help-with-remote-education.education.gov.uk/rapid-testing/). The S3 service itself was brokered through the use of govuk PaaS.
 
-Until a time where the provision of this content can be automated, it is required that new and updated content is manually uploaded by a person with the correct access.
+**Until a time where the provision of this content can be automated, it is required that new and updated content is manually uploaded by a person with the correct access.**
 
 ### Current Architecture for GHRE S3 service
 
@@ -51,19 +51,15 @@ Select the space you want to access:
 ```
 Authenticating...
 OK
-
 Select an org:
 1. dfe-digital
 2. dfe-teacher-services
-
 Org (enter to skip): 2
-
 Select a space:
 1. get-help-with-remote-education-dev
 2. get-help-with-remote-education-staging
 3. get-help-with-remote-education-prod
 4. sandbox
-
 Space (enter to skip): 1
 Targeted space get-help-with-remote-education-dev.
 ```
@@ -86,13 +82,13 @@ If you are deploying to an existing S3 service under get-help-with-remote-educat
 #### Prerequisites
 1. A S3 service instance exists for the target space (See ‘How to create an AWS S3 service instance in govuk PaaS’ above)
 2. Ensure you have an account set up on govuk PaaS
-- https://docs.cloud.service.gov.uk/get_started.html#get-an-account
+    - https://docs.cloud.service.gov.uk/get_started.html#get-an-account
 3. Ensure that you have been added to the correct space (details above) with the ‘SpaceDeveloper’ role assigned.
-- Digital Tools Support (#digital-tools-support slack channel can help with this)
+    - Digital Tools Support (#digital-tools-support slack channel can help with this)
 4. Install the cloud foundry cli
-- https://docs.cloud.service.gov.uk/get_started.html#set-up-the-cloud-foundry-command-line
+    - https://docs.cloud.service.gov.uk/get_started.html#set-up-the-cloud-foundry-command-line
 5. Install the aws cli
-- https://aws.amazon.com/cli/
+    - https://aws.amazon.com/cli/
 
 #### Steps to upload new or updated content using the aws cli
 Please execute the following steps to configure your aws cli and upload content to the S3 bucket.
@@ -106,19 +102,15 @@ Select the space you want to access:
 ```
 Authenticating...
 OK
-
 Select an org:
 1. dfe-digital
 2. dfe-teacher-services
-
 Org (enter to skip): 2
-
 Select a space:
 1. get-help-with-remote-education-dev
 2. get-help-with-remote-education-staging
 3. get-help-with-remote-education-prod
 4. sandbox
-
 Space (enter to skip): 1
 Targeted space get-help-with-remote-education-dev.
 ```
@@ -158,4 +150,4 @@ aws --profile PROFILE_NAME s3 ls BUCKET_NAME
 Your file should be accessible at
 https://BUCKET_NAME.s3.amazonaws.com/LOCAL_FILE_NAME
 
-You will need to update/add any references and/or anchor tags in your application to point to the newly uploaded content
+**You will need to update/add any references and/or anchor tags in your application to point to the newly uploaded content**
