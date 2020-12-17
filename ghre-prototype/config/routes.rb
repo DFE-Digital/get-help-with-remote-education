@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root "pages#index"
+  get "/framework", to: "framework#index"
+  get "/framework/:section", to: "framework#section", as: :framework_sections
+  get "/framework/:section/:question", to: "framework#question", as: :framework_section_questions
+
   get "/:page", to: "pages#show", as: :pages
 
   get "/settings/cookie-preferences", to: "settings#cookie_preferences"

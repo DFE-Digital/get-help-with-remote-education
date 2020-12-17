@@ -48,3 +48,9 @@ en:
         action: update
   support_for_recovery:
     last_update_date: "01/11/2020"
+  framework:
+    sections:
+      leadership: Leadership
+    questions:
+      leadership:
+        remote_education_plan: Remote Education Plan
