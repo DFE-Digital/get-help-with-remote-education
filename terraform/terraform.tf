@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 0.14.2"
   backend "s3" {
     key     = "terraform.tfstate"
     region  = "eu-west-2"
@@ -9,6 +10,10 @@ terraform {
       source  = "cloudfoundry-community/cloudfoundry"
       version = ">= 0.12.6"
     }
+    statuscake = {
+      source  = "terraform-providers/statuscake"
+      version = "~> 1.0.0"
+    }
   }
 }
 
@@ -18,4 +23,9 @@ provider cloudfoundry {
   password          = var.paas_password
   sso_passcode      = var.paas_sso_passcode
   store_tokens_path = "./paas-tokens"
+}
+
+provider statuscake {
+  username = var.statuscake_username
+  apikey   = var.statuscake_apikey
 }

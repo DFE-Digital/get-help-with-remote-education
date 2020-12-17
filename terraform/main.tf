@@ -12,3 +12,15 @@ module prometheus_all {
   grafana_admin_password = var.grafana_admin_password
   grafana_json_dashboards  = [file("${path.module}/dashboards/web_traffic.json")]
 }
+
+resource statuscake_test alert {
+  for_each      = var.statuscake_alerts
+
+  website_name  = each.value.website_name
+  website_url   = each.value.website_url
+  test_type     = "HTTP"
+  check_rate    = 1
+  contact_group = local.status_cake_group_id
+  trigger_rate  = 0
+  confirmations = 1
+}
