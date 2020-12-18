@@ -40,10 +40,6 @@ jobs:
         run: |
           echo "${{ secrets.BASIC_AUTH_USER }}":"${{ secrets.BASIC_AUTH_HASHED_PASSWORD }}" > source/Staticfile.auth
       
-      - name: run tests
-        run: |
-          bundle exec rspec
-
       - name: Use Terraform 0.14.2
         uses: hashicorp/setup-terraform@v1
         with:
@@ -63,7 +59,11 @@ jobs:
           TF_VAR_statuscake_username="${{ secrets.STATUSCAKE_USERNAME }}"
           TF_VAR_statuscake_apikey="${{ secrets.STATUSCAKE_APIKEY }}"
           TF_VAR_paas_username="${{ secrets.CF_USER_DEV }}"
-          TF_VAR_paas_password="${{ secrets.CF_PASSWORD_DEV }}"         
+          TF_VAR_paas_password="${{ secrets.CF_PASSWORD_DEV }}"
+
+      - name: run tests
+        run: |
+          bundle exec rspec  
 
       - name: build
         run: |
