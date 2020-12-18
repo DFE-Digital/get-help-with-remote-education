@@ -60,6 +60,8 @@ jobs:
           TF_VAR_statuscake_apikey: ${{ secrets.STATUSCAKE_APIKEY }}
           TF_VAR_paas_username: ${{ secrets.CF_USER_DEV }}
           TF_VAR_paas_password: ${{ secrets.CF_PASSWORD_DEV }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
 
       - name: run tests
         run: |
