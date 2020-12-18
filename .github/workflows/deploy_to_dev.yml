@@ -55,7 +55,7 @@ jobs:
         env:
           TF_VAR_monitoring_username="${{ secrets.MONITORING_USER }}"
           TF_VAR_monitoring_password="${{ secrets.MONITORING_PASSWORD }}"
-          TF_VAR_grafana_admin_password="${{ secrets.GRAFANA_ADMIN_PASSWORD }}"
+          TF_VAR_grafana_admin_password="${{ secrets.GRAFANA_ADMIN_PASSWORD_DEV }}"
           TF_VAR_statuscake_username="${{ secrets.STATUSCAKE_USERNAME }}"
           TF_VAR_statuscake_apikey="${{ secrets.STATUSCAKE_APIKEY }}"
           TF_VAR_paas_username="${{ secrets.CF_USER_DEV }}"
