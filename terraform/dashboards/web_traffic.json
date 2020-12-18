@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1608132098027,
+  "iteration": 1608297339421,
   "links": [],
   "panels": [
     {
@@ -66,13 +65,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(requests{space=\"$space\"}[5m]))",
+          "expr": "sum(rate(requests{app=\"$app\"}[5m])) *60",
           "instant": false,
           "legendFormat": "Total requests per min",
           "refId": "A"
         },
         {
-          "expr": "sum(rate(requests{space=\"$space\",status_range=~\"0xx|4xx|5xx\"}[5m]))",
+          "expr": "sum(rate(requests{app=\"$app\",status_range=~\"0xx|4xx|5xx\"}[5m])) *60",
           "legendFormat": "Failed requests per min",
           "refId": "B"
         }
@@ -211,6 +210,7 @@
       }
     }
   ],
+  "refresh": "10s",
   "schemaVersion": 21,
   "style": "dark",
   "tags": [],
@@ -220,8 +220,8 @@
         "allValue": null,
         "current": {
           "tags": [],
-          "text": "get-help-with-remote-education-dev",
-          "value": "get-help-with-remote-education-dev"
+          "text": "get-help-with-remote-education-prod",
+          "value": "get-help-with-remote-education-prod"
         },
         "datasource": "Prometheus",
         "definition": "label_values(space)",
@@ -245,8 +245,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "get-help-with-remote-education-dev",
-          "value": "get-help-with-remote-education-dev"
+          "text": "get-help-with-remote-education-prod",
+          "value": "get-help-with-remote-education-prod"
         },
         "datasource": "Prometheus",
         "definition": "label_values(memory_utilization{space =~\"$space\"}, app)",
