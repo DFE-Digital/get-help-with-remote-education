@@ -44,6 +44,27 @@ jobs:
         run: |
           bundle exec rspec
 
+      - name: Use Terraform 0.14.2
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.2
+
+      - name: Terraform init, plan & apply
+        id: terraform_deploy
+        run: |
+          terraform init -reconfigure -upgrade=true -backend-config=bucket="${{ secrets.PRIVATE_S3_BUCKET_DEV }}"
+          terraform plan -var-file workspace-variables/dev.tfvars
+          terraform apply -auto-approve -var-file workspace-variables/dev.tfvars
+        working-directory: terraform
+        env:
+          TF_VAR_monitoring_username="${{ secrets.MONITORING_USER }}"
+          TF_VAR_monitoring_password="${{ secrets.MONITORING_PASSWORD }}"
+          TF_VAR_grafana_admin_password="${{ secrets.GRAFANA_ADMIN_PASSWORD }}"
+          TF_VAR_statuscake_username="${{ secrets.STATUSCAKE_USERNAME }}"
+          TF_VAR_statuscake_apikey="${{ secrets.STATUSCAKE_APIKEY }}"
+          TF_VAR_paas_username="${{ secrets.CF_USER_DEV }}"
+          TF_VAR_paas_password="${{ secrets.CF_PASSWORD_DEV }}"         
+
       - name: build
         run: |
           bundle exec middleman build
