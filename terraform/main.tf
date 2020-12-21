@@ -19,7 +19,7 @@ resource statuscake_test alert {
   website_name  = each.value.website_name
   website_url   = each.value.website_url
   test_type     = "HTTP"
-  check_rate    = 1
+  check_rate    = 30
   contact_group = local.status_cake_group_id
   trigger_rate  = 0
   confirmations = 1
