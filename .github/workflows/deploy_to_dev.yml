@@ -40,6 +40,29 @@ jobs:
         run: |
           echo "${{ secrets.BASIC_AUTH_USER }}":"${{ secrets.BASIC_AUTH_HASHED_PASSWORD }}" > source/Staticfile.auth
       
+      - name: Use Terraform 0.14.2
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.2
+
+      - name: Terraform init, plan & apply
+        id: terraform_deploy
+        run: |
+          terraform init -reconfigure -upgrade=true -backend-config=bucket="${{ secrets.PRIVATE_S3_BUCKET_DEV }}"
+          terraform plan -var-file workspace-variables/dev.tfvars
+          terraform apply -auto-approve -var-file workspace-variables/dev.tfvars
+        working-directory: terraform
+        env:
+          TF_VAR_monitoring_username: ${{ secrets.MONITORING_USER }}
+          TF_VAR_monitoring_password: ${{ secrets.MONITORING_PASSWORD }}
+          TF_VAR_grafana_admin_password: ${{ secrets.GRAFANA_ADMIN_PASSWORD_DEV }}
+          TF_VAR_statuscake_username: ${{ secrets.STATUSCAKE_USERNAME }}
+          TF_VAR_statuscake_apikey: ${{ secrets.STATUSCAKE_APIKEY }}
+          TF_VAR_paas_username: ${{ secrets.CF_USER_DEV }}
+          TF_VAR_paas_password: ${{ secrets.CF_PASSWORD_DEV }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+
       - name: run tests
         run: |
           bundle exec rspec

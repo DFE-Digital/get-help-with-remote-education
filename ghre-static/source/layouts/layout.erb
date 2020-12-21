@@ -47,12 +47,23 @@
       <div class="govuk-width-container">
         <div class="app-cookie-banner__container" id="cookieActionsContainer">
           <p class="govuk-body">
-            We use cookies to <a href="/cookie_preferences.html" class="govuk-link app-cookie-banner__link">collect information</a> about how you use the service.
+            We use cookies to 
+            <% if current_page.data.rapid_testing %>
+              <a href="/rapid-testing/cookie_preferences.html" class="govuk-link app-cookie-banner__link">collect information</a>
+            <% else %>
+              <a href="/cookie_preferences.html" class="govuk-link app-cookie-banner__link">collect information</a>
+            <% end %>
+            about how you use the service.
           </p>
           <div class="app-cookie-banner__actions">
             <input type="button" id="acceptCookies" class="govuk-button govuk-!-margin-bottom-2" value="Accept all cookies" />
             <p class="inline-message govuk-body">
-              or <a href="/cookie_preferences.html" class="govuk-link app-cookie-banner__link">set your cookie preferences</a>
+              or 
+              <% if current_page.data.rapid_testing %>
+                <a href="/rapid-testing/cookie_preferences.html" class="govuk-link app-cookie-banner__link">set your cookie preferences</a>
+              <% else %>
+                <a href="/cookie_preferences.html" class="govuk-link app-cookie-banner__link">set your cookie preferences</a>
+              <% end %>
             </p>
           </div>
         </div>
@@ -78,25 +89,37 @@
           </a>
         </div>
         <div class="govuk-header__content">
-          <a href="/" class="govuk-header__link govuk-header__link--service-name">
-            Get Help with Remote Education
-          </a>
+          <% if current_page.data.dont_link_header %>
+            <span class="govuk-header__link govuk-header__link--service-name no-hover-underline">
+              Get Help with Remote Education
+            </span>
+          <% else %>
+            <a href="/" class="govuk-header__link govuk-header__link--service-name">
+              Get Help with Remote Education
+            </a>
+          <% end %>
         </div>
       </div>
     </header>
     <div class="govuk-width-container ">
-      <div class="govuk-phase-banner">
-        <p class="govuk-phase-banner__content">
-          <strong class="govuk-tag govuk-phase-banner__content__tag">
-            alpha
-          </strong>
-          <span class="govuk-phase-banner__text">
-            This is a new service – your <a class="govuk-link" href="https://forms.gle/S1P7xZD8Mg6idMxQ6">feedback</a> will help us to improve it.
-          </span>
-        </p>
-      </div>
+      <% unless current_page.data.hide_feedback_banner %>
+        <div class="govuk-phase-banner">
+          <p class="govuk-phase-banner__content">
+            <strong class="govuk-tag govuk-phase-banner__content__tag">
+              alpha
+            </strong>
+            <span class="govuk-phase-banner__text">
+              This is a new service – your <a class="govuk-link" href="https://forms.gle/S1P7xZD8Mg6idMxQ6">feedback</a> will help us to improve it.
+            </span>
+          </p>
+        </div>
+      <% end %>
     <% if current_page.data.back_link %>
-      <a href="/" class="govuk-back-link">Back</a>
+      <% if current_page.data.rapid_testing %>
+        <a href="/rapid-testing" class="govuk-back-link">Back</a>
+      <% else %>
+        <a href="/" class="govuk-back-link">Back</a>
+      <% end %>
     <% end %>
     <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
     <%= yield %>
@@ -107,6 +130,18 @@
         <div class="govuk-footer__meta">
           <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
           <ul class="govuk-footer__inline-list">
+            <% if current_page.data.rapid_testing %>
+              <li class="govuk-footer__inline-list-item">
+                <a class="govuk-footer__link" href="/rapid-testing/accessibility-statement.html">
+                  Accessibility
+                </a>
+              </li>
+              <li class="govuk-footer__inline-list-item">
+                <a class="govuk-footer__link" href="/rapid-testing/cookie_preferences.html">
+                  Cookies
+                </a>
+              </li>
+            <% else %>
               <li class="govuk-footer__inline-list-item">
                 <a class="govuk-footer__link" href="/accessibility-statement.html">
                   Accessibility
@@ -117,6 +152,7 @@
                   Cookies
                 </a>
               </li>
+            <% end %>
             </ul>
             <svg aria-hidden="true" focusable="false" class="govuk-footer__licence-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483.2 195.7" height="17" width="41">
               <path fill="currentColor" d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />

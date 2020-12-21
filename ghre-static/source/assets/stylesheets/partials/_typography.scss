@@ -1,3 +1,7 @@
 .no-word-wrap {
   white-space: nowrap;
 }
+
+.no-hover-underline:hover {
+  text-decoration: none !important;
+}
