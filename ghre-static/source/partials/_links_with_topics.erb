@@ -1,0 +1,9 @@
+<ul class="govuk-list">
+  <% links.each do |link| %>
+    <li>
+      <a class="govuk-link" href="<%= link[:href] %>">
+        <%= link[:title] %>
+      </a> - <%= link[:topics] %> topics
+    </li>
+  <% end %>
+</ul>
