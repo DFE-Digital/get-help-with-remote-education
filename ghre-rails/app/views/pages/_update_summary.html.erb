@@ -3,34 +3,15 @@
 <% if update_date >= shifted_date %>
   <div class="update-summary">
     <span class="govuk-heading-s update-summary-meta">updated <%= update_date.strftime('%-d %B') %></span>
-    <% if show_updates == "true" %>
-      <a href="?show_updates=false" class="govuk-link govuk-link--no-visited-state" data-qa="updates-hide">
-        <span>hide updates</span>
-      </a>
-      <div class="update-summary-content">
-        <ul class="govuk-list govuk-list--bullet">  
-          <% updated_sections.each do |section| %>
-            <% if section[:action] == "add" %>
-            <li>
-              added new section, <a href="#<%= section[:id] %>" class="govuk-link" ><%= section[:description] %></a>
-            </li>
-            <% elsif section[:action] == "update" %>
-            <li>
-              updated section, <a href="#<%= section[:id] %>" class="govuk-link" ><%= section[:description] %></a>
-            </li>
-            <% elsif section[:action] == "remove" %>
-            <li>
-              removed section, <%= section[:description] %>
-            </li>
-            <% else %>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
-    <% else %>
-      <a href="?show_updates=true" class="govuk-link govuk-link--no-visited-state" data-qa="updates-show">
-        <span>show updates</span>
-      </a>
-    <% end %>
+    <a id="show-hide-updates" href="" class="govuk-link govuk-link--no-visited-state" data-qa="updates-hide">
+      <span id="update-summary-show-hide-status">show updates</span>
+    </a>
+    <div id="update-summary-content" class="update-summary-content hidden">
+      <ul class="govuk-list govuk-list--bullet">  
+        <% updated_sections.each do |section| %>
+          <li data-qa="update-list"><%= section[:description] %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>

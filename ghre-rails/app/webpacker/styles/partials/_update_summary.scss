@@ -27,4 +27,8 @@
 	border-left: 5px solid #b1b4b6;
 	padding: 15px 0 15px 15px;
 	margin-bottom: 20px;
+
+	&.hidden {
+		display: none;
+	}
 }

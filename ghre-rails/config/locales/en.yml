@@ -35,9 +35,8 @@ en:
     schools:
       update_date: "08/12/2020"
       updated_sections:
-      - description: Recording in the attendance register
+      - description: changes to the isolation period (from 14 days to 10 days from the day after the individual tested positive)
         id: attendance-register
-        action: add
   send:
     last_update_date: "02/12/2020"
     get_devices:
