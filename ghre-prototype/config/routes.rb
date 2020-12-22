@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/framework", to: "framework#index"
   get "/framework/:section", to: "framework#section", as: :framework_sections
   get "/framework/:section/:question", to: "framework#question", as: :framework_section_questions
+  post "/framework/:section/:question", to: "framework#submit_answer", as: :framework_section_submit_answer
 
   get "/:page", to: "pages#show", as: :pages
 

@@ -1,15 +1,20 @@
 class FrameworkController < ApplicationController
   class Leadership
     def questions
-      [
-        :remote_education_plan,
-        :communication,
-        :monitoring_and_evaluating
+      %i[
+        question_one
+        question_two
       ]
     end
   end
 
-  def index; end
+  def index 
+    unless session[:answers_id]
+      new_answers = Answers.new(reference_code: SecureRandom.uuid)
+      new_answers.save!
+      session[:answers_id] = new_answers.id
+    end
+  end
 
   def section
     redirect_to framework_section_questions_path(params[:section], Leadership.new.questions.first)
@@ -18,5 +23,7 @@ class FrameworkController < ApplicationController
   def question
 
   end
-end
 
+  def submit_answer
+  end
+end
