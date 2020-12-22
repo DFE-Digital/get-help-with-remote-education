@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    @date = Date.today
+    @today = Date.today
     @show_updates = params[:show_updates]
     render template: "pages/#{params[:page].gsub('-', '_')}"
   end
