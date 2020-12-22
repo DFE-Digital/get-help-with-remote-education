@@ -31,19 +31,8 @@
 
 en:
   statutory_obligations:
-    last_update_date: "08/12/2020"
-    schools:
-      update_date: "08/12/2020"
-      updated_sections:
-      - description: changes to the isolation period (from 14 days to 10 days from the day after the individual tested positive)
-        id: attendance-register
+    last_update_date: "15/12/2020"
   send:
     last_update_date: "02/12/2020"
-    get_devices:
-      update_date: "02/12/2020"
-      updated_sections:
-      - description: Get devices for those who cannot attend school
-        id: get-devices
-        action: update
   support_for_recovery:
     last_update_date: "01/11/2020"

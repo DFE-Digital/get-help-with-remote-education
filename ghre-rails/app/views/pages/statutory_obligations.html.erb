@@ -1,8 +1,7 @@
-<% page_title = "Statutory obligations and expectations"%>
-<%= content_for :page_title, page_title%>
-<%= content_for :before_content do %>
-  <a href="/" class="govuk-back-link">Back</a>
-<% end %>
+---
+title: "Statutory obligations and expectations"
+back_link: true
+---
 <h1 class="govuk-heading-xl">
   Statutory obligations and expectations
 </h1>
@@ -15,48 +14,83 @@
     <h2 class="govuk-heading-l">
       Schools
     </h2>
-    <%= render 'update_summary', show_updates: @show_updates, today: @date, update_date: t('statutory_obligations.schools.update_date').to_date, updated_sections: t('statutory_obligations.schools.updated_sections') %>
+    <div class="update-summary">
+      <span class="govuk-heading-s update-summary-meta">updated 15th December</span>
+      <a id="show-hide-updates" href="" class="govuk-link govuk-link--no-visited-state" data-qa="updates-hide">
+        <span id="update-summary-show-hide-status">show updates</span>
+      </a>
+      <div id="update-summary-content" class="update-summary-content hidden">
+      <p class="govuk-body-s">
+        The <a class="govuk-link govuk-link--no-visited-state" href="#remote-education-expectations">Remote education expectations</a> guidance includes an
+        update on publishing information on school websites for pupils, parents and carers about remote education provision
+      </p>
+      <p class="govuk-body-s">
+        The <a class="govuk-link govuk-link--no-visited-state" href="#guidance-for-full-opening">Guidance for full opening</a> includes the following changes:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>changes to the isolation period (from 14 days to 10 days from the day after the individual tested positive)</li>
+          <li>clinically extremely vulnerable pupils</li>
+          <li>inspections</li>
+          <li>primary assessments</li>
+          <li>examinations</li>
+          <li>schools accountability</li>
+          <li>remote education minimum expectations</li>
+          <li>
+            an added link to the contingency framework for education and childcare settings which sets out how restrictions would work in the rare circumstances
+            they are needed
+          </li>
+        </ul>
+      </p>
+      </div>
+    </div>
     <h3 class="govuk-heading-m">
       Remote education expectations and duties
     </h3>
     <p class="govuk-body">
-      Where a pupil, class, group or small number of pupils need to self-isolate, or there are local restrictions in place requiring pupils to remain at home, 
-      DfE expects schools to be able to immediately offer them access to remote education. The
-      <a class="govuk-link" href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak/guidance-for-full-opening-schools#res">guidance for full opening</a>
-      sets out what’s expected of schools’ remote provision.
+      The
+      <a
+        class="govuk-link updated-content"
+        id="remote-education-expectations"
+        href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak/guidance-for-full-opening-schools#res"
+        data-updated
+      >
+        remote education expectations
+      </a>
+      are set out within the
+      <a
+        class="govuk-link updated-content"
+        id="guidance-for-full-opening"
+        href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak/guidance-for-full-opening-schools"
+        data-updated
+      >
+        guidance for full opening
+      </a>
+      .
     </p>
     <p class="govuk-body">
-      The Secretary of State for Education has given a temporary continuity direction which requires schools to provide remote education for state-funded, school-age children unable 
+      Where a pupil, class, group or small number of pupils need to self-isolate, or there are local restrictions in place requiring pupils to remain at home,
+      DfE expects schools to be able to immediately offer them access to remote education.
+    </p>
+    <p class="govuk-body">
+      The Secretary of State for Education has given a temporary continuity direction which requires schools to provide remote education for state-funded, school-age children unable
       to attend school due to coronavirus (COVID-19). Read the
       <a class="govuk-link" href="https://www.gov.uk/government/publications/remote-education-temporary-continuity-direction-explanatory-note">remote education temporary continuity direction explanatory note</a>
       for more information. The direction poses no additional expectations on the quality of remote education expected of schools beyond those set out in the guidance for full opening.
     </p>
-    <% if @show_updates == "true" %>
-      <div id="attendance-register" class="updated-content active" data-qa="active-updated-content">
-    <% else %>
-      <div id="attendance-register" class="updated-content" data-qa="inactive-updated-content">
-    <% end %>
-      <h3 class="govuk-heading-m">
-        Recording in the attendance register
-      </h3>
-      <p class="govuk-body">
-        Schools must continue to complete the attendance register for pupils who are receiving remote education. Sessions should be recorded as 'not attending in
-        circumstances related to coronavirus' (code X) where a pupil is absent because their travel to, or attendance at, school would be:
-      </p>    
-      <ul class="govuk-list govuk-list--bullet">
-        <li>contrary to guidance relating to the incidence or transmission of coronavirus (COVID-19) from Public Health England (PHE) and/or the Department of Health and Social Care (DHSC)</li>
-        <li>prohibited by any legislation (or statutory directions) relating to the incidence or transmission of coronavirus (COVID-19)</li>
-      </ul>
-      <p class="govuk-body">
-        Read the addendum on
-        <a class="govuk-link" href="https://www.gov.uk/government/publications/school-attendance/addendum-recording-attendance-in-relation-to-coronavirus-covid-19-during-the-2020-to-2021-academic-year">recording attendance in relation to coronavirus (COVID-19)</a>
-        for further information. Where there is a different reason for absence, read the
-        <a class="govuk-link" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/907535/School_attendance_guidance_for_2020_to_2021_academic_year.pdf">school attendance guidance.</a>
-      </p>
-      <p class="govuk-body">
-        Schools should keep a record of, and monitor pupils’ and students’ engagement with remote education, but this does not need to be tracked in the attendance register.
-      </p>
-    </div>
+    <h3 class="govuk-heading-m">
+      Recording in the attendance register
+    </h3>
+    <p class="govuk-body">
+      Schools must continue to complete the attendance register for pupils who are receiving remote education.
+    </p>
+    <p class="govuk-body">
+      Read the addendum on
+      <a class="govuk-link" href="https://www.gov.uk/government/publications/school-attendance/addendum-recording-attendance-in-relation-to-coronavirus-covid-19-during-the-2020-to-2021-academic-year">recording attendance in relation to coronavirus (COVID-19)</a>
+      for further information. Where there is a different reason for absence, read the
+      <a class="govuk-link" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/907535/School_attendance_guidance_for_2020_to_2021_academic_year.pdf">school attendance guidance.</a>
+    </p>
+    <p class="govuk-body">
+      Schools should keep a record of, and monitor pupils’ and students’ engagement with remote education, but this does not need to be tracked in the attendance register.
+    </p>
     <h2 class="govuk-heading-l">
       Further education
     </h2>
