@@ -59,6 +59,10 @@ RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
         expect(page).to have_selector('[data-qa="update-summary-toggle__hide"]')
       end
 
+      it "should highlight the updated sections" do
+        expect(page).to have_selector('[data-qa="updated-content__highlighted"]')
+      end
+
       it "allows the user to toggle the update summary" do
         page.find('[data-qa="update-summary-toggle__hide"]').click
 

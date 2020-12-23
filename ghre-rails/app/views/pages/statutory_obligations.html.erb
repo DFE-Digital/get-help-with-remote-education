@@ -55,19 +55,21 @@
     <p class="govuk-body">
       The
       <a
-        class="govuk-link updated-content"
+        class="govuk-link updated-content <%= 'active' if @show_updates %>"
         id="remote-education-expectations"
         href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak/guidance-for-full-opening-schools#res"
         data-updated
+        data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
       >
         remote education expectations
       </a>
       are set out within the
       <a
-        class="govuk-link updated-content"
+        class="govuk-link updated-content <%= 'active' if @show_updates %>"
         id="guidance-for-full-opening"
         href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak/guidance-for-full-opening-schools"
         data-updated
+        data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
       >
         guidance for full opening
       </a>
