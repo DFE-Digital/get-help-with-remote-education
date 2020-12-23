@@ -145,19 +145,16 @@
       </div>
     </div>
     <h2 class="govuk-heading-l">FE</h2>
-    <div class="update-summary">
-      <span class="govuk-heading-s update-summary-meta">updated 22nd December</span>
-      <a id="show-hide-updates" href="" class="govuk-link govuk-link--no-visited-state" data-qa="updates-hide">
-        <span id="update-summary-show-hide-status">show updates</span>
-      </a>
-      <div id="update-summary-content" class="update-summary-content hidden">
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            added new section on the digital curriculum resources available to the FE sector
-          </li>
-        </ul>
-      </div>
-    </div>
+
+    <% update_date = t('good_teaching_practice.fe.last_update').to_date %>
+    <%= render layout: 'summary', locals: { update_date: update_date, show_updates: @show_updates, page: 'good_teaching_practice' } do %>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          added new section on the digital curriculum resources available to the FE sector
+        </li>
+      </ul>
+    <% end%>
+
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
@@ -189,7 +186,10 @@
           </p>
         </div>
       </div>
-      <div class="govuk-accordion__section updated-content" data-updated>
+      <div 
+        class="govuk-accordion__section updated-content <%= 'active' if @show_updates %>"
+        data-updated
+      >
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-8">
