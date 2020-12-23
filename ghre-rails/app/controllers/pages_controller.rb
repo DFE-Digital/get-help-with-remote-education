@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @date = Date.today
+    @today = Date.today
   end
 
   def show
