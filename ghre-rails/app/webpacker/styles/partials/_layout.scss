@@ -4,6 +4,10 @@ body {
     margin: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 .app-cookie-banner {
     padding: 15px 0px 10px;
     background-color: $cookie-banner-background;

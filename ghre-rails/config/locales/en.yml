@@ -31,20 +31,6 @@
 
 en:
   statutory_obligations:
-    last_update_date: "08/12/2020"
+    last_update_date: "15/12/2020"
     schools:
-      update_date: "08/12/2020"
-      updated_sections:
-      - description: Recording in the attendance register
-        id: attendance-register
-        action: add
-  send:
-    last_update_date: "02/12/2020"
-    get_devices:
-      update_date: "02/12/2020"
-      updated_sections:
-      - description: Get devices for those who cannot attend school
-        id: get-devices
-        action: update
-  support_for_recovery:
-    last_update_date: "01/11/2020"
+      last_update: "15/12/2020"

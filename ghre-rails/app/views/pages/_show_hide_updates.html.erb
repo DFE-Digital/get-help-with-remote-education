@@ -1,0 +1,19 @@
+<% if show_updates %>
+  <a 
+    id="show-hide-updates" 
+    href="<%= pages_path(page: page, show_updates: 'false') %>" 
+    class="govuk-link govuk-link--no-visited-state"
+    data-qa="update-summary-toggle__hide"
+  >
+    <span id="update-summary-show-hide-status">hide updates</span>
+  </a>
+<% else %>
+  <a 
+    id="show-hide-updates" 
+    href="<%= pages_path(page: page, show_updates: 'true') %>" 
+    class="govuk-link govuk-link--no-visited-state"
+    data-qa="update-summary-toggle__show"
+  >
+    <span id="update-summary-show-hide-status">show updates</span>
+  </a>
+<% end %>

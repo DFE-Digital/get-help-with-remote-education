@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
   def index
-    @date = Date.today
+    @today = Date.today
   end
 
   def show
-    @date = Date.today
-    @show_updates = params[:show_updates]
+    @today = Date.today
+    @show_updates = params[:show_updates] == "true"
     render template: "pages/#{params[:page].gsub('-', '_')}"
   end
 end
