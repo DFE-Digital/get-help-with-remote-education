@@ -188,6 +188,7 @@
       </div>
       <div 
         class="govuk-accordion__section updated-content <%= 'active' if @show_updates %>"
+        data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
         data-updated
       >
         <div class="govuk-accordion__section-header">
