@@ -44,6 +44,8 @@ group :development, :test do
   gem "capybara", "~> 3.33"
 
   gem "dotenv-rails"
+
+  gem "timecop"
 end
 
 group :development do
