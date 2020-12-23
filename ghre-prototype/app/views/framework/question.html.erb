@@ -1,0 +1,49 @@
+<%
+  questions = [
+    OpenStruct.new(id: 1, name: '1'),
+    OpenStruct.new(id: 2, name: '2'),
+    OpenStruct.new(id: 3, name: '3'),
+    OpenStruct.new(id: 4, name: '4'),
+    OpenStruct.new(id: 5, name: '5')
+  ]
+%>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl"><%= params[:section].capitalize %></h1>
+    <h2 class="govuk-heading-l"><%= params[:question].gsub('_', ' ').capitalize %></h2>
+    <p class="govuk-body">The school has systems in place to monitor the impact of remote education. This includes:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>understanding the impact on staff workload and how to mitigate against it</li>
+      <li>staffing changes</li>
+      <li>having access to appropriate management information (such as staff and pupil sickness and absence data) to help the school respond to changing contexts</li>
+    </ul>
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help with scoring
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p class="govuk-body"><strong>1. Identify</strong><br>
+          Not yet in place or there are major gaps.
+        </p>
+        <p class="govuk-body"><strong>2. Develop and plan</strong><br>
+          Identified gaps but a plan is being developed to address them.
+        </p>
+        <p class="govuk-body"><strong>3. Implement</strong><br>
+          In the process of implementing systems and practices to address this.
+        </p>
+        <p class="govuk-body"><strong>4. Embed</strong><br>
+          Practices and systems are in place with minor gaps.
+        </p>
+        <p class="govuk-body"><strong>5. Sustain</strong><br>
+          Practices and systems are fully embedded, and there are examples of best practice.
+        </p>
+      </div>
+    </details>
+    <%= form_with(method: 'post') do |f| %>
+      <%= f.govuk_collection_radio_buttons :score_id, questions, :id, :name, inline: true, small: true, legend: { text: '' } %>
+      <%= f.govuk_submit 'Save and continue' %>
+    <% end %>
+  </div>
+</div>
