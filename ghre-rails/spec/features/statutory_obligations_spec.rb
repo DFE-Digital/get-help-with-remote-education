@@ -6,7 +6,14 @@ RSpec.describe 'pages/statutory_obligations.html.erb', type: :feature do
       allow(Date).to receive(:today).and_return I18n.t('statutory_obligations.schools.last_update').to_date + 2.weeks
       visit pages_path(page: "statutory-obligations")
 
-      expect(page.find("[data-qa='update-summary']")).to be_visible
+      expect(page.find('[data-qa="schools-update-summary"]')).to be_visible
+    end
+
+    it 'should not be visible after 2 weeks' do
+      allow(Date).to receive(:today).and_return I18n.t('statutory_obligations.schools.last_update').to_date + 15.days
+      visit pages_path(page: "statutory-obligations")
+
+      expect(page).not_to have_selector('[data-qa="schools-update-summary"]') 
     end
   end
 end
