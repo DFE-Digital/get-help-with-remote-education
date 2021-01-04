@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "pages#index"
+
+  get "/rapid-testing", to: redirect('https://www.gov.uk/guidance/asymptomatic-testing-in-schools-and-colleges')
   get "/:page", to: "pages#show", as: :pages
 
   get "/settings/cookie-preferences", to: "settings#cookie_preferences"
