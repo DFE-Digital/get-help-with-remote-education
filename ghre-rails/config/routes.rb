@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/review-framework", to: "review_framework#index", as: :review_framework_index
   get "/review-framework/start", to: "review_framework#start"
 
-  get "/review-framework/:section/:question", to: "review_framework#question", as: :question
+  get "/review-framework/:section/:question", to: "review_framework#question", as: :questions
 
   # redirects
   get "/review-your-remote-education-provision", to: redirect("https://www.gov.uk/government/publications/review-your-remote-education-provision?utm_source=remote_education")
