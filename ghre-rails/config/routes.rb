@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "pages#index"
 
-  get "/review-framework", to: "review_framework#index"
+  get "/review-framework", to: "review_framework#index", as: :review_framework_index
 
   # redirects
   get "/review-your-remote-education-provision", to: redirect("https://www.gov.uk/government/publications/review-your-remote-education-provision?utm_source=remote_education")
