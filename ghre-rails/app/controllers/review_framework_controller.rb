@@ -5,9 +5,7 @@ class ReviewFrameworkController < ApplicationController
     redirect_to questions_path(:start, questions[:start].first.to_s.dasherize)
   end
 
-  def question
-    render template: "review_framework/#{params[:section]}/#{params[:question].underscore}"
-  end
+  def question; end
 
   private
 
