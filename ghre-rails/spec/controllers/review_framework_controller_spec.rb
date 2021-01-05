@@ -7,4 +7,11 @@ RSpec.describe ReviewFrameworkController, type: :controller do
       expect(response.status).to eq(200)
     end
   end
+
+  describe 'GET start' do
+    it 'has a 200 status' do
+      get :start
+      expect(response.status).to eq(200)
+    end
+  end
 end
