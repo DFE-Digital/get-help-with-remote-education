@@ -8,7 +8,7 @@ RSpec.describe "pages/good_teaching_practice.html.erb", type: :feature do
       Timecop.freeze(date_updated + 2.weeks) do
         visit pages_path(page: "good-teaching-practice")
 
-        expect(page.find('[data-qa="schools-update-summary"]')).to be_visible
+        expect(page.find('[data-qa="fe-update-summary"]')).to be_visible
       end
     end
 
@@ -16,7 +16,7 @@ RSpec.describe "pages/good_teaching_practice.html.erb", type: :feature do
       Timecop.freeze(date_updated + 15.days) do
         visit pages_path(page: "good-teaching-practice")
 
-        expect(page).not_to have_selector('[data-qa="schools-update-summary"]')
+        expect(page).not_to have_selector('[data-qa="fe-update-summary"]')
       end
     end
   end
