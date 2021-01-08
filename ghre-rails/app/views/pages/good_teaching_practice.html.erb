@@ -147,7 +147,7 @@
     <h2 class="govuk-heading-l">FE</h2>
 
     <% update_date = t('good_teaching_practice.fe.last_update').to_date %>
-    <%= render layout: 'summary', locals: { update_date: update_date, show_updates: @show_updates, page: 'good_teaching_practice', title: 'fe' } do %>
+    <%= render layout: 'summary', locals: { update_date: update_date, show_updates: @show_updates, page: 'good_teaching_practice', title: 'fe', has_content: true } do %>
       <ul class="govuk-list govuk-list--bullet">
         <li>
           added new section on the digital curriculum resources available to the FE sector

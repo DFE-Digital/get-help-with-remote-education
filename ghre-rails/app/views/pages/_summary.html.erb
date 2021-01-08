@@ -8,8 +8,9 @@
     <div 
       id="update-summary-content" 
       class="update-summary-content 
-      <%= 'hidden' unless show_updates %>"
+      <%= 'hidden' unless show_updates && has_content %>"
       data-qa="<%= "update-summary__#{show_updates ? 'visible' : 'hidden'}" %>"
+      <%= 'data-empty' unless has_content %>
     >
       <%= yield %>
     </div>
