@@ -40,7 +40,11 @@
     <% training_in_assitive_technology_update_date = t('send.training_in_assistive_technology.last_update').to_date %>
     <%= render layout: 'summary', locals: { update_date: training_in_assitive_technology_update_date, show_updates: @show_updates, page: 'send', title: 'training-in-assistive-technology', has_content: false } do %>
     <% end %>
-    <p class="govuk-body">
+    <p 
+      class="govuk-body updated-content <%= 'active' if @show_updates %>" 
+      data-updated
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+    >
       We are funding National Star College to provide specialist online training on assistive technology to strengthen remote education provision for pupils with special educational
       needs. Training is available to school leaders, teachers and SEN Coordinators until March 2021. Read further information about the 
       <a href="https://www.nationalstar.org/products-services-facilities/star-technology/accessible-tech/send-support-hub/" class="govuk-link">SEND support hub</a> on the National Star
