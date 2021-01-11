@@ -12,69 +12,37 @@
       Information for schools and further education (FE) colleges on expectations and how to comply with their legal responsibilities
       when pupils and students cannot come into school or college due to coronavirus (COVID-19).
     </p>
-    <h2 class="govuk-heading-l">
+    <% main_title_paragraph_update_date = t('statutory_obligations.main_title_paragraph.last_update').to_date %>
+    <%= render layout: 'summary', locals: { update_date: main_title_paragraph_update_date, show_updates: @show_updates, page: 'statutory-obligations', title: 'main-title-paragraph', has_content: false } do %>
+    <% end %>
+    <p 
+      class="govuk-body updated-content <%= 'active' if @show_updates %>"
+      data-updated
+    >
+      From 5 January 2021, all schools and colleges are required to close to most pupils and students. Whilst vulnerable pupils and
+      students, and the children of key workers, can continue to be educated in person, DfE expects schools and colleges to immediately
+      offer all other pupils and students access to remote education. Read the updated remote education expectations for
+      <a href="#schools" class="govuk-link">schools</a> and for <a href="#further-education" class="govuk-link">further education</a>.
+    </p>
+    <h2 id="schools" class="govuk-heading-l">
       Schools
     </h2>
-    <% schools_update_date = t('statutory_obligations.schools.last_update').to_date %>
-
-    <%= render layout: 'summary', locals: { update_date: schools_update_date, show_updates: @show_updates, page: 'statutory-obligations', title: 'schools', has_content: true } do %>
-      <p class="govuk-body-s">
-        The <a class="govuk-link govuk-link--no-visited-state" href="#remote-education-expectations">Remote education expectations</a> guidance includes an
-        update on publishing information on school websites for pupils, parents and carers about remote education provision
-      </p>
-      <p class="govuk-body-s">
-        The <a class="govuk-link govuk-link--no-visited-state" href="#guidance-for-full-opening">Guidance for full opening</a> includes the following changes:
-        <ul class="govuk-list govuk-list--bullet">
-          <li>changes to the isolation period (from 14 days to 10 days from the day after the individual tested positive)</li>
-          <li>clinically extremely vulnerable pupils</li>
-          <li>inspections</li>
-          <li>primary assessments</li>
-          <li>examinations</li>
-          <li>schools accountability</li>
-          <li>remote education minimum expectations</li>
-          <li>
-            an added link to the contingency framework for education and childcare settings which sets out how restrictions would work in the rare circumstances
-            they are needed
-          </li>
-        </ul>
-      </p>
-    <% end %>
-
     <h3 class="govuk-heading-m">
       Remote education expectations and duties
     </h3>
-    <p class="govuk-body">
-      The
-      <a
-        class="govuk-link updated-content <%= 'active' if @show_updates %>"
-        id="remote-education-expectations"
-        href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak/guidance-for-full-opening-schools#res"
-        data-updated
-        data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      >
-        remote education expectations
-      </a>
-      are set out within the
-      <a
-        class="govuk-link updated-content <%= 'active' if @show_updates %>"
-        id="guidance-for-full-opening"
-        href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak/guidance-for-full-opening-schools"
-        data-updated
-        data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      >
-        guidance for full opening
-      </a>
-      .
-    </p>
-    <p class="govuk-body">
-      Where a pupil, class, group or small number of pupils need to self-isolate, or there are local restrictions in place requiring pupils to remain at home,
-      DfE expects schools to be able to immediately offer them access to remote education.
+    <p 
+      class="govuk-body updated-content <%= 'active' if @show_updates %>"
+      data-updated    
+    >
+      The remote education expectations are set out within the guidance on 
+      <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/950510/School_national_restrictions_guidance.pdf" class="govuk-link">restricting attendance during the national lockdown</a>.
     </p>
     <p class="govuk-body">
       The Secretary of State for Education has given a temporary continuity direction which requires schools to provide remote education for state-funded, school-age children unable
       to attend school due to coronavirus (COVID-19). Read the
       <a class="govuk-link" href="https://www.gov.uk/government/publications/remote-education-temporary-continuity-direction-explanatory-note">remote education temporary continuity direction explanatory note</a>
-      for more information. The direction poses no additional expectations on the quality of remote education expected of schools beyond those set out in the guidance for full opening.
+      for more information. The direction poses no additional expectations on the quality of remote education expected of schools beyond those set out in the guidance on restricting attendance during the national
+      lockdown.
     </p>
     <h3 class="govuk-heading-m">
       Recording in the attendance register
@@ -97,14 +65,23 @@
     <h3 class="govuk-heading-m">
       Expectations for further education
     </h3>
-    <p class="govuk-body">
-      Read the
-      <a class="govuk-link" href="https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision/what-fe-colleges-and-providers-will-need-to-do-from-the-start-of-the-2020-autumn-term">FE autumn term guidance</a>
-      on what colleges need to know for the autumn term.
+    <p 
+      class="govuk-body updated-content <%= 'active' if @show_updates %>"
+      data-updated
+    >
+      Read the 
+      <a 
+        href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/950735/January_2021_FE_operational_guidance_FINAL.pdf"
+        class="govuk-link"
+      >
+        further education guidance for restricting attendance during the national lockdown</a
+      >.
     </p>
-    <p class="govuk-body">
-      Where restrictions are put in place to contain local outbreaks or pupils and students are required to self-isolate, remote provision can be extended to meet pupils' and students'
-      needs. FE colleges should have contingency plans in place to move quickly to blended or, if necessary, remote education should the need arise.
+    <p 
+      class="govuk-body updated-content <%= 'active' if @show_updates %>"
+      data-updated
+    >
+      As a result of the national closure of FE colleges to most students, remote provision should be extended to meet students’ needs. 
     </p>
   </div>
 </div>
