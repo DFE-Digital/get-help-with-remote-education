@@ -1,14 +1,22 @@
 require "rails_helper"
 
 RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
-  let(:date_updated) { I18n.t("statutory_obligations.schools.last_update").to_date }
+  let(:date_updated) { I18n.t("statutory_obligations.main_title_paragraph.last_update").to_date }
 
   describe "update summary badge" do
+    it "should appear once in the page" do
+      Timecop.freeze(date_updated + 5.days) do
+        visit pages_path(page: "statutory-obligations")
+
+        expect(page.find_all('[data-qa="update-summary"]').count).to eq(1)
+      end
+    end
+
     it "should visible for up to 2 weeks" do
       Timecop.freeze(date_updated + 2.weeks) do
         visit pages_path(page: "statutory-obligations")
 
-        expect(page.find('[data-qa="schools-update-summary"]')).to be_visible
+        expect(page.find('[data-qa="update-summary"]')).to be_visible
       end
     end
 
@@ -16,7 +24,7 @@ RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
       Timecop.freeze(date_updated + 15.days) do
         visit pages_path(page: "statutory-obligations")
 
-        expect(page).not_to have_selector('[data-qa="schools-update-summary"]')
+        expect(page).not_to have_selector('[data-qa="update-summary"]')
       end
     end
   end
@@ -61,6 +69,7 @@ RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
 
       it "should highlight the updated sections" do
         expect(page).to have_selector('[data-qa="updated-content__highlighted"]')
+        expect(page.find_all('[data-qa="updated-content__highlighted"]').count).to eq(4)
       end
 
       it "allows the user to toggle the update summary" do

@@ -1,7 +1,7 @@
 <% if update_date >= @today - 2.weeks %>
   <div 
     class="update-summary" 
-    data-qa="<%= "#{title}-update-summary" %>"
+    data-qa="<%= "update-summary" %>"
   >
     <span class="govuk-heading-s update-summary-meta">updated <%= update_date.strftime('%-d %B') %></span>
     <%= render partial: 'show_hide_updates', locals: { show_updates: show_updates, page: page } %>
