@@ -69,6 +69,7 @@ RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
 
       it "should highlight the updated sections" do
         expect(page).to have_selector('[data-qa="updated-content__highlighted"]')
+        expect(page.find_all('[data-qa="updated-content__highlighted"]').count).to eq(4)
       end
 
       it "allows the user to toggle the update summary" do
