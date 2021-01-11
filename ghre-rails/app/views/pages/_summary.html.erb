@@ -7,8 +7,8 @@
     <%= render partial: 'show_hide_updates', locals: { show_updates: show_updates, page: page } %>
     <div 
       id="update-summary-content" 
-      class="update-summary-content 
-      <%= 'hidden' unless show_updates && has_content %>"
+      class="<%= 'update-summary-content' if has_content %>
+        <%= 'hidden' unless show_updates && has_content %>"
       data-qa="<%= "update-summary__#{show_updates ? 'visible' : 'hidden'}" %>"
       <%= 'data-empty' unless has_content %>
     >

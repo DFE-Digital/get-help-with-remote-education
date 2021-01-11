@@ -16,6 +16,13 @@ RSpec.describe "/pages/send.html.erb", type: :feature do
   describe "Update summary" do
     let(:date_updated) { I18n.t('send.training_in_assistive_technology.last_update').to_date }
 
+    it "should have one update badge" do
+      Timecop.freeze(date_updated + 5.days) do
+        visit pages_path(page: 'send')
+        expect(page.find_all('[data-qa="training-in-assistive-technology-update-summary"]').count).to eq(1)
+      end
+    end
+
     it "is visible when update date is within the past two weeks" do
       Timecop.freeze(date_updated + 5.days) do
         visit pages_path(page: "send")
