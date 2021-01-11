@@ -18,6 +18,7 @@
     <p 
       class="govuk-body updated-content <%= 'active' if @show_updates %>"
       data-updated
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
     >
       From 5 January 2021, all schools and colleges are required to close to most pupils and students. Whilst vulnerable pupils and
       students, and the children of key workers, can continue to be educated in person, DfE expects schools and colleges to immediately
@@ -32,7 +33,8 @@
     </h3>
     <p 
       class="govuk-body updated-content <%= 'active' if @show_updates %>"
-      data-updated    
+      data-updated
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
     >
       The remote education expectations are set out within the guidance on 
       <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/950510/School_national_restrictions_guidance.pdf" class="govuk-link">restricting attendance during the national lockdown</a>.
@@ -59,7 +61,7 @@
     <p class="govuk-body">
       Schools should keep a record of, and monitor pupils’ and students’ engagement with remote education, but this does not need to be tracked in the attendance register.
     </p>
-    <h2 class="govuk-heading-l">
+    <h2 id="further-education" class="govuk-heading-l">
       Further education
     </h2>
     <h3 class="govuk-heading-m">
@@ -68,6 +70,7 @@
     <p 
       class="govuk-body updated-content <%= 'active' if @show_updates %>"
       data-updated
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
     >
       Read the 
       <a 
@@ -80,6 +83,7 @@
     <p 
       class="govuk-body updated-content <%= 'active' if @show_updates %>"
       data-updated
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
     >
       As a result of the national closure of FE colleges to most students, remote provision should be extended to meet students’ needs. 
     </p>
