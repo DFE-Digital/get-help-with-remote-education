@@ -51,6 +51,7 @@
     <div class="govuk-card govuk-card--contained">
       <div class="govuk-card__content">
         <h2 class="govuk-heading-m"><a href="send" class="govuk-link">Supporting pupils and students with special educational needs and disabilities (SEND)</a></h2>
+        <%= render 'date_badge', update_date: t('send.last_update_date').to_date, today: @today %>
         <p class="govuk-body">How to support pupils and students with special educational needs and disabilities (SEND) and write contingency plans for remote education.
         </p>
       </div>

@@ -17,7 +17,7 @@
     </h2>
     <% schools_update_date = t('statutory_obligations.schools.last_update').to_date %>
 
-    <%= render layout: 'summary', locals: { update_date: schools_update_date, show_updates: @show_updates, page: 'statutory-obligations' } do %>
+    <%= render layout: 'summary', locals: { update_date: schools_update_date, show_updates: @show_updates, page: 'statutory-obligations', title: 'schools', has_content: true } do %>
       <p class="govuk-body-s">
         The <a class="govuk-link govuk-link--no-visited-state" href="#remote-education-expectations">Remote education expectations</a> guidance includes an
         update on publishing information on school websites for pupils, parents and carers about remote education provision
