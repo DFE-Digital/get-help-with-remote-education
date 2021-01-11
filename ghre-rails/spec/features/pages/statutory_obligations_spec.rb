@@ -8,7 +8,7 @@ RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
       Timecop.freeze(date_updated + 5.days) do
         visit pages_path(page: "statutory-obligations")
 
-        expect(page.find_all('[data-qa="main-title-paragraph-update-summary"]').count).to eq(1)
+        expect(page.find_all('[data-qa="update-summary"]').count).to eq(1)
       end
     end
 
@@ -16,7 +16,7 @@ RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
       Timecop.freeze(date_updated + 2.weeks) do
         visit pages_path(page: "statutory-obligations")
 
-        expect(page.find('[data-qa="main-title-paragraph-update-summary"]')).to be_visible
+        expect(page.find('[data-qa="update-summary"]')).to be_visible
       end
     end
 
@@ -24,7 +24,7 @@ RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
       Timecop.freeze(date_updated + 15.days) do
         visit pages_path(page: "statutory-obligations")
 
-        expect(page).not_to have_selector('[data-qa="main-title-paragraph-update-summary"]')
+        expect(page).not_to have_selector('[data-qa="update-summary"]')
       end
     end
   end

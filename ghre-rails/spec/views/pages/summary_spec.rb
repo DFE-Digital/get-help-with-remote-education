@@ -7,7 +7,7 @@ RSpec.describe "pages/summary.html.erb", type: :view do
     let(:update_date) { Date.today }
 
     describe "with content" do
-      let(:html) { render layout: 'pages/summary', locals: { update_date: update_date, show_updates: true, page: 'send', title: 'training-in-assistive-technology', has_content: true } do; end }
+      let(:html) { render layout: 'pages/summary', locals: { update_date: update_date, show_updates: true, page: 'send', has_content: true } do; end }
 
       it "displays update details" do
         expect(html).not_to have_selector('[data-empty]')
@@ -16,7 +16,7 @@ RSpec.describe "pages/summary.html.erb", type: :view do
     end
 
     describe "without content" do
-      let(:html) { render layout: 'pages/summary', locals: { update_date: update_date, show_updates: true, page: 'send', title: 'training-in-assistive-technology', has_content: false } do; end }
+      let(:html) { render layout: 'pages/summary', locals: { update_date: update_date, show_updates: true, page: 'send', has_content: false } do; end }
 
       it "does not display update details" do
         expect(html).to have_selector('[data-empty]')
