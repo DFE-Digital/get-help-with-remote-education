@@ -4,6 +4,12 @@ body {
     margin: 0;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background: #b1b4b6;
+}
+
 .hidden {
     display: none;
 }
@@ -33,7 +39,7 @@ body {
 }
 
 .updated-content.active {
-	background: rgba(255, 223, 148, 0.5);
-	border: 2px dashed #6F777B;
-	padding: 0 .25em;
+	  background: rgba(255, 223, 148, 0.5);
+	  border: 2px dashed #6F777B;
+	  padding: 0 .25em;
 }
