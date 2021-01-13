@@ -1,9 +1,17 @@
 require "rails_helper"
 
 RSpec.describe "pages/good_teaching_practice.html.erb", type: :feature do
-  let(:date_updated) { I18n.t("good_teaching_practice.fe.last_update").to_date }
+  let(:date_updated) { I18n.t("good_teaching_practice.schools.last_update").to_date }
 
   describe "update summary badge" do
+    it "appears once in the page" do
+      Timecop.freeze(date_updated + 5.days) do
+        visit pages_path(page: "good-teaching-practice")
+
+        expect(page.find_all('[data-qa="update-summary"]').count).to eq(1)
+      end
+    end
+
     it "should visible for up to 2 weeks" do
       Timecop.freeze(date_updated + 2.weeks) do
         visit pages_path(page: "good-teaching-practice")
