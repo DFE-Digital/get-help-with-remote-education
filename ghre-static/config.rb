@@ -52,11 +52,7 @@ activate :external_pipeline,
   latency: 1
 
 after_build do |builder|
-  begin
-    HTMLProofer.check_directory(config[:build_dir], { :assume_extension => true }).run
-  rescue RuntimeError => e
-    puts e
-  end
+  HTMLProofer.check_directory(config[:build_dir], { :assume_extension => true }).run
 end
 
 configure :build do
