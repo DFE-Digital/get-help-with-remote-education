@@ -5,6 +5,13 @@ RSpec.describe Answer, type: :model do
     subject.reference_code = nil
     expect(subject).to_not be_valid
   end
+
+  it "is not valid if reference_code is not unique" do
+    create :answer, :duplicate_answer
+
+    subject.reference_code = "code"
+    expect(subject).to_not be_valid
+  end
   
   describe "add new answer" do
     it "has none to begin with" do

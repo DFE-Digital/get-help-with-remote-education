@@ -1,3 +1,4 @@
 class Answer < ApplicationRecord
-  validates_presence_of :reference_code
+  validates :reference_code, presence: true, 
+                             uniqueness: true
 end
