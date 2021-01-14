@@ -1,4 +1,5 @@
 import { cookieConsentValue, consentToCookies, withdrawCookieConsent } from './cookie_consent'
+import { initGoogleAnalytics, removeAnalyticsCookies } from './google_analytics';
 
 function submitCookiePreferences(e) {
   e.preventDefault();
@@ -7,10 +8,12 @@ function submitCookiePreferences(e) {
     if (inputs[i].checked) {
       if (inputs[i].value === 'cookie-consent-accept') {
         consentToCookies();
+        initGoogleAnalytics(false);
       }
 
       if (inputs[i].value === 'cookie-consent-deny') {
         withdrawCookieConsent();
+        removeAnalyticsCookies();
       }
     }
   }

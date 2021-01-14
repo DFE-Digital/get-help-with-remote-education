@@ -17,6 +17,7 @@ function hideBanner() {
 function acceptAllCookies() {
   setCookie("ghre_allow_cookies", true, 365);
   updateBanner();
+  initGoogleAnalytics(false);
 }
 
 function cookieConsentGiven() {
