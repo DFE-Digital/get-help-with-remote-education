@@ -13,6 +13,10 @@ class ReviewFrameworkController < ApplicationController
 
   def question; end
 
+  def submit_answer
+    redirect_to results_path
+  end
+
   private
 
     def questions
