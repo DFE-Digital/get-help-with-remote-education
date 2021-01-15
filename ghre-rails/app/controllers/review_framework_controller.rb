@@ -8,12 +8,18 @@ class ReviewFrameworkController < ApplicationController
       session[:answer_id] = new_answer.id
     end
 
-    redirect_to questions_path(:start, questions[:start].first.to_s.dasherize)
+    redirect_to questions_path(:details, questions[:details].first.to_s.dasherize)
   end
 
   def question; end
 
   def submit_answer
+    success = current_user.save_answer(
+      section: params[:section],
+      question: params[:question],
+      answer: params[:score_id].to_i
+    )
+
     redirect_to results_path
   end
 
@@ -21,7 +27,7 @@ class ReviewFrameworkController < ApplicationController
 
     def questions
       {
-        start: %i[
+        details: %i[
           which_educational_stage
         ]
       }

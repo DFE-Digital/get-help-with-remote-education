@@ -52,6 +52,8 @@ group :development, :test do
   gem "timecop"
 
   gem 'factory_bot_rails'
+
+  gem 'shoulda', '~> 4.0'
 end
 
 group :development do

@@ -18,7 +18,7 @@ RSpec.describe ReviewFrameworkController, type: :request do
       end
       
       it 'redirects to the first question' do
-        expect(response).to redirect_to(questions_path(section: :start, question: :'which-educational-stage'))
+        expect(response).to redirect_to(questions_path(section: :details, question: :'which-educational-stage'))
       end  
 
       it "creates a session id" do
@@ -46,16 +46,25 @@ RSpec.describe ReviewFrameworkController, type: :request do
     end
   end
 
-  describe "POST #submit_answer" do  
+  describe "POST #submit_answer" do
+    let(:mock_answer) { double("mock_answer", save_answer: true) }
+
+    before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(mock_answer) }
+
     it "returns http redirect" do
-      post submit_answer_path(section: :'test-section', question: :'test-question')
+      post submit_answer_path(section: :details, question: :'which-educational-stage')
       expect(response).to have_http_status(:redirect)
+    end
+
+    it "calls the submit_answer method" do
+      expect(mock_answer).to receive(:save_answer).exactly(1).times
+      post submit_answer_path(section: :details, question: :'which-educational-stage')
     end
   end
 
   describe 'GET #question' do
     it 'returns http success' do
-      get questions_path(section: :start, question: :'which-educational-stage')
+      get questions_path(section: :details, question: :'which-educational-stage')
       expect(response).to have_http_status(:success)
     end
   end
