@@ -18,7 +18,7 @@ RSpec.describe ReviewFrameworkController, type: :request do
       end
       
       it 'redirects to the first question' do
-        expect(response).to redirect_to(questions_path(section: :details, question: :'which-educational-stage'))
+        expect(response).to redirect_to(questions_path(section: :leadership, question: :'remote-education-plan'))
       end  
 
       it "creates a session id" do
