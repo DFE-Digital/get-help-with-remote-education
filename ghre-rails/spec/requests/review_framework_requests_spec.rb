@@ -47,7 +47,7 @@ RSpec.describe ReviewFrameworkController, type: :request do
   end
 
   describe "POST #submit_answer" do
-    let(:mock_answer) { double("mock_answer", save_answer: true) }
+    let(:mock_answer) { double("mock_answer", submit_answer: true, save!: true) }
 
     before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(mock_answer) }
 
@@ -57,7 +57,7 @@ RSpec.describe ReviewFrameworkController, type: :request do
     end
 
     it "calls the submit_answer method" do
-      expect(mock_answer).to receive(:save_answer).exactly(1).times
+      expect(mock_answer).to receive(:submit_answer).exactly(1).times
       post submit_answer_path(section: :details, question: :'which-educational-stage')
     end
   end

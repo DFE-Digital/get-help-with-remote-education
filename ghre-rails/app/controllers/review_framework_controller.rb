@@ -13,12 +13,16 @@ class ReviewFrameworkController < ApplicationController
 
   def question; end
 
+  def results; end
+
   def submit_answer
-    success = current_user.save_answer(
+    success = current_user.submit_answer(
       section: params[:section],
-      question: params[:question],
+      question: params[:question].underscore,
       answer: params[:score_id].to_i,
     )
+
+    current_user.save!
 
     redirect_to results_path
   end

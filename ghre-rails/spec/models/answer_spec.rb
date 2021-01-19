@@ -1,39 +1,48 @@
 require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
-  subject { described_class.new(reference_code: SecureRandom.uuid) }
+  subject { described_class.create(reference_code: SecureRandom.uuid) }
 
-  it "is not valid without reference_code" do
-    subject.reference_code = nil
-    expect(subject).to_not be_valid
-  end
+  describe "validations" do
+    it "is not valid without reference_code" do
+      subject.reference_code = nil
+      expect(subject).to_not be_valid
+    end
 
-  it "is not valid if reference_code is not unique" do
-    create :answer, :duplicate_answer
+    it "is not valid if reference_code is not unique" do
+      create :answer, :duplicate_answer
 
-    subject.reference_code = "code"
-    expect(subject).to_not be_valid
+      subject.reference_code = "code"
+      expect(subject).to_not be_valid
+    end
   end
   
-  describe "add new answer" do
-    it "has none to begin with" do
-      expect(Answer.count).to eq(0)
-    end
+  describe "#save_answer" do
+    context "Leadership" do
+      it "allows you to submit answers for leadership questions" do
+        subject.submit_answer(
+          section: 'leadership',
+          question: 'remote_education_plan',
+          answer: 1
+        )
 
-    it "has one after adding one" do
-      create :answer, :blank_answer
-      expect(Answer.count).to eq(1)
-    end
+        expect(subject.leadership.remote_education_plan).to eq(1)
+      end
 
-    it "has none after one was created in a previous example" do
-      expect(Answer.count).to eq(0)
-    end
+      it "allows you to update the answer" do
+        subject.submit_answer(
+          section: 'leadership',
+          question: 'remote_education_plan',
+          answer: 1
+        )
 
-    describe "start section" do
-      before { subject.save! }
+        subject.submit_answer(
+          section: 'leadership',
+          question: 'remote_education_plan',
+          answer: 2
+        )
 
-      it "saves answers" do
-        expect(subject.save_answer(section: :details, question: :which_educational_stage, answer: "secondary school"))
+        expect(subject.leadership.remote_education_plan).to eq(2)
       end
     end
   end
