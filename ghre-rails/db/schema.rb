@@ -30,12 +30,12 @@ ActiveRecord::Schema.define(version: 2021_01_19_093308) do
     t.index ["answer_id"], name: "index_details_on_answer_id"
   end
 
-  create_table "leadership_answers", force: :cascade do |t|
+  create_table "leaderships", force: :cascade do |t|
+    t.bigint "answer_id"
     t.integer "remote_education_plan"
-    t.bigint "answers_id"
-    t.index ["answers_id"], name: "index_leadership_answers_on_answers_id"
+    t.index ["answer_id"], name: "index_leaderships_on_answer_id"
   end
 
   add_foreign_key "details", "answers"
-  add_foreign_key "leadership_answers", "answers", column: "answers_id"
+  add_foreign_key "leaderships", "answers"
 end

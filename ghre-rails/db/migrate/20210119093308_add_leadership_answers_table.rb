@@ -1,9 +1,8 @@
 class AddLeadershipAnswersTable < ActiveRecord::Migration[6.0]
   def change
-    create_table :leadership_answers do |t|
+    create_table :leaderships do |t|
+      t.belongs_to :answer, foreign_key: true
       t.column :remote_education_plan, :integer
     end
-
-    add_reference :leadership_answers, :answers, foreign_key: true
   end
 end
