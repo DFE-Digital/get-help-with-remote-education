@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_223332) do
+ActiveRecord::Schema.define(version: 2021_01_19_093308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,5 +30,12 @@ ActiveRecord::Schema.define(version: 2021_01_15_223332) do
     t.index ["answer_id"], name: "index_details_on_answer_id"
   end
 
+  create_table "leadership_answers", force: :cascade do |t|
+    t.integer "remote_education_plan"
+    t.bigint "answers_id"
+    t.index ["answers_id"], name: "index_leadership_answers_on_answers_id"
+  end
+
   add_foreign_key "details", "answers"
+  add_foreign_key "leadership_answers", "answers", column: "answers_id"
 end
