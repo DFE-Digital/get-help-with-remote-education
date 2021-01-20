@@ -1,6 +1,8 @@
----
-back_link: true
----
+<% page_title = "Not Found"%>
+<%= content_for :page_title, page_title%>
+<%= content_for :before_content do %>
+  <a href="/" class="govuk-back-link">Back</a>
+<% end %>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">Page not found</h1>
