@@ -52,13 +52,13 @@ RSpec.describe ReviewFrameworkController, type: :request do
     before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(mock_answer) }
 
     it "returns http redirect" do
-      post submit_answer_path(section: :details, question: :'which-educational-stage')
+      post submit_answer_path(section: 'leadership', question: 'remote-education-plan')
       expect(response).to have_http_status(:redirect)
     end
 
     it "calls the submit_answer method" do
-      expect(mock_answer).to receive(:submit_answer).exactly(1).times
-      post submit_answer_path(section: :details, question: :'which-educational-stage')
+      post submit_answer_path(section: 'leadership', question: 'remote-education-plan', score_id: '3')
+      expect(mock_answer).to have_received(:submit_answer).with(section: :leadership, question: :remote_education_plan, answer: 3)
     end
   end
 

@@ -16,15 +16,25 @@ class ReviewFrameworkController < ApplicationController
   def results; end
 
   def submit_answer
+    section = params[:section].to_sym
+    question = params[:question].underscore.to_sym
+
     success = current_user.submit_answer(
-      section: params[:section],
-      question: params[:question].underscore,
+      section: section,
+      question: question,
       answer: params[:score_id].to_i,
     )
 
     current_user.save!
 
-    redirect_to results_path
+    cur_index = questions[section].index(question)
+    next_question = questions[section].fetch(cur_index + 1, :end)
+
+    if next_question == :end
+      redirect_to results_path
+    else
+      redirect_to questions_path(:leadership, next_question.to_s.dasherize)
+    end
   end
 
 private
@@ -36,7 +46,9 @@ private
       ],
       leadership: %i[
         remote_education_plan
-      ]
+        communication
+        monitoring_and_evaluating
+      ],
     }
   end
 end

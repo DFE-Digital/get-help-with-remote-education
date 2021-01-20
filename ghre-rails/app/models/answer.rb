@@ -6,7 +6,7 @@ class Answer < ApplicationRecord
 
   def submit_answer(section:, question:, answer:) 
     case section
-    when 'leadership'
+    when :leadership
       create_leadership unless leadership
       leadership[question] = answer
       leadership.save!

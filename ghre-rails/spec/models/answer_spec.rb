@@ -21,8 +21,8 @@ RSpec.describe Answer, type: :model do
     context "Leadership" do
       it "allows you to submit answers for leadership questions" do
         subject.submit_answer(
-          section: 'leadership',
-          question: 'remote_education_plan',
+          section: :leadership,
+          question: :remote_education_plan,
           answer: 1
         )
 
@@ -31,14 +31,14 @@ RSpec.describe Answer, type: :model do
 
       it "allows you to update the answer" do
         subject.submit_answer(
-          section: 'leadership',
-          question: 'remote_education_plan',
+          section: :leadership,
+          question: :remote_education_plan,
           answer: 1
         )
 
         subject.submit_answer(
-          section: 'leadership',
-          question: 'remote_education_plan',
+          section: :leadership,
+          question: :remote_education_plan,
           answer: 2
         )
 

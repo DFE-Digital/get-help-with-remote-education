@@ -19,14 +19,32 @@ RSpec.describe "Submitting a series of answers", type: :feature do
   context "Answering the first leadership question" do
     let(:answers) { Answer.last }
 
-    before do 
-      visit review_framework_index_path 
+    before do
+      visit review_framework_index_path
       start_page.start_button.click
     end
 
     it "Updates the saved answers" do
       question_page.submit_answer(1)
       expect(answers.leadership.remote_education_plan).to eq(1)
+    end
+
+    it "navigates to the next question" do
+      question_page.submit_answer(1)
+      expect(page.current_path).to eq(questions_path(:leadership, :communication))
+    end
+  end
+
+  context "Answering the last leadership question" do
+    let(:answers) { Answer.last }
+
+    before do
+      visit review_framework_index_path
+      start_page.start_button.click
+      question_page.submit_answer(1)
+      question_page.submit_answer(1)
+      question_page.submit_answer(1)
+      expect(page.current_path).to eq(results_path)
     end
   end
 end
