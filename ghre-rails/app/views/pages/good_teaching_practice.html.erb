@@ -1,4 +1,4 @@
-<% page_title = "Good traching practice and resources"%>
+<% page_title = "Good teaching practice and resources"%>
 <%= content_for :page_title, page_title%>
 <%= content_for :before_content do %>
   <a href="/" class="govuk-back-link">Back</a>
@@ -11,6 +11,52 @@
     <p class="govuk-body">
       Remote education resources, including lessons from Oak National Academy, as well as guidance, lesson plans and webinars on teaching remotely.
     </p>
+    <div class="event-panel">
+      <h2 class="govuk-heading-m">Online event<br>
+        <br>
+        Get Help with Remote Education: building blocks to strengthening your remote provision</h2>
+      <p class="govuk-body">Join our sector-led, online event from <strong>4pm on Wednesday 27th January</strong>. The event will provide:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>examples of the best approaches to remote education</li>
+        <li>advice on delivering the curriculum virtually, featuring Oak National Academy, the EdTech Demonstrator Network, Microsoft and Google</li>
+        <li>top tips on maintaining wellbeing, motivation and keeping pupils safe whilst delivering remote education</li>
+      </ul>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Read the full agenda
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">The event will be led by a selection of primary and secondary schools, including those who have accessed the DfE’s support package and Oak National Academy. Sessions include:</p>
+          <h3 class="govuk-heading-m">Getting the basics right</h3>
+          <p class="govuk-body">This session will focus on how to use DfE's remote education offer, to develop:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a strong remote education strategy</li>
+            <li>long-term sustainable benefits of adopting DfE's remote education offer</li>
+            <li>use of digital platforms</li>
+          </ul>
+          <h3 class="govuk-heading-m">Delivering the curriculum virtually</h3>
+          <p class="govuk-body">This session will explore ways to maintain high-quality teaching remotely, including:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>managing the complexity of delivering lessons to pupils in and outside of the classroom simultaneously</li>
+            <li>ensuring the curriculum is accessible to all pupils</li>
+            <li>ways Oak National Academy can be used interactively</li>
+            <li>providing quality</li>
+            <li>using technology to support catch-up activities</li>
+          </ul>
+          <h3 class="govuk-heading-m">Maintaining wellbeing, motivation and keeping pupils safe</h3>
+          <p class="govuk-body">This session will explore:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>how to ensure pupils remain motivated and able to learn</li>
+            <li>supporting school staff</li>
+            <li>securing e-safety</li>
+          </ul>
+        </div>
+      </details>
+      <p class="govuk-body">A link to access the event will be available from this page on 26 January. A recording of the event sessions will be available afterwards.</p>
+      <p class="govuk-body">A further panel event will take place on 3 February. Registration will open on 27 January.</p>
+    </div>
     <h2 class="govuk-heading-l">Schools</h2>
     <% schools_update_date = t('good_teaching_practice.schools.last_update').to_date %>
     <%= render layout: 'summary', locals: { update_date: schools_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: false } do; end %>
