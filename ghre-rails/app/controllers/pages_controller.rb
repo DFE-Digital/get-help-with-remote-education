@@ -6,6 +6,17 @@ class PagesController < ApplicationController
   def show
     @today = Date.today
     @show_updates = params[:show_updates] == "true"
-    render template: "pages/#{params[:page].gsub('-', '_')}"
+    
+    begin
+      render template: "pages/#{params[:page].gsub('-', '_')}"
+    rescue ActionView::MissingTemplate
+      not_found
+    end
   end
+
+  private
+
+    def not_found
+      raise ActionController::RoutingError.new('Not Found')
+    end
 end
