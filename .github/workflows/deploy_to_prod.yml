@@ -75,6 +75,6 @@ jobs:
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
-          cf target -o dfe-teacher-services -s get-help-with-remote-education-prod
+          cf target -o dfe -s get-help-with-remote-education-prod
           cf target
           cf push -b staticfile_buildpack -p build get-help-with-remote-education-prod

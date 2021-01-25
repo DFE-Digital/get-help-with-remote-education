@@ -13,6 +13,6 @@ variable statuscake_alerts { default = {} }
 locals {
   region        = "eu-west-2"
   paas_api_url  = "https://api.london.cloud.service.gov.uk"
-  paas_org_name = "dfe-teacher-services"
+  paas_org_name = "dfe"
   status_cake_group_id = [197663] # Get help with remote education https://app.statuscake.com/ContactGroup.php?CUID=197663
 }

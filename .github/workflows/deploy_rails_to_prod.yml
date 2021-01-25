@@ -80,5 +80,5 @@ jobs:
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
-          cf target -o dfe-teacher-services -s get-help-with-remote-education-prod
+          cf target -o dfe -s get-help-with-remote-education-prod
           cf push -f ./config/manifests/prod_manifest.yml --docker-image dfedigital/get-help-with-remote-education-prod:latest --strategy rolling

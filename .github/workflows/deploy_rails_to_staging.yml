@@ -55,5 +55,5 @@ jobs:
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_STAGING }}" "${{ secrets.CF_PASSWORD_STAGING }}"
-          cf target -o dfe-teacher-services -s get-help-with-remote-education-staging
+          cf target -o dfe -s get-help-with-remote-education-staging
           cf push -f ./config/manifests/staging_manifest.yml --docker-image dfedigital/get-help-with-remote-education-staging:latest
