@@ -28,3 +28,7 @@ yarn-debug.log*
 
 .env
 *.log
+
+# Ignore self-signed certs
+/localhost.crt
+/localhost.key
