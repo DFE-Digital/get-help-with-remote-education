@@ -9,7 +9,6 @@ class ReviewFrameworkController < ApplicationController
     end
 
     redirect_to review_framework_task_list_path
-    # redirect_to questions_path(:leadership, questions[:leadership].first.to_s.dasherize)
   end
 
   def question; end
@@ -39,7 +38,7 @@ class ReviewFrameworkController < ApplicationController
     next_question = questions[section].fetch(cur_index + 1, :end)
 
     if next_question == :end
-      redirect_to results_path
+      redirect_to review_framework_task_list_path
     else
       redirect_to questions_path(:leadership, next_question.to_s.dasherize)
     end

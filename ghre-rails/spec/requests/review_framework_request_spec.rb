@@ -69,6 +69,20 @@ RSpec.describe ReviewFrameworkController, type: :request do
       post submit_answer_path(section: 'leadership', question: 'remote-education-plan', score_id: '3')
       expect(mock_answer).to have_received(:submit_answer).with(section: :leadership, question: :remote_education_plan, answer: 3)
     end
+
+    it "Redirects to the next question" do
+      post submit_answer_path(section: 'leadership', question: 'remote-education-plan', score_id: '3')
+      expect(response).to have_http_status(:redirect)
+      expect(response).to redirect_to(questions_path(section: 'leadership', question: 'communication'))
+    end
+
+    context "Submitting a score for the final question in a section" do
+      it "Redirects to the task list page" do
+        post submit_answer_path(section: 'leadership', question: 'monitoring-and-evaluating', score_id: '3')
+        expect(response).to have_http_status(:redirect)
+        expect(response).to redirect_to(review_framework_task_list_path)
+      end
+    end
   end
 
   describe 'GET #question' do

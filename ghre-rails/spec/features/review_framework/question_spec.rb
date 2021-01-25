@@ -45,10 +45,14 @@ RSpec.describe "Submitting a series of answers", type: :feature do
     before do
       visit review_framework_index_path
       start_page.start_button.click
+      task_list_page.leadership_link.click
       question_page.submit_answer(1)
       question_page.submit_answer(1)
+    end
+    
+    it "Takes the user to the task list page" do
       question_page.submit_answer(1)
-      expect(page.current_path).to eq(results_path)
+      expect(page.current_path).to eq(review_framework_task_list_path)
     end
   end
 end
