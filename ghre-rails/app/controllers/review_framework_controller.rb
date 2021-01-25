@@ -8,10 +8,18 @@ class ReviewFrameworkController < ApplicationController
       session[:answer_id] = new_answer.id
     end
 
-    redirect_to questions_path(:leadership, questions[:leadership].first.to_s.dasherize)
+    redirect_to review_framework_task_list_path
+    # redirect_to questions_path(:leadership, questions[:leadership].first.to_s.dasherize)
   end
 
   def question; end
+
+  def section
+    target_section = params[:section].to_sym
+    redirect_to questions_path(target_section, questions[target_section].first.to_s.dasherize)
+  end
+
+  def task_list; end
 
   def results; end
 

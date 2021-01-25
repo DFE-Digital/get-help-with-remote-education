@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   root "pages#index"
 
   get "/review-framework", to: "review_framework#index", as: :review_framework_index
-  get "/review-framework/start", to: "review_framework#start"
+  get "/review-framework/task-list", to: "review_framework#task_list", as: :review_framework_task_list
+  get "/review-framework/start", to: "review_framework#start", as: :review_framework_start
   get "/review-framework/results", to: "review_framework#results", as: :results
 
+  get "/review-framework/:section", to: "review_framework#section", as: :review_framework_section
   get "/review-framework/:section/:question", to: "review_framework#question", as: :questions
   post "/review-framework/:section/:question", to: "review_framework#submit_answer", as: :submit_answer
 

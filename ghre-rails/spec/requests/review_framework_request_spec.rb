@@ -18,7 +18,7 @@ RSpec.describe ReviewFrameworkController, type: :request do
       end
       
       it 'redirects to the first question' do
-        expect(response).to redirect_to(questions_path(section: :leadership, question: :'remote-education-plan'))
+        expect(response).to redirect_to(review_framework_task_list_path)
       end  
 
       it "creates a session id" do
@@ -42,6 +42,15 @@ RSpec.describe ReviewFrameworkController, type: :request do
 
       it "does not create a new answer" do
         expect(Answer.count).to eq(0)
+      end
+    end
+  end
+
+  describe "GET #section" do
+    context "Leadership" do
+      it "Redirects to the first leadership question" do
+        get review_framework_section_path(section: 'leadership')
+        expect(response).to redirect_to(questions_path(section: :leadership, question: :'remote-education-plan'))
       end
     end
   end
