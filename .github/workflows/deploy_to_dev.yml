@@ -12,7 +12,7 @@ jobs:
     defaults:
       run:
         working-directory: ghre-static
-        
+
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -39,7 +39,7 @@ jobs:
       - name: add basic auth
         run: |
           echo "${{ secrets.BASIC_AUTH_USER }}":"${{ secrets.BASIC_AUTH_HASHED_PASSWORD }}" > source/Staticfile.auth
-      
+
       - name: Use Terraform 0.14.2
         uses: hashicorp/setup-terraform@v1
         with:
@@ -77,6 +77,6 @@ jobs:
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_PASSWORD_DEV }}"
-          cf target -o dfe-teacher-services -s get-help-with-remote-education-dev
+          cf target -o dfe -s get-help-with-remote-education-dev
           cf target
           cf push -b staticfile_buildpack -p build get-help-with-remote-education-dev

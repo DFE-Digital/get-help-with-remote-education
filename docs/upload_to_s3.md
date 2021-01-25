@@ -6,22 +6,22 @@ The Get Help with Remote Education (GHRE) service relies on AWS S3 for hosting c
 
 ### Current Architecture for GHRE S3 service
 
-Each environment is configured within a space in govuk PaaS. SpaceDevelopers are able to access and configure the S3 services detailed below. 
+Each environment is configured within a space in govuk PaaS. SpaceDevelopers are able to access and configure the S3 services detailed below.
 
 #### Development
-- Organisation: dfe-teacher-services
+- Organisation: dfe
 - Space: get-help-with-remote-education-dev
 - Service Name: ghre-s3-public-dev
 - Service Key: ghre-s3-public-dev
 
 #### Staging
-- Organisation: dfe-teacher-services
+- Organisation: dfe
 - Space: get-help-with-remote-education-staging
 - Service Name: ghre-s3-public-staging
 - Service Key: ghre-s3-public-staging
 
 #### Production
-- Organisation: dfe-teacher-services
+- Organisation: dfe
 - Space: get-help-with-remote-education-prod
 - Service Name: ghre-s3-public-prod
 - Service Key: ghre-s3-public-prod
@@ -53,7 +53,7 @@ Authenticating...
 OK
 Select an org:
 1. dfe-digital
-2. dfe-teacher-services
+2. dfe
 Org (enter to skip): 2
 Select a space:
 1. get-help-with-remote-education-dev
@@ -104,7 +104,7 @@ Authenticating...
 OK
 Select an org:
 1. dfe-digital
-2. dfe-teacher-services
+2. dfe
 Org (enter to skip): 2
 Select a space:
 1. get-help-with-remote-education-dev
