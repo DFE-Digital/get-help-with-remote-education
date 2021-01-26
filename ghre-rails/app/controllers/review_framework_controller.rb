@@ -20,7 +20,9 @@ class ReviewFrameworkController < ApplicationController
 
   def task_list; end
 
-  def results; end
+  def results
+    @answers = current_user
+  end
 
   def submit_answer
     section = params[:section].to_sym

@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe ReviewFrameworkController, type: :request do
-
   describe "GET #index" do
     it "returns http success" do
       get review_framework_index_path
@@ -16,10 +15,10 @@ RSpec.describe ReviewFrameworkController, type: :request do
       it "returns http redirect" do
         expect(response).to have_http_status(:redirect)
       end
-      
-      it 'redirects to the first question' do
+
+      it "redirects to the first question" do
         expect(response).to redirect_to(review_framework_task_list_path)
-      end  
+      end
 
       it "creates a session id" do
         expect(session[:answer_id]).to_not be_nil
@@ -49,7 +48,7 @@ RSpec.describe ReviewFrameworkController, type: :request do
   describe "GET #section" do
     context "Leadership" do
       it "Redirects to the first leadership question" do
-        get review_framework_section_path(section: 'leadership')
+        get review_framework_section_path(section: "leadership")
         expect(response).to redirect_to(questions_path(section: :leadership, question: :'remote-education-plan'))
       end
     end
@@ -61,34 +60,48 @@ RSpec.describe ReviewFrameworkController, type: :request do
     before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(mock_answer) }
 
     it "returns http redirect" do
-      post submit_answer_path(section: 'leadership', question: 'remote-education-plan')
+      post submit_answer_path(section: "leadership", question: "remote-education-plan")
       expect(response).to have_http_status(:redirect)
     end
 
     it "calls the submit_answer method" do
-      post submit_answer_path(section: 'leadership', question: 'remote-education-plan', score_id: '3')
+      post submit_answer_path(section: "leadership", question: "remote-education-plan", score_id: "3")
       expect(mock_answer).to have_received(:submit_answer).with(section: :leadership, question: :remote_education_plan, answer: 3)
     end
 
     it "Redirects to the next question" do
-      post submit_answer_path(section: 'leadership', question: 'remote-education-plan', score_id: '3')
+      post submit_answer_path(section: "leadership", question: "remote-education-plan", score_id: "3")
       expect(response).to have_http_status(:redirect)
-      expect(response).to redirect_to(questions_path(section: 'leadership', question: 'communication'))
+      expect(response).to redirect_to(questions_path(section: "leadership", question: "communication"))
     end
 
     context "Submitting a score for the final question in a section" do
       it "Redirects to the task list page" do
-        post submit_answer_path(section: 'leadership', question: 'monitoring-and-evaluating', score_id: '3')
+        post submit_answer_path(section: "leadership", question: "monitoring-and-evaluating", score_id: "3")
         expect(response).to have_http_status(:redirect)
         expect(response).to redirect_to(review_framework_task_list_path)
       end
     end
   end
 
-  describe 'GET #question' do
-    it 'returns http success' do
+  describe "GET #question" do
+    it "returns http success" do
       get questions_path(section: :details, question: :'which-educational-stage')
       expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET #results" do
+    before do
+      answer = create(:answer, :blank_answer)
+      answer.leadership = Leadership.new(remote_education_plan: 1, communication: 2, monitoring_and_evaluating: 3)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(answer)
+
+      get results_path
+    end
+
+    it "Renders the results page" do
+      expect(response.body).to include("Your recommendations")
     end
   end
 end
