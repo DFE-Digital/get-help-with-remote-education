@@ -1,6 +1,8 @@
 <ul class="govuk-list">
   <% links.each do |link| %>
-    <li>
+    <li
+      <%= "data-updated" if link[:updated] %>
+    >
       <a class="govuk-link" href="<%= link[:href] %>"><%= link[:title] %></a> - <%= link[:topics] %> topics
     </li>
   <% end %>
