@@ -8,11 +8,7 @@ module PageObjects
       end
 
       def submit_answer(score)
-        case score
-        when 1
-          page.find("label[for='score-id-1-field']").click
-        end
-
+        page.find("label[for='score-id-#{score}-field']").click
         submit
       end
 

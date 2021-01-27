@@ -11,7 +11,10 @@ class ReviewFrameworkController < ApplicationController
     redirect_to review_framework_task_list_path
   end
 
-  def question; end
+  def question
+    @section = params[:section]
+    @question = params[:question].underscore
+  end
 
   def section
     target_section = params[:section].to_sym

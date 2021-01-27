@@ -5,8 +5,6 @@ require_relative "../../page_objects/review_framework/question"
 require_relative "../../page_objects/review_framework/recommendations"
 
 RSpec.describe "Getting recommendations", type: :feature do
-  before { visit review_framework_index_path }
-
   let(:start_page) { PageObjects::ReviewFramework::StartPage.new }
   let(:task_list_page) { PageObjects::ReviewFramework::TaskList.new }
   let(:question_page) { PageObjects::ReviewFramework::Question.new }
@@ -20,12 +18,14 @@ RSpec.describe "Getting recommendations", type: :feature do
   end
 
   context "Viewing the recommendations page" do
-    before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(answers)
-    end
-
     it "displays the answers chosen" do
-      visit results_path
+      visit review_framework_index_path
+      start_page.start_button.click
+      task_list_page.leadership_link.click
+      question_page.submit_answer(1)
+      question_page.submit_answer(2)
+      question_page.submit_answer(3)
+      task_list_page.recommendations_link.click
       expect(recommendations_page.scores).to eq({ leadership: { remote_education_plan: "1", communication: "2", monitoring_and_evaluating: "3" } })
     end
   end

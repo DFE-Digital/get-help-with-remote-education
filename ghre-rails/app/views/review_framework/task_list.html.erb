@@ -1,3 +1,28 @@
-Task list
-
-<%= link_to 'Leadership', review_framework_section_path(section: 'leadership'), data: { qa: 'leadership-link' } %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" data-qa="question-title">Review your remote education provision </h1>
+    <%= link_to "View your recommendations",
+        results_path,
+        role: "button",
+        class: "govuk-button",
+        draggable: "false",
+        data: { 
+          module: "govuk-button",
+          qa: "recommendations-link"
+        }
+    %>
+    <ul class="app-task-list__items rerf">
+      <li class="app-task-list__item">
+        <span class="app-task-list__task-name">
+          <%= link_to 'Leadership', 
+              review_framework_section_path(section: 'leadership'), 
+              class: "govuk-link",
+              data: { qa: 'leadership-link' },
+              'aria-describedby': 'leadership-status'
+          %>
+        </span>
+        <br>
+        <p>Create a clear vision and approach for remote education, and maintain awareness of any issues or barriers related to effective delivery.</p>
+      </li>
+    </div>
+  </div>

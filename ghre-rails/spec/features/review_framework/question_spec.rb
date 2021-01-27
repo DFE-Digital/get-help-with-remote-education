@@ -11,11 +11,17 @@ RSpec.describe "Submitting a series of answers", type: :feature do
   let(:question_page) { PageObjects::ReviewFramework::Question.new }
 
   context "navigate to question page" do
-    it "Loads the first question when clicking the section link" do
+    before do
       start_page.start_button.click
       task_list_page.leadership_link.click
+    end
 
+    it "Loads the first question when clicking the section link" do
       expect(question_page.title).to be_visible
+    end
+
+    it "Displays the correct question title" do
+      expect(question_page.title.text).to eq(I18n.t('review_framework.leadership.remote_education_plan.title'))
     end
   end
 
