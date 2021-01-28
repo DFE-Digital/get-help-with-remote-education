@@ -94,9 +94,7 @@
         </div>
       </div>
       <div 
-        class="govuk-accordion__section updated-content <%= 'active' if @show_updates %>" 
-        data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-        data-updated
+        class="govuk-accordion__section"
       >
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
@@ -298,8 +296,51 @@
           </p>
           <p class="govuk-body">
             DfE has also funded colleges to produce a range of content for the FE sector. The content consists of free, Sharable Content
-            Object Reference Model (SCORM) compliant resources  for use across the FE curriculum.
+            Object Reference Model (SCORM) compliant resources for use across the FE curriculum.
           </p>
+
+          <h4 class="govuk-heading-s">Agriculture, horticulture, and animal care</h4>
+          <%= render partial: 'links_with_topics', locals: {
+                links: [
+                  {
+                    title: 'Animal care (videos)',
+                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=17',
+                    topics: 10
+                  },
+                  {
+                    title: 'Carpentry (videos)',
+                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=19',
+                    topics: 4
+                  },
+                  {
+                    title: 'Painting and decorating',
+                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=22',
+                    topics: 5
+                  }
+                ]
+              }
+          %>
+
+          <h4 class="govuk-heading-s">Arts, media and publishing</h4>
+          <%= render partial: 'links_with_topics', locals: {
+                links: [
+                  {
+                    title: 'Photography and Media Level 2 (videos)',
+                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=26',
+                    topics: 9,
+                    updated: true,
+                    show_updates: @show_updates
+                  },
+                  {
+                    title: 'Art Level 2 (videos)',
+                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=29',
+                    topics: 1,
+                    updated: true,
+                    show_updates: @show_updates
+                  }
+                ]
+              }
+          %>
 
           <h4 class="govuk-heading-s">Health, public and social care</h4>
           <%= render partial: 'links_with_topics', locals: {
@@ -335,28 +376,6 @@
                     title: 'Maths level 1 (SCORM)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=12',
                     topics: 30
-                  }
-                ]
-              }
-          %>
-
-          <h4 class="govuk-heading-s">Agriculture, horticulture, and animal care</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Animal care (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=17',
-                    topics: 10
-                  },
-                  {
-                    title: 'Carpentry (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=19',
-                    topics: 4
-                  },
-                  {
-                    title: 'Painting and decorating',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=22',
-                    topics: 5
                   }
                 ]
               }
