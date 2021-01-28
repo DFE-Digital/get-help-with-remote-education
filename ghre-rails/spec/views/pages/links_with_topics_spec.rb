@@ -44,4 +44,40 @@ RSpec.describe "pages/links_with_topics.html.erb", type: :view do
       expect(html).to_not have_selector('[data-qa]')
     end
   end
+
+  describe "pluralization" do
+    describe "with 1 topic" do
+      let(:html) { render partial: 'links_with_topics', locals: {
+          links: [
+            {
+              title: "example",
+              href: "https://www.example.com",
+              topics: 1
+            }
+          ]
+        }
+      }
+      
+      it "doesn't pluralize the word topic" do
+        expect(html).to have_text("example - 1 topic")
+      end
+    end
+
+    describe "with multiple topics" do
+      let(:html) { render partial: 'links_with_topics', locals: {
+          links: [
+            {
+              title: "example",
+              href: "https://www.example.com",
+              topics: 5
+            }
+          ]
+        }
+      }
+      
+      it "pluralizes the word topic" do
+        expect(html).to have_text("example - 5 topics")
+      end
+    end
+  end
 end

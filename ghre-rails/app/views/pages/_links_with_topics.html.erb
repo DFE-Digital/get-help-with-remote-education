@@ -5,7 +5,7 @@
       <%= "data-qa=updated-content#{ link[:show_updates] ? '__highlighted' : '' }" if link[:updated] %>
       <%= "data-updated" if link[:updated] %>
     >
-      <a class="govuk-link" href="<%= link[:href] %>"><%= link[:title] %></a> - <%= link[:topics] %> topics
+      <a class="govuk-link" href="<%= link[:href] %>"><%= link[:title] %></a> - <%= link[:topics] %> <%= "topic".pluralize(link[:topics]) %>
     </li>
   <% end %>
 </ul>
