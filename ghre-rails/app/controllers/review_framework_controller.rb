@@ -23,7 +23,7 @@ class ReviewFrameworkController < ApplicationController
 
   def task_list; end
 
-  def results
+  def recommendations
     @answers = current_user
   end
 

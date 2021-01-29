@@ -4,8 +4,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl" data-qa="question-title"><%= t("review_framework.#{@section}.#{@question}.title") %></h1>
-    <ul class="govuk-list govuk-list--bullet">
+    <h1 class="govuk-heading-xl" data-qa="question-title"><%= t("review_framework.recommendations.title") %></h1>
+    <ul class="govuk-list govuk-list--bullet" data-qa="leadership">
       <li>Remote education plan: <span data-qa='remote-education-plan'><%= @answers.leadership.remote_education_plan %></span></li>
       <li>Communication: <span data-qa='communication'><%= @answers.leadership.communication %></span></li>
       <li>Monitoring and evaulating: <span data-qa='monitoring-and-evaluating'><%= @answers.leadership.monitoring_and_evaluating %></span></li>

@@ -91,17 +91,17 @@ RSpec.describe ReviewFrameworkController, type: :request do
     end
   end
 
-  describe "GET #results" do
+  describe "GET #recommendations" do
     before do
       answer = create(:answer, :blank_answer)
       answer.leadership = Leadership.new(remote_education_plan: 1, communication: 2, monitoring_and_evaluating: 3)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(answer)
 
-      get results_path
+      get review_framework_recommendations_path
     end
 
-    it "Renders the results page" do
-      expect(response.body).to include("Your recommendations")
+    it "Renders the recommendations page" do
+      expect(response.body).to include(I18n.t('review_framework.recommendations.title'))
     end
   end
 end
