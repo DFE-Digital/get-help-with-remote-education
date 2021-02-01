@@ -6,7 +6,7 @@ RSpec.describe "page/support_for_recovery.html.erb", type: :feature do
       visit pages_path(page: "support-for-recovery")
 
       expect(page).to have_selector('a[href="https://www.gov.uk/government/publications/school-leadership-support/school-leadership-support?utm_source=remote_education"]',
-                                    text: 'school-to-school support programme')
+                                    text: "school-to-school support programme")
     end
   end
 end

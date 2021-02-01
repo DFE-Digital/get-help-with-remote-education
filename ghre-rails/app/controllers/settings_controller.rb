@@ -16,10 +16,10 @@ class SettingsController < ApplicationController
     render :cookie_preferences
   end
 
-  private
+private
 
   def clear_existing_ga_cookies
-    ga_cookies = cookies.select { |k, v| k.to_s.starts_with?("_ga") }
-    ga_cookies.each { |k, v| cookies.delete(k) }
+    ga_cookies = cookies.select { |k, _v| k.to_s.starts_with?("_ga") }
+    ga_cookies.each { |k, _v| cookies.delete(k) }
   end
 end
