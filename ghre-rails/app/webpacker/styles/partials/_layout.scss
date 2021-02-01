@@ -1,51 +1,55 @@
-@import 'variables';
+@import "variables";
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background: #b1b4b6;
+  border: 0;
+  height: 1px;
+  background: $govuk-border-colour;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .app-cookie-banner {
-    padding: 15px 0px 10px;
-    background-color: $cookie-banner-background;
-    &__actions {
-        display: block;
-    };
-    &__confirmation {
-        display: none;
-    };
-    #{&}__link {
-        color: $cookie-banner-text;
-    };
+  padding: 15px 0 10px;
+  background-color: $cookie-banner-background;
+
+  &__actions {
+    display: block;
+  }
+
+  &__confirmation {
+    display: none;
+  }
+
+  #{&}__link {
+    color: $cookie-banner-text;
+  }
 }
 
 .inline-message {
+  display: inline;
+  line-height: 2;
+
+  &--right {
     display: inline;
+    float: right;
     line-height: 2;
-    &--right {
-        display: inline;
-        float: right;
-        line-height: 2;
-    };
+  }
 }
 
 .updated-content.active {
-	  background: rgba(255, 223, 148, 0.5);
-	  border: 2px dashed #6F777B;
-	  padding: 0 .25em;
+  background: $govuk-updated-content-active-background;
+  border: 2px dashed $govuk-updated-content-active-border;
+  padding: 0 0.25em;
 }
 
 .event-panel {
-  background: #f3f2f1;
+  background: govuk-colour("light-grey");
   padding: 1rem;
   margin: 2rem 0;
 }
