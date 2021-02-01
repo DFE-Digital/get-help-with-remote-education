@@ -15,12 +15,10 @@ on:
 
 jobs:
   build_and_test:
-
-    runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: ghre-rails
+    runs-on: ubuntu-latest
     # Service containers to run with `container-job`
     # services:
       # Label used to access the service container
