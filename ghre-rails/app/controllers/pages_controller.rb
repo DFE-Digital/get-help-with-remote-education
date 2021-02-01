@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
   def index
-    @today = Date.today
+    @today = Time.zone.today
   end
 
   def show
-    @today = Date.today
+    @today = Time.zone.today
     @show_updates = params[:show_updates] == "true"
-    
+
     begin
       render template: "pages/#{params[:page].gsub('-', '_')}"
     rescue ActionView::MissingTemplate
@@ -14,9 +14,9 @@ class PagesController < ApplicationController
     end
   end
 
-  private
+private
 
-    def not_found
-      raise ActionController::RoutingError.new('Not Found')
-    end
+  def not_found
+    raise ActionController::RoutingError, "Not Found"
+  end
 end

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "/pages/send.html.erb", type: :feature do
-  let(:date_updated) { I18n.t('send.training_in_assistive_technology.last_update').to_date }
+  let(:date_updated) { I18n.t("send.training_in_assistive_technology.last_update").to_date }
 
   describe "Training in assistive technology section" do
     before do
@@ -14,11 +14,11 @@ RSpec.describe "/pages/send.html.erb", type: :feature do
   end
 
   describe "Update summary" do
-    let(:date_updated) { I18n.t('send.training_in_assistive_technology.last_update').to_date }
+    let(:date_updated) { I18n.t("send.training_in_assistive_technology.last_update").to_date }
 
     it "should have one update badge" do
       Timecop.freeze(date_updated + 5.days) do
-        visit pages_path(page: 'send')
+        visit pages_path(page: "send")
         expect(page.find_all('[data-qa="update-summary"]').count).to eq(1)
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe "/pages/send.html.erb", type: :feature do
         expect(page.find('[data-qa="update-summary"]')).to be_visible
       end
     end
-    
+
     it "is visible for two weeks" do
       Timecop.freeze(date_updated + 2.weeks) do
         visit pages_path(page: "send")
@@ -45,7 +45,7 @@ RSpec.describe "/pages/send.html.erb", type: :feature do
         expect(page).not_to have_selector('[data-qa="update-summary"]')
       end
     end
-    
+
     describe "when toggled" do
       before { Timecop.freeze(date_updated) }
       after { Timecop.return }

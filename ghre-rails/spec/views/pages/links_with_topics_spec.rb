@@ -2,21 +2,22 @@ require "rails_helper"
 
 RSpec.describe "pages/links_with_topics.html.erb", type: :view do
   describe "updated content" do
-    let(:html) { render partial: 'links_with_topics', locals: {
+    let(:html) do
+      render partial: "links_with_topics", locals: {
         links: [
           {
             title: "example",
             href: "https://www.example.com",
             topics: 11,
             updated: true,
-            show_updates: true
-          }
-        ]
+            show_updates: true,
+          },
+        ],
       }
-    }
+    end
 
     it "has data-updated attribute" do
-      expect(html).to have_selector('[data-updated]')
+      expect(html).to have_selector("[data-updated]")
     end
 
     it "has a data-qa attribute" do
@@ -25,56 +26,59 @@ RSpec.describe "pages/links_with_topics.html.erb", type: :view do
   end
 
   describe "no updated content" do
-    let(:html) { render partial: 'links_with_topics', locals: {
+    let(:html) do
+      render partial: "links_with_topics", locals: {
         links: [
           {
             title: "example",
             href: "https://www.example.com",
-            topics: 11
-          }
-        ]
+            topics: 11,
+          },
+        ],
       }
-    }
+    end
 
     it "does not have data-updated attribute" do
-      expect(html).to_not have_selector('[data-updated]')
+      expect(html).to_not have_selector("[data-updated]")
     end
 
     it "does not have a data-qa attribute" do
-      expect(html).to_not have_selector('[data-qa]')
+      expect(html).to_not have_selector("[data-qa]")
     end
   end
 
   describe "pluralization" do
     describe "with 1 topic" do
-      let(:html) { render partial: 'links_with_topics', locals: {
+      let(:html) do
+        render partial: "links_with_topics", locals: {
           links: [
             {
               title: "example",
               href: "https://www.example.com",
-              topics: 1
-            }
-          ]
+              topics: 1,
+            },
+          ],
         }
-      }
-      
+      end
+
       it "doesn't pluralize the word topic" do
         expect(html).to have_text("example - 1 topic")
       end
     end
 
     describe "with multiple topics" do
-      let(:html) { render partial: 'links_with_topics', locals: {
+      let(:html) do
+        render partial: "links_with_topics", locals: {
           links: [
             {
               title: "example",
               href: "https://www.example.com",
-              topics: 5
-            }
-          ]
+              topics: 5,
+            },
+          ],
         }
-      }
-      
+      end
+
       it "pluralizes the word topic" do
         expect(html).to have_text("example - 5 topics")
       end

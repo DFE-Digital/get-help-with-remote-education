@@ -15,12 +15,12 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   # This will affect assets served from /app/assets
-  config.static_cache_control = 'public, max-age=3600'
+  config.static_cache_control = "public, max-age=3600"
 
   # This will affect assets in /public, e.g. webpacker assets.
   config.public_file_server.headers = {
-    'Cache-Control' => 'public, max-age=3600',
-    'Expires' => 1.hour.from_now.to_formatted_s(:rfc822)
+    "Cache-Control" => "public, max-age=3600",
+    "Expires" => 1.hour.from_now.to_formatted_s(:rfc822),
   }
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]

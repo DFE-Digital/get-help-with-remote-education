@@ -4,7 +4,7 @@
 # For further information see the following documentation
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 
-# "default-src 'self' https://www.google-analytics.com; 
+# "default-src 'self' https://www.google-analytics.com;
 #   script-src 'self' 'sha256-IWjjekDxqqURWMjVH447fuaAvoZKwpDwLS0ZdcJ+Ey4=' https://www.googletagmanager.com https://www.google-analytics.com;",Rails.application.config.content_security_policy do |policy|
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :self, "https://www.google-analytics.com"
@@ -22,10 +22,10 @@ Rails.application.config.content_security_policy do |policy|
 end
 
 # If you are using UJS then enable automatic nonce generation
-Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
+Rails.application.config.content_security_policy_nonce_generator = ->(_request) { SecureRandom.base64(16) }
 
 # Set the nonce only to specific directives
-Rails.application.config.content_security_policy_nonce_directives = %w(script-src)
+Rails.application.config.content_security_policy_nonce_directives = %w[script-src]
 
 # Report CSP violations to a specified URI
 # For further information see the following documentation:
