@@ -8,4 +8,11 @@ RSpec.describe "Pages", type: :request do
       end
     end
   end
+
+  describe "external redirects" do
+    it "redirects to get-help-with-tech" do
+      get "/get-help-with-tech"
+      expect(response).to have_http_status(:redirect)
+    end
+  end
 end
