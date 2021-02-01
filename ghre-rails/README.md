@@ -1,10 +1,8 @@
-[![Build Status](https://travis-ci.org/DFE-Digital/govuk-rails-boilerplate.svg?branch=master)](https://travis-ci.com/DFE-Digital/govuk-rails-boilerplate)
-
-# GOV.UK Rails Boilerplate
+# Get Help with Remote Education - Rails
 
 ## Prerequisites
 
-- Ruby 2.7.1
+- Ruby 2.7.2
 - PostgreSQL
 - NodeJS 12.13.x
 - Yarn 1.12.x
@@ -17,13 +15,19 @@
 4. Run `bundle exec rails server` to launch the app on http://localhost:3000
 5. Run `./bin/webpack-dev-server` in a separate shell for faster compilation of assets
 
-## Whats included in this boilerplate?
+### Environment variables
 
-- Rails 6.0 with Webpacker
-- [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend)
-- RSpec
-- Dotenv (managing environment variables)
-- Travis with Heroku deployment
+| Environment variable 	  | Example                                	  | Notes                                                                               	|
+|------------------------ |------------------------------------------ |-------------------------------------------------------------------------------------	|
+| `DB_HOSTNAME`          	| `localhost`                              	| Development environment only                                                        	|
+| `DB_PORT`              	| `5432`                                   	| Development environment only                                                        	|
+| `DB_USERNAME`          	| `postgres`                               	| Development environment only                                                        	|
+| `DB_PASSWORD`          	| `password`                               	| Development environment only                                                        	|
+| `DB_URL`               	| `postgres://user:pass@localhost:5432/db` 	| Production environment only                                                         	|
+| `BASIC_AUTH_USER`      	| `username`                               	| OPTIONAL, requires `BASIC_AUTH_PASSWORD`. Used for adding basic auth to the service 	|
+| `BASIC_AUTH_PASSWORD`  	| `password`                               	| OPTIONAL, requires `BASIC_AUTH_USER`. Used for adding basic auth to the service     	|
+| `GOOGLE_TAG_MGR_ID`    	| `GTM-1234`                               	|                                                                                     	|
+| `GOOGLE_ANALYTICS_ID`  	| `G-1234`                                 	|                                                                                     	|
 
 ## Running specs, linter(without auto correct) and annotate models and serializers
 ```
@@ -57,12 +61,4 @@ bundle exec scss-lint app/webpacker/styles
 
 ### Deploy
 
-1. Run `cf login -a api.london.cloud.service.gov.uk -u USERNAME`, `USERNAME` is your personal GOV.UK PaaS account email address
-2. Run `bundle package --all` to vendor ruby dependencies
-3. Run `yarn` to vendor node dependencies
-4. Run `bundle exec rails webpacker:compile` to compile assets
-5. Run `cf push` to push the app to Cloud Foundry Application Runtime
-
-Check the file `manifest.yml` for customisation of name (you may need to change it as there could be a conflict on that name), buildpacks and eventual services (PostgreSQL needs to be [set up](https://docs.cloud.service.gov.uk/deploying_services/postgresql/)).
-
-The app should be available at https://govuk-rails-boilerplate.london.cloudapps.digital
+**TODO** - how to deploy this to gov paas using docker
