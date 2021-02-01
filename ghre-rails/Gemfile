@@ -17,7 +17,7 @@ gem "puma", "~> 5.1"
 gem "webpacker"
 
 # Use govuk form builder
-gem 'govuk_design_system_formbuilder'
+gem "govuk_design_system_formbuilder"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -51,12 +51,12 @@ group :development, :test do
 
   gem "timecop"
 
-  gem 'factory_bot_rails'
+  gem "factory_bot_rails"
 
-  gem 'shoulda', '~> 4.0'
+  gem "shoulda", "~> 4.0"
 
-  gem 'guard'
-  gem 'guard-rspec', require: false
+  gem "guard"
+  gem "guard-rspec", require: false
 end
 
 group :development do

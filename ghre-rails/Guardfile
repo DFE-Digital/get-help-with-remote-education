@@ -15,10 +15,10 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard :rspec, cmd: 'bundle exec rspec' do
-  watch('spec/spec_helper.rb')                        { "spec" }
-  watch('config/routes.rb')                           { "spec" }
-  watch('app/controllers/application_controller.rb')  { "spec" }
+guard :rspec, cmd: "bundle exec rspec" do
+  watch("spec/spec_helper.rb")                        { "spec" }
+  watch("config/routes.rb")                           { "spec" }
+  watch("app/controllers/application_controller.rb")  { "spec" }
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^app/(.*)(\.erb|\.haml|\.slim)$})          { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }

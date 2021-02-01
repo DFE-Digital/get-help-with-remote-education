@@ -101,7 +101,7 @@ RSpec.describe ReviewFrameworkController, type: :request do
     end
 
     it "Renders the recommendations page" do
-      expect(response.body).to include(I18n.t('review_framework.recommendations.title'))
+      expect(response.body).to include(I18n.t("review_framework.recommendations.title"))
     end
   end
 end

@@ -31,7 +31,7 @@ class ReviewFrameworkController < ApplicationController
     section = params[:section].to_sym
     question = params[:question].underscore.to_sym
 
-    success = current_user.submit_answer(
+    current_user.submit_answer(
       section: section,
       question: question,
       answer: params[:score_id].to_i,

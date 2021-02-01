@@ -21,7 +21,7 @@ RSpec.describe "Submitting a series of answers", type: :feature do
     end
 
     it "Displays the correct question title" do
-      expect(question_page.title.text).to eq(I18n.t('review_framework.leadership.remote_education_plan.title'))
+      expect(question_page.title.text).to eq(I18n.t("review_framework.leadership.remote_education_plan.title"))
     end
   end
 
@@ -55,7 +55,7 @@ RSpec.describe "Submitting a series of answers", type: :feature do
       question_page.submit_answer(1)
       question_page.submit_answer(1)
     end
-    
+
     it "Takes the user to the task list page" do
       question_page.submit_answer(1)
       expect(page.current_path).to eq(review_framework_task_list_path)

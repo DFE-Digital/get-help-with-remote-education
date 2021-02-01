@@ -26,13 +26,15 @@ ActiveRecord::Schema.define(version: 2021_01_20_125159) do
     t.string "which_educational_stage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "answer_id", null: false
+    t.bigint "answer_id"
     t.index ["answer_id"], name: "index_details_on_answer_id"
   end
 
   create_table "leaderships", force: :cascade do |t|
     t.bigint "answer_id"
     t.integer "remote_education_plan"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "communication"
     t.integer "monitoring_and_evaluating"
     t.index ["answer_id"], name: "index_leaderships_on_answer_id"

@@ -4,7 +4,7 @@ RSpec.describe ApplicationController, type: :controller do
   describe "#current_user" do
     describe "when user has not started an answer" do
       it "returns nil" do
-        expect(subject.current_user).to be_nil 
+        expect(subject.current_user).to be_nil
       end
     end
     describe "when user has started an answer" do

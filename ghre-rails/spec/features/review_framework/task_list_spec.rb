@@ -21,7 +21,7 @@ RSpec.describe "task list page", type: :feature do
 
     it "Allows you to start the leadership section" do
       task_list_page.leadership_link.click
-      expect(page.current_path).to eq(questions_path(section: 'leadership', question: 'remote-education-plan'))
+      expect(page.current_path).to eq(questions_path(section: "leadership", question: "remote-education-plan"))
     end
   end
 end

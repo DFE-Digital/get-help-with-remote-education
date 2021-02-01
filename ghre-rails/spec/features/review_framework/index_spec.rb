@@ -8,7 +8,7 @@ RSpec.describe "index", type: :feature do
 
   context "navigate to start page" do
     it "loads the start page with the title" do
-      expect(page).to have_text(I18n.t('review_framework.title'))
+      expect(page).to have_text(I18n.t("review_framework.title"))
       expect(title).to be_visible
     end
 
