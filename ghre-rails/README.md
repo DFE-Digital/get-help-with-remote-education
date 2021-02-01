@@ -17,17 +17,18 @@
 
 ### Environment variables
 
-| Environment variable 	  | Example                                	  | Notes                                                                               	|
-|------------------------ |------------------------------------------ |-------------------------------------------------------------------------------------	|
-| `DB_HOSTNAME`          	| `localhost`                              	| Development environment only                                                        	|
-| `DB_PORT`              	| `5432`                                   	| Development environment only                                                        	|
-| `DB_USERNAME`          	| `postgres`                               	| Development environment only                                                        	|
-| `DB_PASSWORD`          	| `password`                               	| Development environment only                                                        	|
-| `DB_URL`               	| `postgres://user:pass@localhost:5432/db` 	| Production environment only                                                         	|
-| `BASIC_AUTH_USER`      	| `username`                               	| OPTIONAL, requires `BASIC_AUTH_PASSWORD`. Used for adding basic auth to the service 	|
-| `BASIC_AUTH_PASSWORD`  	| `password`                               	| OPTIONAL, requires `BASIC_AUTH_USER`. Used for adding basic auth to the service     	|
-| `GOOGLE_TAG_MGR_ID`    	| `GTM-1234`                               	|                                                                                     	|
-| `GOOGLE_ANALYTICS_ID`  	| `G-1234`                                 	|                                                                                     	|
+| Environment variable 	    | Example                                	  | Notes                                                                |
+|------------------------   |------------------------------------------ |--------------------------------------------------------------------- |
+| `DB_HOSTNAME`             | `localhost`                              	| Development environment only                                         |
+| `DB_PORT`                 | `5432`                                   	| Development environment only                                         |
+| `DB_USERNAME`             | `postgres`                               	| Development environment only                                         |
+| `DB_PASSWORD`             | `password`                               	| Development environment only                                         |
+| `DB_URL`                  | `postgres://user:pass@localhost:5432/db` 	| Production environment only                                          |
+| `BASIC_AUTH_USER`         | `username`                               	| OPTIONAL, requires `BASIC_AUTH_PASSWORD`. Used for adding basic auth |
+| `BASIC_AUTH_PASSWORD`     | `password`                               	| OPTIONAL, requires `BASIC_AUTH_USER`. Used for adding basic auth     |
+| `GOOGLE_TAG_MGR_ID`       | `GTM-1234`                               	|                                                                      |
+| `GOOGLE_ANALYTICS_ID`     | `G-1234`                                 	|                                                                      |
+| `ENABLE_REVIEW_FRAMEWORK`	| `true`                                  	| OPTIONAL, enables the review framework routes when set to `true`     |
 
 ## Running specs, linter(without auto correct) and annotate models and serializers
 ```
