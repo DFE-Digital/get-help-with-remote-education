@@ -11,7 +11,7 @@ RSpec.describe "Pages", type: :request do
 
   describe "external redirects" do
     it "redirects to get-help-with-tech" do
-      get "/get-help-with-tech"
+      get "/get-help-with-technology"
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to('https://get-help-with-tech.education.gov.uk/')
     end
