@@ -61,4 +61,15 @@ bundle exec scss-lint app/webpacker/styles
 
 ### Deploy
 
-**TODO** - how to deploy this to gov paas using docker
+This service is built to deploy to [GOV PaaS](https://www.cloud.service.gov.uk/) using Docker.
+
+To deploy this service do the following:
+
+1. Build the latest version of the app in Docker
+2. Push the image to the docker repo `dfedigital/get-help-with-remote-education-${dev/staging/prod}`
+3. Login to cloudfoundary
+4. Run the following
+```
+  cf target -o dfe-teacher-services -s get-help-with-remote-education-dev
+  cf push -f ./config/manifests/${dev/staging/prod}_manifest.yml --docker-image dfedigital/get-help-with-remote-education-${dev/staging/prod}:latest
+```
