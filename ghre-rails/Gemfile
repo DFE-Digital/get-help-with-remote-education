@@ -6,14 +6,18 @@ ruby File.read(".ruby-version").chomp
 gem "rails", "~> 6.0.3"
 
 # Use postgresql as the database for Active Record
-# gem "pg", ">= 0.18", "< 2.0"
-gem "sqlite3", "~> 1.3", ">= 1.3.11"
+gem "pg", ">= 0.18", "< 2.0"
+
+# gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 
 # Use Puma as the app server
 gem "puma", "~> 5.1"
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem "webpacker"
+
+# Use govuk form builder
+gem "govuk_design_system_formbuilder"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -46,6 +50,13 @@ group :development, :test do
   gem "dotenv-rails"
 
   gem "timecop"
+
+  gem "factory_bot_rails"
+
+  gem "shoulda", "~> 4.0"
+
+  gem "guard"
+  gem "guard-rspec", require: false
 end
 
 group :development do

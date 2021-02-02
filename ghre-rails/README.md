@@ -1,10 +1,8 @@
-[![Build Status](https://travis-ci.org/DFE-Digital/govuk-rails-boilerplate.svg?branch=master)](https://travis-ci.com/DFE-Digital/govuk-rails-boilerplate)
-
-# GOV.UK Rails Boilerplate
+# Get Help with Remote Education - Rails
 
 ## Prerequisites
 
-- Ruby 2.7.1
+- Ruby 2.7.2
 - PostgreSQL
 - NodeJS 12.13.x
 - Yarn 1.12.x
@@ -17,13 +15,20 @@
 4. Run `bundle exec rails server` to launch the app on http://localhost:3000
 5. Run `./bin/webpack-dev-server` in a separate shell for faster compilation of assets
 
-## Whats included in this boilerplate?
+### Environment variables
 
-- Rails 6.0 with Webpacker
-- [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend)
-- RSpec
-- Dotenv (managing environment variables)
-- Travis with Heroku deployment
+| Environment variable 	    | Example                                	  | Notes                                                                |
+|------------------------   |------------------------------------------ |--------------------------------------------------------------------- |
+| `DB_HOSTNAME`             | `localhost`                              	| Development/test environment only                                    |
+| `DB_PORT`                 | `5432`                                   	| Development/test environment only                                    |
+| `DB_USERNAME`             | `postgres`                               	| Development/test environment only                                    |
+| `DB_PASSWORD`             | `password`                               	| Development/test environment only                                    |
+| `DATABASE_URL`            | `postgres://user:pass@localhost:5432/db` 	|                                                                      |
+| `BASIC_AUTH_USER`         | `username`                               	| OPTIONAL, requires `BASIC_AUTH_PASSWORD`. Used for adding basic auth |
+| `BASIC_AUTH_PASSWORD`     | `password`                               	| OPTIONAL, requires `BASIC_AUTH_USER`. Used for adding basic auth     |
+| `GOOGLE_TAG_MGR_ID`       | `GTM-1234`                               	|                                                                      |
+| `GOOGLE_ANALYTICS_ID`     | `G-1234`                                 	|                                                                      |
+| `ENABLE_REVIEW_FRAMEWORK`	| `true`                                  	| OPTIONAL, enables the review framework routes when set to `true`     |
 
 ## Running specs, linter(without auto correct) and annotate models and serializers
 ```
@@ -57,12 +62,15 @@ bundle exec scss-lint app/webpacker/styles
 
 ### Deploy
 
-1. Run `cf login -a api.london.cloud.service.gov.uk -u USERNAME`, `USERNAME` is your personal GOV.UK PaaS account email address
-2. Run `bundle package --all` to vendor ruby dependencies
-3. Run `yarn` to vendor node dependencies
-4. Run `bundle exec rails webpacker:compile` to compile assets
-5. Run `cf push` to push the app to Cloud Foundry Application Runtime
+This service is built to deploy to [GOV PaaS](https://www.cloud.service.gov.uk/) using Docker.
 
-Check the file `manifest.yml` for customisation of name (you may need to change it as there could be a conflict on that name), buildpacks and eventual services (PostgreSQL needs to be [set up](https://docs.cloud.service.gov.uk/deploying_services/postgresql/)).
+To deploy this service do the following:
 
-The app should be available at https://govuk-rails-boilerplate.london.cloudapps.digital
+1. Build the latest version of the app in Docker
+2. Push the image to the docker repo `dfedigital/get-help-with-remote-education-${dev/staging/prod}`
+3. Login to cloudfoundary
+4. Run the following
+```
+  cf target -o dfe-teacher-services -s get-help-with-remote-education-dev
+  cf push -f ./config/manifests/${dev/staging/prod}_manifest.yml --docker-image dfedigital/get-help-with-remote-education-${dev/staging/prod}:latest
+```

@@ -20,29 +20,29 @@ jobs:
         working-directory: ghre-rails
     runs-on: ubuntu-latest
     # Service containers to run with `container-job`
-    # services:
+    services:
       # Label used to access the service container
-      # postgres:
+      postgres:
         # Docker Hub image
-        # image: postgres:11
+        image: postgres:12
         # Provide the password for postgres
-        # env:
-          # POSTGRES_PASSWORD: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
         # Set health checks to wait until postgres has started
-        # options: >-
-          # --health-cmd pg_isready
-          # --health-interval 10s
-          # --health-timeout 5s
-          # --health-retries 5
-        # ports:
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
           # Maps tcp port 5432 on service container to the host
-          # - 5432:5432
+          - 5432:5432
 
-    # env:
-      # POSTGRES_HOST: localhost
-      # POSTGRES_PORT: 5432
-      # POSTGRES_USER: postgres
-      # POSTGRES_PASSWORD: postgres
+    env:
+      DB_HOSTNAME: localhost
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
 
     steps:
       - name: Checkout code
