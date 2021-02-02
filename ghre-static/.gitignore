@@ -1,9 +1,0 @@
-.env
-.bundle
-.cache
-.DS_Store
-.sass-cache
-.tmp
-build/
-source/dist/
-node_modules
