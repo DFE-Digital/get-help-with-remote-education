@@ -12,3 +12,4 @@ applications:
     image: dfedigital/get-help-with-remote-education-dev:latest
   services:
   - logit-ssl-drain
+  - get-help-with-remote-education-pg-dev
