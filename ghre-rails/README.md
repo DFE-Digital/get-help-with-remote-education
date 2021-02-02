@@ -19,11 +19,11 @@
 
 | Environment variable 	    | Example                                	  | Notes                                                                |
 |------------------------   |------------------------------------------ |--------------------------------------------------------------------- |
-| `DB_HOSTNAME`             | `localhost`                              	| Development environment only                                         |
-| `DB_PORT`                 | `5432`                                   	| Development environment only                                         |
-| `DB_USERNAME`             | `postgres`                               	| Development environment only                                         |
-| `DB_PASSWORD`             | `password`                               	| Development environment only                                         |
-| `DB_URL`                  | `postgres://user:pass@localhost:5432/db` 	| Production environment only                                          |
+| `DB_HOSTNAME`             | `localhost`                              	| Development/test environment only                                    |
+| `DB_PORT`                 | `5432`                                   	| Development/test environment only                                    |
+| `DB_USERNAME`             | `postgres`                               	| Development/test environment only                                    |
+| `DB_PASSWORD`             | `password`                               	| Development/test environment only                                    |
+| `DATABASE_URL`            | `postgres://user:pass@localhost:5432/db` 	|                                                                      |
 | `BASIC_AUTH_USER`         | `username`                               	| OPTIONAL, requires `BASIC_AUTH_PASSWORD`. Used for adding basic auth |
 | `BASIC_AUTH_PASSWORD`     | `password`                               	| OPTIONAL, requires `BASIC_AUTH_USER`. Used for adding basic auth     |
 | `GOOGLE_TAG_MGR_ID`       | `GTM-1234`                               	|                                                                      |
