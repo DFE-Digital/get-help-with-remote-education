@@ -24,7 +24,7 @@ class ReviewFrameworkController < ApplicationController
   def task_list; end
 
   def recommendations
-    @answers = current_user
+    @answers = current_user.answers_to_hash
   end
 
   def submit_answer

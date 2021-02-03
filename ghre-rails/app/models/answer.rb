@@ -12,4 +12,15 @@ class Answer < ApplicationRecord
       leadership.save!
     end
   end
+
+  def answers_to_hash
+    answers = {}
+    answers[:leadership] = {
+      remote_education_plan: leadership.remote_education_plan,
+      communication: leadership.communication,
+      monitoring_and_evaluating: leadership.monitoring_and_evaluating,
+    }
+
+    answers
+  end
 end

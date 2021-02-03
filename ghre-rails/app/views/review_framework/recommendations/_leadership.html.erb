@@ -1,0 +1,5 @@
+<h2 class="govuk-heading-l">The leadership section!</p>
+<% answers.each do |question, answer| %>
+  <%= render partial: "review_framework/recommendations/#{section}/#{question}/#{answer}" %>
+<% end %>
+<hr />
