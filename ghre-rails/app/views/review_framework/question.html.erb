@@ -12,6 +12,7 @@
     %>
     <%= form_with(method: 'post') do |f| %>
       <%= f.govuk_collection_radio_buttons :score_id, questions, :id, :name, inline: true, small: true, legend: { text: '' } %>
+      <%= f.govuk_text_area :notes, label: { text: 'Notes' }, hint: { text: '' }, rows: 9 %>
       <%= f.govuk_submit 'Save and continue' %>
     <% end %>
   </div>

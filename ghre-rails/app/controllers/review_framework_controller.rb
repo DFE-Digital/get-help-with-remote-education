@@ -35,6 +35,7 @@ class ReviewFrameworkController < ApplicationController
       section: section,
       question: question,
       answer: params[:score_id].to_i,
+      notes: params[:notes]
     )
 
     current_user.save!

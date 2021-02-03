@@ -4,11 +4,12 @@ class Answer < ApplicationRecord
   has_one :detail
   has_one :leadership
 
-  def submit_answer(section:, question:, answer:)
+  def submit_answer(section:, question:, answer:, notes:)
     case section
     when :leadership
       create_leadership unless leadership
       leadership[question] = answer
+      leadership["#{question}_notes"] = notes
       leadership.save!
     end
   end
