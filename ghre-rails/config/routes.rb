@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       get "/task-list", to: "review_framework#task_list", as: :review_framework_task_list
       get "/start", to: "review_framework#start", as: :review_framework_start
       get "/recommendations", to: "review_framework#recommendations", as: :review_framework_recommendations
+      get "/input-email", to: "review_framework#input_email"
+      post "/input-email", to: "review_framework#send_email", as: :review_Framework_submit_login_email
 
       get "/:section", to: "review_framework#section", as: :review_framework_section
       get "/:section/:question", to: "review_framework#question", as: :questions

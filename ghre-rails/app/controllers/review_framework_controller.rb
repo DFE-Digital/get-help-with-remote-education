@@ -1,15 +1,32 @@
+require 'notifications/client'
 class ReviewFrameworkController < ApplicationController
   def index; end
 
   def start
     unless session[:answer_id]
-      new_answer = Answer.new(reference_code: SecureRandom.uuid)
+      new_answer = Answer.new(reference_code: SecureRandom.uuid, login_code: SecureRandom.uuid)
       new_answer.save!
       session[:answer_id] = new_answer.id
     end
 
     redirect_to review_framework_task_list_path
   end
+
+  def input_email; end
+
+  def send_email
+    client = Notifications::Client.new(ENV['GOV_NOTIFY_API_KEY'])
+    emailresponse = client.send_email(
+      email_address: params[:email],
+      template_id: "f3059d74-3b51-48e2-bcd3-19613bd010e5",
+      personalisation: {
+        login_code: current_user.login_code
+      }
+    )
+
+    render 'review_framework/email_success'
+  end
+
 
   def question
     @section = params[:section]

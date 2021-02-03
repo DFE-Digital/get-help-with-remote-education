@@ -1,0 +1,9 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" data-qa="question-title">Email for login url</h1>
+    <%= form_with(method: 'post') do |f| %>
+      <%= f.govuk_email_field :email %>
+      <%= f.govuk_submit 'Submit' %>
+    <% end %>
+  </div>
+</div>
