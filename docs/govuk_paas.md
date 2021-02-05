@@ -3,8 +3,8 @@
 
 The Get Help with Remote Education (GHRE) service is hosted on Govuk PaaS. The platform provides a scalable, adaptable service that can quickly be changed depending on the needs on the service. 
 
-[Govuk PaaS](https://www.cloud.service.gov.uk/)
-[Govuk PaaS Technical Guidance](https://technical-guidance.education.gov.uk/documentation/guides/govuk-paas.html)
+- [Govuk PaaS](https://www.cloud.service.gov.uk/)
+- [Govuk PaaS Technical Guidance](https://technical-guidance.education.gov.uk/documentation/guides/govuk-paas.html)
 
 
 ### Prerequisites:
@@ -15,7 +15,6 @@ The Get Help with Remote Education (GHRE) service is hosted on Govuk PaaS. The p
 ### Current Architecture for Get Help with Remote Education service
   
 The current platform is configured with 3 environments. Please see details of these below:
-
 
 #### Development
 
@@ -50,14 +49,13 @@ The current platform is configured with 3 environments. Please see details of th
 
 - Space: get-help-with-remote-education-staging
 
-- Custom Domain: get-help-with-remote-education-staging.education.gov.uk
+- Custom Domain: [https://get-help-with-remote-education-staging.education.gov.uk](https://get-help-with-remote-education-staging.education.gov.uk)
 
 ##### Apps deployed in staging:
 
 | name                                           | processes   | routes                                                                                                                        |
 |----------------------------------------------- |------------ |------------------------------------------------------------------------------------------------------------------------------ |
-| `get-help-with-remote-education-rails-staging` | web:1/1     | get-help-with-remote-education-rails-staging.london.coudapps.digital                                                          |
-|                                                |             | get-help-with-remote-education-staging.education.gov.uk                                                                       |
+| `get-help-with-remote-education-rails-staging` | web:1/1     | get-help-with-remote-education-rails-staging.london.coudapps.digital, get-help-with-remote-education-staging.education.gov.uk |
 | `get-help-with-remote-education-staging`       | web:0/1     | get-help-with-remote-education-staging.london.cloudapps.digital, get-help-with-remote-education-staging.education.gov.uk      |
 
 ##### Services available in staging:
@@ -75,7 +73,7 @@ The current platform is configured with 3 environments. Please see details of th
 
 - Space: get-help-with-remote-education-prod
 
-- Custom Domain: get-help-with-remote-education.education.gov.uk
+- Custom Domain: [https://get-help-with-remote-education.education.gov.uk](https://get-help-with-remote-education.education.gov.uk)
 
 ##### Apps deployed in production:
 
