@@ -6,6 +6,12 @@ The Get Help with Remote Education (GHRE) service is hosted on Govuk PaaS. The p
 [Govuk PaaS](https://www.cloud.service.gov.uk/)
 [Govuk PaaS Technical Guidance](https://technical-guidance.education.gov.uk/documentation/guides/govuk-paas.html)
 
+
+### Prerequisites:
+
+- Govuk PaaS account (can be requested from #digital-tools-support)
+- Access to the spaces below as either a space auditor, developer or manager (only space developers can make changes)
+
 ### Current Architecture for Get Help with Remote Education service
   
 The current platform is configured with 3 environments. Please see details of these below:
@@ -82,7 +88,7 @@ The current platform is configured with 3 environments. Please see details of th
 | `paas-prometheus-exporter-ghre-prod`        | web:1/1     | paas-prometheus-exporter-ghre-prod.london.cloudapps.digital                                                         |
 | `prometheus-ghre-prod`                      | web:1/1     | prometheus-ghre-prod.london.cloudapps.digital                                                                       |
 
-##### Services available in staging:
+##### Services available in production:
 
 | name                                        | service         | plan        | bound apps                                                                     | broker       |
 |-------------------------------------------- |---------------- |------------ |------------------------------------------------------------------------------- |------------- |
