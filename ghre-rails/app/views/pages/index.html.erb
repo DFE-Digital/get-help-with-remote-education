@@ -40,6 +40,7 @@
     <div class="govuk-card govuk-card--contained">
       <div class="govuk-card__content">
         <h2 class="govuk-heading-m"><a href="safeguarding" class="govuk-link">Safeguarding</a></h2>
+        <%= render 'date_badge', update_date: t('safeguarding.last_update_date').to_date, today: @today %>
         <p class="govuk-body">Safeguarding procedures schools and FE colleges must follow when teaching remotely and planning remote education strategies.
         </p>
       </div>
