@@ -1,3 +1,8 @@
 .no-word-wrap {
   white-space: nowrap;
 }
+
+.govuk-list.sublist--circle {
+  padding-left: 20px;
+  list-style-type: circle;
+}
