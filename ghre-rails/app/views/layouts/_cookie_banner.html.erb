@@ -2,7 +2,9 @@
   <div class="govuk-width-container">
     <div class="app-cookie-banner__container" id="cookieActionsContainer">
       <p class="govuk-body">
-        We use cookies to <a href="/cookie_preferences.html" class="govuk-link app-cookie-banner__link">collect information</a> about how you use the service.
+        We use cookies to 
+        <%= link_to("collect information", "/settings/cookie-preferences", class: "govuk-link app-cookie-banner__link") %>
+        about how you use the service.
       </p>
       <div class="app-cookie-banner__actions">
         <input type="button" id="acceptCookies" class="govuk-button govuk-!-margin-bottom-2" value="Accept all cookies" />
