@@ -7,6 +7,6 @@ statuscake_alerts = {
   }
   paas = {
     website_name = "Get help with remote education prod via PaaS"
-    website_url = "https://get-help-with-remote-education-prod.london.cloudapps.digital/"
+    website_url = "https://get-help-with-remote-education-rails-prod.london.cloudapps.digital/"
   }
 }
