@@ -9,22 +9,38 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
-      Information for schools and further education (FE) colleges on expectations and how to comply with their legal responsibilities
-      when pupils and students cannot come into school or college due to coronavirus (COVID-19).
+      This page provides information on current remote education obligations and expectations.  
+    </p>
+    <div class="event-panel">
+      <p class="govuk-body">
+        From 8 March onwards, pupils and students will be returning to on-site education.
+        Read more about remote education requirements from 8 March for 
+        <a 
+          class="govuk-link" 
+          href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak"
+        >
+          schools
+        </a> and 
+        <a 
+          class="govuk-link" 
+          href="https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision"
+        >
+          further education (FE) colleges
+        </a>.
+      </p>
+    </div>
+    <p class="govuk-body">
+      From 5 January 2021, all schools and FE colleges closed to most pupils and students due to coronavirus (COVID-19).  
+      Read the remote education expectations for 
+      <a class="govuk-link" href="https://get-help-with-remote-education.education.gov.uk/statutory-obligations#schools">schools</a>
+      and for
+      <a class="govuk-link" href="https://get-help-with-remote-education.education.gov.uk/statutory-obligations#further-education">
+        FE colleges
+      </a>.
     </p>
     <% main_title_paragraph_update_date = t('statutory_obligations.main_title_paragraph.last_update').to_date %>
     <%= render layout: 'summary', locals: { update_date: main_title_paragraph_update_date, show_updates: @show_updates, page: 'statutory-obligations', has_content: false } do %>
     <% end %>
-    <p 
-      class="govuk-body updated-content <%= 'active' if @show_updates %>"
-      data-updated
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-    >
-      From 5 January 2021, all schools and colleges are required to close to most pupils and students. Whilst vulnerable pupils and
-      students, and the children of key workers, can continue to be educated in person, DfE expects schools and colleges to immediately
-      offer all other pupils and students access to remote education. Read the updated remote education expectations for
-      <a href="#schools" class="govuk-link">schools</a> and for <a href="#further-education" class="govuk-link">further education</a>.
-    </p>
     <h2 id="schools" class="govuk-heading-l">
       Schools
     </h2>
