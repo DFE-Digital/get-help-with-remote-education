@@ -286,7 +286,6 @@
               class="govuk-accordion__section-button updated-content <%= 'active' if @show_updates %>"
               id="accordion-default-heading-8" 
               data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-              data-updated
             >
               Resources
             </span>
@@ -370,9 +369,7 @@
                   {
                     title: 'Carpentry Level 1 and 2 (videos)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=19',
-                    topics: 10,
-                    updated: true,
-                    show_updates: @show_updates
+                    topics: 10
                   },
                   {
                     title: 'Construction Level 1 (videos)',
@@ -387,9 +384,7 @@
                   {
                     title: 'Plumbing Level 2 (video)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=39',
-                    topics: 5,
-                    updated: true,
-                    show_updates: @show_updates
+                    topics: 5
                   }
                 ]
               }
@@ -401,9 +396,7 @@
                   {
                     title: 'Engineering Level 2 and 3 (videos)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=34',
-                    topics: 18,
-                    updated: true,
-                    show_updates: @show_updates
+                    topics: 18
                   },
                   {
                     title: 'Automotive Level 2 (videos)',
@@ -481,9 +474,7 @@
                   {
                     title: 'Catering Level 2 (series)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
-                    topics: 10,
-                    updated: true,
-                    show_updates: @show_updates
+                    topics: 10
                   }
                 ]
               }
@@ -549,8 +540,13 @@
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-10">
-              Future remote education support for FE
+            <span
+              class="govuk-accordion__section-button <%= 'active' if @show_updates %>"
+              id="accordion-default-heading-10"
+              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+              data-updated
+            >
+              Case Studies
             </span>
           </h2>
         </div>
