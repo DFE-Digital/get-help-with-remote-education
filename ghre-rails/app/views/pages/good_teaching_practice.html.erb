@@ -283,8 +283,10 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span 
-              class="govuk-accordion__section-button"
+              class="govuk-accordion__section-button updated-content  <%= 'active' if @show_updates %>"
               id="accordion-default-heading-8"
+              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+              data-updated
             >
               Resources
             </span>
@@ -305,9 +307,16 @@
           <%= render partial: 'links_with_topics', locals: {
                 links: [
                   {
-                    title: 'Animal care (videos)',
+                    title: 'Animal Care (videos)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=17',
                     topics: 10
+                  },
+                  {
+                    title: 'Animal Care (Microsoft Sway)',
+                    href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
+                    topics: 1,
+                    updated: true,
+                    show_updates: @show_updates
                   },
                   {
                     title: 'Agriculture Level 2 (videos)',
@@ -381,7 +390,7 @@
                     topics: 3
                   },
                   {
-                    title: 'Plumbing Level 2 (video)',
+                    title: 'Plumbing Level 2 (videos)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=39',
                     topics: 5
                   }
@@ -450,6 +459,20 @@
               }
           %>
 
+          <h4 class="govuk-heading-s">Retail and Commercial Enterprise</h4>
+          <%= render partial: 'links_with_topics', locals: {
+                links: [
+                  {
+                    title: 'Barbering Level 2 and 3 (Microsoft Sway)',
+                    href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
+                    topics: 5,
+                    updated: true,
+                    show_updates: @show_updates
+                  }
+                ]
+              }
+          %>
+
           <h4 class="govuk-heading-s">Public services</h4>
           <%= render partial: 'links_with_topics', locals: {
                 links: [
@@ -474,6 +497,13 @@
                     title: 'Catering Level 2 (series)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
                     topics: 10
+                  },
+                  {
+                    title: 'Sport (videos)',
+                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
+                    topics: 10,
+                    updated: true,
+                    show_updates: @show_updates
                   }
                 ]
               }
