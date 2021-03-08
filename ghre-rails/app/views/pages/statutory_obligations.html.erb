@@ -9,33 +9,17 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
-      This page provides information on current remote education obligations and expectations.  
+      This page provides information on current remote education obligations and expectations.
     </p>
     <div class="event-panel">
       <p class="govuk-body">
-        From 8 March onwards, pupils and students will be returning to on-site education.
-        Read more about remote education requirements from 8 March for 
-        <a 
-          class="govuk-link" 
-          href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak"
-        >
-          schools</a>
+        From 8 March, pupils and students will be returning to on-site education. Read more about returning to
+        <%= link_to_govuk_content("schools", "https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak") %>
         and 
-        <a 
-          class="govuk-link" 
-          href="https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision"
-        >
-          further education (FE) colleges</a>.
+        <%= link_to_govuk_content("further education (FE) colleges", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision") %>
+          as well as provision for remote education.
       </p>
     </div>
-    <p class="govuk-body">
-      From 5 January 2021, all schools and FE colleges closed to most pupils and students due to coronavirus (COVID-19).  
-      Read the remote education expectations for 
-      <a class="govuk-link" href="https://get-help-with-remote-education.education.gov.uk/statutory-obligations#schools">schools</a>
-      and for
-      <a class="govuk-link" href="https://get-help-with-remote-education.education.gov.uk/statutory-obligations#further-education">
-        FE colleges</a>.
-    </p>
     <% main_title_paragraph_update_date = t('statutory_obligations.main_title_paragraph.last_update').to_date %>
     <%= render layout: 'summary', locals: { update_date: main_title_paragraph_update_date, show_updates: @show_updates, page: 'statutory-obligations', has_content: false } do %>
     <% end %>
@@ -50,8 +34,9 @@
       data-updated
       data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
     >
-      The remote education expectations are set out within the guidance on 
-      <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/950510/School_national_restrictions_guidance.pdf" class="govuk-link">restricting attendance during the national lockdown</a>.
+      Where a pupil, class, group or small number of pupils need to self-isolate, or there are local restrictions in place requiring pupils to remain at home, DfE expects schools to be able to immediately offer them access to remote education. The 
+      <%= link_to_govuk_content("Schools coronavirus (COVID-19) operational guidance", "https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak") %>
+      sets out what’s expected of schools’ remote provision. (Pg 45).
     </p>
     <p class="govuk-body">
       The Secretary of State for Education has given a temporary continuity direction which requires schools to provide remote education for state-funded, school-age children unable
@@ -70,7 +55,7 @@
       Read the addendum on
       <%= link_to_govuk_content("recording attendance in relation to coronavirus (COVID-19)", "https://www.gov.uk/government/publications/school-attendance/addendum-recording-attendance-in-relation-to-coronavirus-covid-19-during-the-2020-to-2021-academic-year") %>
       for further information. Where there is a different reason for absence, read the
-      <a class="govuk-link" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/907535/School_attendance_guidance_for_2020_to_2021_academic_year.pdf">school attendance guidance.</a>
+      <%= link_to_govuk_content("school attendance guidance.", "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/907535/School_attendance_guidance_for_2020_to_2021_academic_year.pdf") %>
     </p>
     <p class="govuk-body">
       Schools should keep a record of, and monitor pupils’ and students’ engagement with remote education, but this does not need to be tracked in the attendance register.
@@ -86,8 +71,9 @@
       data-updated
       data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
     >
-      Read the 
-      <%= link_to_govuk_content("actions for FE colleges and providers during the coronavirus outbreak", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision") %>.
+      Where restrictions are put in place to contain local outbreaks or pupils and students are required to self-isolate, remote provision can be extended to meet pupils’ and students’ needs. FE colleges should have contingency plans in place to move quickly to blended or, if necessary, remote education should the need arise. The 
+      <%= link_to_govuk_content("Further education coronavirus (COVID-19) operational guidance", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision") %>
+      sets out what’s expected for remote provision. (pg 28)
     </p>
     <p 
       class="govuk-body updated-content <%= 'active' if @show_updates %>"

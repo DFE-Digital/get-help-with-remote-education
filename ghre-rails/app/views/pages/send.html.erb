@@ -16,10 +16,21 @@
       all types of school. 
     </p>
     <h2 class="govuk-heading-l">Guidance</h2>
-    <p class="govuk-body">
-      You can read the guidance on supporting pupils and students with SEND within the guidance on 
-      <a class="govuk-link" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/950510/School_national_restrictions_guidance.pdf">
-        restricting attendance during the national lockdown</a>.
+    <p
+      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      Where a pupil, class, group or small number of pupils need to self-isolate, or there are local restrictions in place requiring pupils to remain at home, DfE expects schools to be able to immediately offer them access to remote education.
+    </p>
+    <p
+      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      You can read the
+      <%= link_to_govuk_content("guidance", "https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak") %>
+      on supporting pupils and students with SEND for remote education. (pg 48)
     </p>
     <h2 class="govuk-heading-l">Get devices for those who cannot attend school</h2>
     <p class="govuk-body">

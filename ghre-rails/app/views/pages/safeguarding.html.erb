@@ -8,6 +8,9 @@
 </h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <% safeguarding_update_date = t('safeguarding.last_update_date').to_date %>
+    <%= render layout: 'summary', locals: { update_date: safeguarding_update_date, show_updates: @show_updates, page: 'safeguarding', has_content: false } do %>
+    <% end %>
     <p class="govuk-body">
       Keeping children safe online is essential. The statutory guidance
       <%= link_to_govuk_content("Keeping children safe in education", "https://www.gov.uk/government/publications/keeping-children-safe-in-education--2") %>
@@ -26,8 +29,13 @@
       <%= link_to_govuk_content("Safeguarding and remote education during coronavirus (COVID-19)", "https://www.gov.uk/guidance/safeguarding-and-remote-education-during-coronavirus-covid-19") %> provides guidance
       to help schools, colleges and teachers support pupils' and students' remote education during coronavirus (COVID-19).
     </p>
-    <p class="govuk-body">
-      <%= link_to_govuk_content("Further Education guidance for operation during the national lockdown", "https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak") %>
+    <p
+      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      The
+      <%= link_to_govuk_content("Further education coronavirus (COVID-19) operational guidance", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision") %>
       provides specific guidance for safeguarding in further education (p43).
     </p>
     <p class="govuk-body">

@@ -64,6 +64,8 @@
       </p>
     </div>
     <h2 class="govuk-heading-l">Schools</h2>
+    <% schools_update_date = t('good_teaching_practice.schools.last_update').to_date %>
+    <%= render layout: 'summary', locals: { update_date: schools_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: false } do; end %>
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
@@ -197,7 +199,12 @@
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+            <span
+              class="govuk-accordion__section-button updated-content <%= 'active' if @show_updates %>"
+              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+              data-updated
+              id="accordion-default-heading-3"
+            >
               Webinars
             </span>
           </h2>
@@ -208,12 +215,19 @@
             The DfE is offering several <%= link_to_govuk_content("school-led webinars", "https://www.gov.uk/guidance/remote-education-webinars") %> on remote education
             to help share good practice.
           </p>
-          <h4 class="govuk-heading-s">EdTech Demonstrator webinars</h4>
-          <p class="govuk-body">
+          <h4
+            class="govuk-heading-s"
+          >EdTech Demonstrator webinars</h4>
+          <p
+            class="govuk-body updated-content <%= 'active' if @show_updates %>"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated
+          >
             <a class="govuk-link" href="https://edtech-demonstrator.lgfl.net/home">The EdTech Demonstrator programme</a> helps schools and colleges with support for remote
-            education. Their webinars can support schools that are looking for help to improve the quality of their remote provision in line with the expectations
-            set out in the guidance on 
-            <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/950510/School_national_restrictions_guidance.pdf" class="govuk-link"> restricting attendance during the national lockdown</a>.
+            education. Their webinars can help improve the quality of remote provision in line with the expectations set out in the 
+            <%= link_to_govuk_content("Schools coronavirus (COVID-19) operational guidance", "https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak") %>.
+          </p>
+          <p class="govuk-body">
             Webinars include:
           </p>
           <ul class="govuk-list govuk-list--bullet">
@@ -245,8 +259,7 @@
       </div>
     </div>
     <h2 class="govuk-heading-l">FE</h2>
-    <% fe_update_date = t('good_teaching_practice.fe.last_update').to_date %>
-    <%= render layout: 'summary', locals: { update_date: fe_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: false } do; end %>
+    <span class="govuk-heading-s update-summary-meta">updated <%= t('good_teaching_practice.fe.last_update').to_date().strftime('%-d %B') %></span>
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
@@ -301,6 +314,23 @@
           <p class="govuk-body">
             DfE has also funded colleges to produce a range of content for the FE sector. The content consists of free, Sharable Content
             Object Reference Model (SCORM) compliant resources for use across the FE curriculum.
+          </p>
+
+          <h4
+            class="govuk-heading-s updated-content  <%= 'active' if @show_updates %>"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated
+          >
+            EdTech Demonstrator webinars
+          </h4>
+          <p
+            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated
+          >
+            <a class="govuk-link" href="https://edtech-demonstrator.lgfl.net/home">The EdTech Demonstrator programme</a> helps schools and colleges with support for remote
+            education. Their webinars can help improve the quality of remote provision in line with the expectations set out in the 
+            <%= link_to_govuk_content("Further education coronavirus (COVID-19) operational guidance", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision") %>.
           </p>
 
           <h4 class="govuk-heading-s">Agriculture, horticulture, and animal care</h4>
