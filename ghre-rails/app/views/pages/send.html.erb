@@ -16,10 +16,18 @@
       all types of school. 
     </p>
     <h2 class="govuk-heading-l">Guidance</h2>
-    <p class="govuk-body">
+    <p
+      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
       Where a pupil, class, group or small number of pupils need to self-isolate, or there are local restrictions in place requiring pupils to remain at home, DfE expects schools to be able to immediately offer them access to remote education.
     </p>
-    <p class="govuk-body">
+    <p
+      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
       You can read the
       <%= link_to_govuk_content("guidance", "https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak") %>
       on supporting pupils and students with SEND for remote education. (pg 48)
