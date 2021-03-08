@@ -8,6 +8,9 @@
 </h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <% send_update_date = t('send.last_update_date').to_date %>
+    <%= render layout: 'summary', locals: { update_date: send_update_date, show_updates: @show_updates, page: 'send', has_content: false } do %>
+    <% end %>
     <p class="govuk-body">
       How to support pupils and students with special educational needs and disabilities (SEND) and write contingency plans for remote education.
     </p>
