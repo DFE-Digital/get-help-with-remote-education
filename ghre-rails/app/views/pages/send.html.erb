@@ -48,9 +48,6 @@
       <a class="govuk-link" href="https://www.familyfund.org.uk/">guidance on how to apply for the Family Fund</a>.
     </p>
     <h2 class="govuk-heading-l" data-qa="training-assistive-technology">Training in assistive technology</h2>
-    <% training_in_assitive_technology_update_date = t('send.training_in_assistive_technology.last_update').to_date %>
-    <%= render layout: 'summary', locals: { update_date: training_in_assitive_technology_update_date, show_updates: @show_updates, page: 'send', has_content: false } do %>
-    <% end %>
     <p 
       class="govuk-body updated-content <%= 'active' if @show_updates %>" 
       data-updated
