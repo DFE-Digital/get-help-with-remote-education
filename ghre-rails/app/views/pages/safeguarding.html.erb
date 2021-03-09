@@ -84,7 +84,11 @@
       data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
       data-updated
     >Videos, webinars and online events</h2>
-    <ul class="govuk-list govuk-list--bullet">
+    <ul
+      class="govuk-list govuk-list--bullet updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
       <li><a class="govuk-link" href="https://edtech-demonstrator.lgfl.net/guidance/safeguarding">keeping pupils safe online</a></li>
     </ul>
   </div>
