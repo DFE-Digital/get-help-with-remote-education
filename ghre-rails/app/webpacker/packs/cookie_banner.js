@@ -5,14 +5,9 @@ function setCookie(name, value, expiry) {
   document.cookie = name + "=" + value + ";" + expires + ";path=/; sameSite=none; Secure";
 }
 
-function updateBanner() {
-  document.getElementById("cookieActionsContainer").style.display = "none";
-  document.getElementById("cookieConfirmation").style.display = "block";
-}
-
-function acceptAllCookies() {
+function acceptAllCookies(event) {
   setCookie("ghre_allow_cookies", true, 365);
-  updateBanner();
+  window.location.href = event.currentTarget.dataset.href;
 }
 
 document.getElementById("acceptCookies").onclick = acceptAllCookies;

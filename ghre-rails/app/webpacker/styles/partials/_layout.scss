@@ -18,14 +18,6 @@ hr {
   padding: 15px 0 10px;
   background-color: $cookie-banner-background;
 
-  &__actions {
-    display: block;
-  }
-
-  &__confirmation {
-    display: none;
-  }
-
   #{&}__link {
     color: $cookie-banner-text;
   }
