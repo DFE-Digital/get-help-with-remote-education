@@ -62,6 +62,27 @@
         conferencing services securely
       </li>
     </ul>
+    <h2
+      class="govuk-heading-l updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >Securing remote education</h2>
+    <p
+      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      To help keep pupils, students and staff safe whilst learning remotely, we have worked with the NCSC to provide guidance on making sure accounts, devices and services are configured securely. 
+    </p>
+    <p
+      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      The
+      <%= link_to_govuk_content("Home learning technology guidance", "https://www.ncsc.gov.uk/blog-post/home-learning-technology-securing-tools-for-remote-education") %>
+      will help with a number of security considerations for remote education.
+    </p>
     <h2 class="govuk-heading-l">Wellbeing</h2>
     <p class="govuk-body">
       Read the guidance and support on mental health and wellbeing for:
