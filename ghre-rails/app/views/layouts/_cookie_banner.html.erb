@@ -1,4 +1,4 @@
-<div class="app-cookie-banner app-cookie-banner--hidden" id="appCookieBanner" aria-label="cookie banner">
+<div class="app-cookie-banner" id="appCookieBanner" aria-label="cookie banner">
   <div class="govuk-width-container">
     <div class="app-cookie-banner__container" id="cookieActionsContainer">
       <p class="govuk-body">
@@ -6,16 +6,14 @@
         <%= link_to("collect information", "/settings/cookie-preferences", class: "govuk-link app-cookie-banner__link") %>
         about how you use the service.
       </p>
-      <div class="app-cookie-banner__actions">
-        <input type="button" id="acceptCookies" class="govuk-button govuk-!-margin-bottom-2" value="Accept all cookies" />
+      <div>
+        <button id="acceptCookies" data-href="<%=url_for(params.merge({:banner_accept => true}))%>" class="govuk-button govuk-!-margin-bottom-2">
+          Accept all cookies
+        </button>
         <p class="inline-message govuk-body">
           or <%= link_to 'set your cookie preferences', settings_cookie_preferences_path, class: 'govuk-link app-cookie-banner__link' %>
         </p>
       </div>
-    </div>
-    <div class="app-cookie-banner__confirmation" id="cookieConfirmation">
-      <p class="inline-message govuk-body">Cookie preferences have been saved</p>
-      <p class="inline-message--right govuk-body"><a href="" id="hideButton" value="Hide" class="govuk-link app-cookie-banner__link">Hide</a></p>
     </div>
   </div>
 </div>

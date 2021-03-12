@@ -50,8 +50,10 @@
 
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
-    <% unless cookies[:ghre_allow_cookies].present? %>
-      <%= render partial: 'layouts/cookie_banner' %>
+    <% if !cookies[:ghre_allow_cookies].present? %>
+      <%= render partial: 'layouts/cookie_banner', :locals => { :params => params.permit(:banner_accept) } %>
+    <% elsif params.has_key?(:banner_accept) %>
+      <%= render partial: 'layouts/cookie_banner_accepted', :locals => { :params => params.permit(:banner_accept) } %>
     <% end %>
 
     <header class="govuk-header" role="banner" data-module="govuk-header">
@@ -122,8 +124,11 @@
         </div>
       </div>
     </footer>
-    <% unless cookies[:ghre_allow_cookies].present? %>
+
+    <% if !cookies[:ghre_allow_cookies].present? %>
       <%= javascript_pack_tag 'cookie_banner', defer: true %>
+    <% elsif params.has_key?(:banner_accept) %>
+      <%= javascript_pack_tag 'cookie_banner_accept', defer: true %>
     <% end %>
 
     <% if ENV['GOOGLE_ANALYTICS_ID'] && cookies[:ghre_allow_cookies] == "true" %>
