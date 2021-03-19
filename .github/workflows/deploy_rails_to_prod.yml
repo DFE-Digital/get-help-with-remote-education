@@ -24,10 +24,11 @@ jobs:
           build_args: GIT_COMMIT_SHA=${{ steps.vars.outputs.sha_short }},GIT_BRANCH=${{ steps.vars.outputs.branch }}
           path: ./ghre-rails
           dockerfile: ./ghre-rails/Dockerfile
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: dfedigital/get-help-with-remote-education-prod
-          tags: latest
+          username: ghre-docker
+          password: ${{ secrets.GH_USER_GHRE_DOCKER_PAT }}
+          registry: ghcr.io
+          repository: dfe-digital/get-help-with-remote-education-prod
+          tags: ${{ steps.vars.outputs.sha_short }}, latest
 
   deploy-to-paas:
     defaults:
@@ -38,7 +39,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-
+      - name: Declare some variables
+        id: vars
+        shell: bash
+        run: |
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: Install CloudFoundry CLI
         shell: bash
         id: install-cf-cli
@@ -75,10 +80,9 @@ jobs:
         id: deploy-to-paas
         shell: bash
         env:
-          CF_DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          CF_DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          GH_IMAGE_COMMIT_TAG: ${{ steps.vars.outputs.sha_short }}
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
           cf target -o dfe -s get-help-with-remote-education-prod
-          cf push -f ./config/manifests/prod_manifest.yml --docker-image dfedigital/get-help-with-remote-education-prod:latest --strategy rolling
+          cf push -f ./config/manifests/prod_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-prod:$GH_IMAGE_COMMIT_TAG --strategy rolling

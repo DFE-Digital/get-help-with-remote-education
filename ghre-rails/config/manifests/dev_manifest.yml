@@ -9,7 +9,7 @@ applications:
     RACK_ENV: production
     RAILS_SERVE_STATIC_FILES: true
   docker:
-    image: dfedigital/get-help-with-remote-education-dev:latest
+    image: ghcr.io/dfe-digital/get-help-with-remote-education-dev:latest
   services:
   - logit-ssl-drain
   - get-help-with-remote-education-pg-dev
