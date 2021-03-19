@@ -80,10 +80,9 @@ jobs:
         id: deploy-to-paas
         shell: bash
         env:
-          CF_DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          CF_DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          GH_IMAGE_COMMIT_TAG: ${{ steps.vars.outputs.sha_short }}
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
           cf target -o dfe -s get-help-with-remote-education-prod
-          cf push -f ./config/manifests/prod_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-prod:${{ steps.vars.outputs.sha_short }} --strategy rolling
+          cf push -f ./config/manifests/prod_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-prod:$GH_IMAGE_COMMIT_TAG --strategy rolling

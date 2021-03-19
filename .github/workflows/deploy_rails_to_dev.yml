@@ -53,8 +53,10 @@ jobs:
       - name: Deploy to Gov.uk PaaS
         id: deploy-to-paas
         shell: bash
+        env:
+          GH_IMAGE_COMMIT_TAG: ${{ steps.vars.outputs.sha_short }}
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_PASSWORD_DEV }}"
           cf target -o dfe -s get-help-with-remote-education-dev
-          cf push -f ./config/manifests/dev_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-dev:${{ steps.vars.outputs.sha_short }}
+          cf push -f ./config/manifests/dev_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-dev:$GH_IMAGE_COMMIT_TAG
