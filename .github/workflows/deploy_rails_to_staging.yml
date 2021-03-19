@@ -24,10 +24,11 @@ jobs:
           build_args: GIT_COMMIT_SHA=${{ steps.vars.outputs.sha_short }},GIT_BRANCH=${{ steps.vars.outputs.branch }}
           path: ./ghre-rails
           dockerfile: ./ghre-rails/Dockerfile
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: dfedigital/get-help-with-remote-education-staging
-          tags: latest
+          username: ghre-docker
+          password: ${{ secrets.GH_USER_GHRE_DOCKER_PAT }}
+          registry: ghcr.io
+          repository: dfe-digital/get-help-with-remote-education-staging
+          tags: ${{ steps.vars.outputs.sha_short }}, latest
 
   deploy-to-paas:
     defaults:
@@ -38,6 +39,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: Declare some variables
+        id: vars
+        shell: bash
+        run: |
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: Install CloudFoundry CLI
         shell: bash
         id: install-cf-cli
@@ -49,11 +55,8 @@ jobs:
       - name: Deploy to Gov.uk PaaS
         id: deploy-to-paas
         shell: bash
-        env:
-          CF_DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          CF_DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_STAGING }}" "${{ secrets.CF_PASSWORD_STAGING }}"
           cf target -o dfe -s get-help-with-remote-education-staging
-          cf push -f ./config/manifests/staging_manifest.yml --docker-image dfedigital/get-help-with-remote-education-staging:latest
+          cf push -f ./config/manifests/staging_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-staging:${{ steps.vars.outputs.sha_short }}

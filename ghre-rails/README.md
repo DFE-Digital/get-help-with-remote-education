@@ -67,10 +67,10 @@ This service is built to deploy to [GOV PaaS](https://www.cloud.service.gov.uk/)
 To deploy this service do the following:
 
 1. Build the latest version of the app in Docker
-2. Push the image to the docker repo `dfedigital/get-help-with-remote-education-${dev/staging/prod}`
+2. Push the image to the github dfe-digital docker registry: `ghcr.io/dfe-digital/get-help-with-remote-education-${dev/staging/prod}:latest`
 3. Login to cloudfoundary
 4. Run the following
 ```
   cf target -o dfe-teacher-services -s get-help-with-remote-education-dev
-  cf push -f ./config/manifests/${dev/staging/prod}_manifest.yml --docker-image dfedigital/get-help-with-remote-education-${dev/staging/prod}:latest
+  cf push -f ./config/manifests/${dev/staging/prod}_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-${dev/staging/prod}:latest
 ```
