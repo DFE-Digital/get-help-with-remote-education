@@ -62,8 +62,6 @@
       </p>
     </div>
     <h2 class="govuk-heading-l">Schools</h2>
-    <% schools_update_date = t('good_teaching_practice.schools.last_update').to_date %>
-    <%= render layout: 'summary', locals: { update_date: schools_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: false } do; end %>
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
@@ -247,7 +245,8 @@
       </div>
     </div>
     <h2 class="govuk-heading-l">Further education</h2>
-    <span class="govuk-heading-s update-summary-meta">updated <%= t('good_teaching_practice.fe.last_update').to_date().strftime('%-d %B') %></span>
+    <% fe_update_date = t('good_teaching_practice.fe.last_update').to_date %>
+    <%= render layout: 'summary', locals: { update_date: fe_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: false } do; end %>
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
