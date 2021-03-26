@@ -3,6 +3,7 @@
 .govuk-card-row {
   display: flex;
   flex-direction: column;
+
   @media (min-width: 40.0625em) {
     flex-direction: row;
   }
@@ -13,30 +14,32 @@
   margin-bottom: 20px;
   border-bottom: 3px solid $govuk-card-blue;
   box-sizing: border-box;
-  
+
   @media (min-width: 40.0625em) {
     flex: 1 1 0;
     padding: 30px;
     margin-bottom: 30px;
   }
+
   background-color: $govuk-card-background;
+
   p {
     margin-bottom: 0;
   }
-  
+
   p + p {
     margin-top: 15px;
-  
+
     @media (min-width: 40.0625em) {
       margin-top: 20px;
     }
   }
-  
+
   .updated-meta {
     display: inline-block;
     font-size: 16px;
     font-weight: normal;
-  
+
     &.new {
       background: $govuk-link-colour;
       color: govuk-colour("white");
@@ -44,7 +47,7 @@
       padding: 0.25em 0.5em;
     }
   }
-  
+
   .govuk-heading-m {
     margin-bottom: 10px;
   }
