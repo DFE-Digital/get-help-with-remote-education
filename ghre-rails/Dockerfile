@@ -5,7 +5,7 @@ RUN apk add --update --no-cache tzdata && \
     echo "Europe/London" > /etc/timezone
 
 RUN apk add --update --no-cache --virtual runtime-dependances \
- yarn postgresql-contrib libpq less postgresql-dev
+ yarn postgresql-contrib libpq less postgresql-dev shared-mime-info
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
@@ -19,6 +19,7 @@ RUN apk add --update --no-cache --virtual build-dependances \
  build-base  && \
  bundle install --jobs=4 && \
  apk del build-dependances
+
 
 ADD package.json $APP_HOME/package.json
 ADD yarn.lock $APP_HOME/yarn.lock
