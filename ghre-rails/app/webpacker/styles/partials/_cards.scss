@@ -10,18 +10,21 @@
 }
 
 .govuk-card {
-  padding: 20px;
+  padding: 15px;
   margin-bottom: 20px;
   border-bottom: 3px solid $govuk-card-blue;
   box-sizing: border-box;
+  background-color: $govuk-card-background;
 
   @media (min-width: 40.0625em) {
     flex: 1 1 0;
-    padding: 30px;
+    padding: 20px;
     margin-bottom: 30px;
   }
 
-  background-color: $govuk-card-background;
+  .govuk-heading-s {
+    margin-bottom: 10px;
+  }
 
   p {
     margin-bottom: 0;
@@ -37,19 +40,16 @@
 
   .updated-meta {
     display: inline-block;
-    font-size: 16px;
     font-weight: normal;
+    margin-bottom: 0;
+    font-size: 16px;
 
     &.new {
-      background: $govuk-link-colour;
-      color: govuk-colour("white");
+      color: $govuk-link-colour;
+      border: 2px solid;
       font-weight: bold;
       padding: 0.25em 0.5em;
     }
-  }
-
-  .govuk-heading-m {
-    margin-bottom: 10px;
   }
 }
 
