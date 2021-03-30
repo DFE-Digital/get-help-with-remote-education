@@ -17,6 +17,10 @@
   background-color: $govuk-card-background;
 
   @media (min-width: 40.0625em) {
+    &.hidden {
+      display: block;
+      opacity: 0;
+    }
     flex: 1 1 0;
     padding: 20px;
     margin-bottom: 30px;
