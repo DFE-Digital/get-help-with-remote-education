@@ -1,19 +1,1 @@
 @import 'layout', 'variables', 'success_summary', 'cards', 'typography', 'update_summary', 'task_list';
-
-.blue-panel {
-  background-color: $govuk-card-blue;
-  left: 50%;
-  margin-bottom: 30px;
-  margin-left: -50vw;
-  padding-bottom: 15px;
-  padding-top: 30px;
-  position: relative;
-  width: 100vw;
-  
-  * {
-    color: govuk-colour("white") !important;
-  }
-  .govuk-grid-row {
-    margin: 0;
-  }
-}
