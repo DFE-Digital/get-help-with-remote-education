@@ -2,7 +2,6 @@
 
 .blue-panel {
   background-color: $govuk-card-blue;
-  color: govuk-colour("white");
   left: 50%;
   margin-bottom: 30px;
   margin-left: -50vw;
@@ -10,7 +9,10 @@
   padding-top: 30px;
   position: relative;
   width: 100vw;
-
+  
+  * {
+    color: govuk-colour("white") !important;
+  }
   .govuk-grid-row {
     margin: 0;
   }
