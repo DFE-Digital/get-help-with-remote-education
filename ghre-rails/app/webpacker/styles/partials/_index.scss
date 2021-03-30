@@ -1,21 +1,17 @@
 @import 'layout', 'variables', 'success_summary', 'cards', 'typography', 'update_summary', 'task_list';
 
 .blue-panel {
-    background-color: #1d70b8;
-    left: 50%;
-    margin-bottom: 30px;
-    margin-left: -50vw;
-    padding-bottom: 15px;
-    padding-top: 30px;
-    position: relative;
-    width: 100vw;
+  background-color: $govuk-card-blue;
+  color: govuk-colour("white");
+  left: 50%;
+  margin-bottom: 30px;
+  margin-left: -50vw;
+  padding-bottom: 15px;
+  padding-top: 30px;
+  position: relative;
+  width: 100vw;
 
-    .govuk-heading-xl,
-    p {
-      color: #fff;
-    }
-
-    .govuk-grid-row {
-        margin: 0;
-    }
+  .govuk-grid-row {
+    margin: 0;
+  }
 }
