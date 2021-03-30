@@ -1,0 +1,15 @@
+<% page_title = "Videos, webinars and online events"%>
+<%= content_for :page_title, page_title%>
+<%= content_for :before_content do %>
+  <a href="/" class="govuk-back-link">Back</a>
+<% end %>
+<h1 class="govuk-heading-xl">
+  Videos, webinars and online events
+</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <% videos_webinars_update_date = t('videos_webinars.last_update_date').to_date %>
+    <%= render layout: 'summary', locals: { update_date: videos_webinars_update_date, show_updates: @show_updates, page: 'videos_webinars', has_content: false } do %>
+    <% end %>
+  </div>
+</div>
