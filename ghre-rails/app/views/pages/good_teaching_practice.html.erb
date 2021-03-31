@@ -245,6 +245,9 @@
         <li>
           New resources from Venn Colleges
         </li>
+        <li>
+          New resources from Fareham College
+        </li>
       </ul>
     <% end %>
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
@@ -493,6 +496,18 @@
               ]}
             %>
             <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Engineering (SCORM)',
+                  href: 'https://www.fareham.ac.uk/ccf-engineering/',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
               title: 'Level 2 & 3',
               links: [
                 {
@@ -583,12 +598,6 @@
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=8',
                   topics: 30,
                 },
-                # ??! check link!
-                # {
-                #   title: 'Sport and Public Services (videos)',
-                #   href: 'https://ccf-project.howcollege.ac.uk',
-                #   topics: 10,
-                # }
               ]}
             %>
             <%= render partial: 'links_with_topics', locals: {
@@ -617,6 +626,20 @@
                   title: 'Health and Social Care (Recorded lesson)',
                   href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=health-and-social-care-level-3',
                   topics: 20,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Health and Social Care (SCORM)',
+                  href: 'https://www.fareham.ac.uk/ccf-hsc/',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Childcare (SCORM)',
+                  href: 'https://www.fareham.ac.uk/ccf-childcare/',
+                  topics: 10,
                   updated: true,
                   show_updates: @show_updates
                 }
@@ -649,15 +672,8 @@
             show_updates: @show_updates
           } do %>
             <%= render partial: 'links_with_topics', locals: {
-              title: 'Level 2',
+              title: 'Level 2 & 3',
               links: [
-                {
-                  title: 'Sport (videos)',
-                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
-                  topics: 16,
-                  updated: true,
-                  show_updates: @show_updates
-                },
                 {
                   title: 'Catering (series)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
@@ -668,15 +684,20 @@
               ]}
             %>
             <%= render partial: 'links_with_topics', locals: {
-              title: 'Level 3',
+              title: 'Level 2',
               links: [
                 {
-                  title: 'Catering (series)',
-                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
-                  topics: 12,
+                  title: 'Sport (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
+                  topics: 16,
                   updated: true,
                   show_updates: @show_updates
-                },
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
                 {
                   title: 'Physical Education A Level (Recorded lesson)',
                   href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=physical-education-a-level',
