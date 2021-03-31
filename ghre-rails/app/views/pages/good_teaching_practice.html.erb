@@ -381,8 +381,13 @@
             %>
           <% end %>
 
-          <%= render layout: 'details', locals: { title: 'Business, administration, finance and law' } do %>
+          <%= render layout: 'details', locals: {
+            title: 'Business, administration, finance and law',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
             <%= render partial: 'links_with_topics', locals: {
+                  title: 'All levels',
                   links: [
                     {
                       title: 'Business and entrepreneurship (SCORM)',
@@ -392,16 +397,42 @@
                   ]
                 }
             %>
+            <%= render partial: 'links_with_topics', locals: {
+                  title: 'Level 3',
+                  links: [
+                    {
+                      title: 'Business (Recorded lesson)',
+                      href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=business-a-level-and-level-3',
+                      topics: 21,
+                      updated: true,
+                      show_updates: @show_updates
+                    },
+                    {
+                      title: 'Law (Recorded lesson)',
+                      href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=law-a-level-and-applied',
+                      topics: 20,
+                      updated: true,
+                      show_updates: @show_updates
+                    },
+                  ]
+                }
+            %>
           <% end %>
 
-          <%= render layout: 'details', locals: { title: 'Construction, Planning and the Built Environment' } do %>
+          <%= render layout: 'details', locals: {
+            title: 'Construction, Planning and the Built Environment',
+            updated: true,
+            show_updates: @show_updates
+           } do %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'Level 1 & 2',
               links: [
                 {
                   title: 'Carpentry (videos)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=19',
-                  topics: 10
+                  topics: 12,
+                  updated: true,
+                  show_updates: @show_updates
                 },
               ]}
             %>
@@ -435,16 +466,34 @@
                 }
               ]}
             %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Fabrication and Welding (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=43',
+                  topics: 11,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+              ]}
+            %>
           <% end %>
 
-          <%= render layout: 'details', locals: { title: 'Engineering and Manufacturing Technologies' } do %>
+          <%= render layout: 'details', locals: {
+            title: 'Engineering and Manufacturing Technologies',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'Level 2',
               links: [
                 {
                   title: 'Automotive (videos)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=30',
-                  topics: 10,
+                  topics: 18,
+                  updated: true,
+                  show_updates: @show_updates
                 }
               ]}
             %>
@@ -454,13 +503,19 @@
                 {
                   title: 'Engineering (videos)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=34',
-                  topics: 18
+                  topics: 22,
+                  updated: true,
+                  show_updates: @show_updates
                 }
               ]}
             %>
           <% end %>
 
-          <%= render layout: 'details', locals: { title: 'English and ESOL' } do %>
+          <%= render layout: 'details', locals: {
+            title: 'English and ESOL',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'All levels',
               links: [
@@ -493,12 +548,23 @@
                   title: 'Literacy entry (SCORM)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=11',
                   topics: 30
+                },
+                {
+                  title: 'English A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=english-a-level',
+                  topics: 14,
+                  updated: true,
+                  show_updates: @show_updates
                 }
               ]}
             %>
           <% end %>
 
-          <%= render layout: 'details', locals: { title: 'Health, public and social care' } do %>
+          <%= render layout: 'details', locals: {
+            title: 'Health, public and social care',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'All levels',
               links: [
@@ -516,7 +582,120 @@
                   title: 'Childcare (videos)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=16',
                   topics: 10
+                },
+                {
+                  title: 'Public Services (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=8',
+                  topics: 30,
+                },
+                # ??! check link!
+                # {
+                #   title: 'Sport and Public Services (videos)',
+                #   href: 'https://ccf-project.howcollege.ac.uk',
+                #   topics: 10,
+                # }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Public Services (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=9',
+                  topics: 30,
+                },
+                {
+                  title: 'Clinical Skills (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=42',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Criminology A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=criminology-a-level',
+                  topics: 20,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Health and Social Care (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=health-and-social-care-level-3',
+                  topics: 20,
+                  updated: true,
+                  show_updates: @show_updates
                 }
+              ]}
+            %>
+          <% end %>
+
+          <%= render layout: 'details', locals: {
+            title: 'Information and Communication Technology (ICT)',
+            updated: true,
+            show_updates: @show_updates
+           } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Computing (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=36',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+          <% end %>
+
+          <%= render layout: 'details', locals: {
+            title: 'Leisure, Travel and Tourism',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Sport (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
+                  topics: 16,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Catering (series)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
+                  topics: 12,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Catering (series)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
+                  topics: 12,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Physical Education A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=physical-education-a-level',
+                  topics: 14,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Sport (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=sport-level-3',
+                  topics: 26,
+                  updated: true,
+                  show_updates: @show_updates
+                },
               ]}
             %>
           <% end %>
@@ -528,58 +707,17 @@
                 {
                   title: 'Barbering (Microsoft Sway)',
                   href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
-                  topics: 5,
-                  updated: true,
-                  show_updates: @show_updates
+                  topics: 5
                 }
               ]}
             %>
           <% end %>
 
-          <%= render layout: 'details', locals: { title: 'Public services' } do %>
-            <%= render partial: 'links_with_topics', locals: {
-              title: 'Level 2',
-              links: [
-                {
-                  title: 'Public services (SCORM)',
-                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=8',
-                  topics: 30
-                },
-              ]}
-            %>
-            <%= render partial: 'links_with_topics', locals: {
-              title: 'Level 3',
-              links: [
-                {
-                  title: 'Public services (SCORM)',
-                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=9',
-                  topics: 30
-                }
-              ]}
-            %>
-          <% end %>
-
-          <%= render layout: 'details', locals: { title: 'Leisure, Travel and Tourism' } do %>
-            <%= render partial: 'links_with_topics', locals: {
-              title: 'Level 2',
-              links: [
-                {
-                  title: 'Catering (series)',
-                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
-                  topics: 10
-                },
-                {
-                  title: 'Sport (videos)',
-                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
-                  topics: 10,
-                  updated: true,
-                  show_updates: @show_updates
-                }
-              ]}
-            %>
-          <% end %>
-
-          <%= render layout: 'details', locals: { title: 'Science and mathematics' } do %>
+          <%= render layout: 'details', locals: {
+            title: 'Mathematics',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'Level 1',
               links: [
@@ -596,18 +734,81 @@
               ]}
             %>
             <%= render partial: 'links_with_topics', locals: {
+              title: 'GCSE',
+              links: [
+                {
+                  title: 'Maths GCSE (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=maths-gcse',
+                  topics: 30,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Maths Bridging (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=maths-bridging',
+                  topics: 15,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
               title: 'Level 3',
               links: [
                 {
-                  title: 'Numeracy entry (SCORM)',
-                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=13',
-                  topics: 30
-                },
+                  title: 'Maths A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=maths-a-level',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+          <% end %>
+
+          <%= render layout: 'details', locals: {
+            title: 'Science',
+            updated: true,
+            show_updates: @show_updates
+           } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
                 {
                   title: 'Applied Science (videos)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=37',
-                  topics: 4
-                }
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Biology A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=biology-a-level',
+                  topics: 28,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Chemistry A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=chemistry-a-level',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Psychology A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=psychology-a-level',
+                  topics: 9,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Physics A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=physics-a-level',
+                  topics: 4,
+                  updated: true,
+                  show_updates: @show_updates
+                },
               ]}
             %>
           <% end %>
@@ -630,7 +831,11 @@
             %>
           <% end %>
 
-          <%= render layout: 'details', locals: { title: 'Skills and employment' } do %>
+          <%= render layout: 'details', locals: {
+            title: 'Skills and employment',
+            updated: true,
+            show_updates: @show_updates
+           } do %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'All levels',
               links: [
@@ -638,6 +843,18 @@
                   title: 'Employability (SCORM)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=7',
                   topics: 5
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Metacognition (Recorded Lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=metacognition',
+                  topics: 5,
+                  updated: true,
+                  show_updates: @show_updates
                 }
               ]}
             %>
