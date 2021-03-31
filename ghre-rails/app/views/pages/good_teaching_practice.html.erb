@@ -322,53 +322,62 @@
 
           <%= render layout: 'details', locals: { title: 'Agriculture, horticulture, and animal care' } do %>
             <%= render partial: 'links_with_topics', locals: {
+                title: 'All levels',
                 links: [
                   {
                     title: 'Animal Care (videos)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=17',
                     topics: 10
-                  },
+                  }
+                ]}
+              %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+                links: [
+                    {
+                      title: 'Agriculture (videos)',
+                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=28',
+                      topics: 3
+                    },
+                    {
+                      title: 'Arboriculture (videos)',
+                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=27',
+                      topics: 3
+                    },
+                    {
+                      title: 'Land and Wildlife (videos)',
+                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=35',
+                      topics: 1
+                    }
+                ]}
+              %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+                links: [
                   {
-                    title: 'Animal Care Level 3 (Microsoft Sway)',
+                    title: 'Animal Care (Microsoft Sway)',
                     href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
                     topics: 1,
-                    updated: true,
-                    show_updates: @show_updates
                   },
-                  {
-                    title: 'Agriculture Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=28',
-                    topics: 3
-                  },
-                  {
-                    title: 'Arboriculture Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=27',
-                    topics: 3
-                  },
-                  {
-                    title: 'Land and Wildlife Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=35',
-                    topics: 1
-                  }
                 ]}
               %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'Arts, media and publishing' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Photography and Media Level 2 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=26',
-                      topics: 9
-                    },
-                    {
-                      title: 'Art Level 2 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=29',
-                      topics: 1
-                    }
-                  ]
+            title: 'Level 2',
+              links: [
+                {
+                  title: 'Photography and Media (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=26',
+                  topics: 9
+                },
+                {
+                  title: 'Art (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=29',
+                  topics: 1
                 }
+              ]}
             %>
           <% end %>
 
@@ -387,212 +396,250 @@
 
           <%= render layout: 'details', locals: { title: 'Construction, Planning and the Built Environment' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Painting and decorating Level 1 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=22',
-                      topics: 5
-                    },
-                    {
-                      title: 'Carpentry Level 1 and 2 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=19',
-                      topics: 10
-                    },
-                    {
-                      title: 'Construction Level 1 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=32',
-                      topics: 3
-                    },
-                    {
-                      title: 'Electrical Level 2 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=33',
-                      topics: 3
-                    },
-                    {
-                      title: 'Plumbing Level 2 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=39',
-                      topics: 5
-                    }
-                  ]
+              title: 'Level 1 & 2',
+              links: [
+                {
+                  title: 'Carpentry (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=19',
+                  topics: 10
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 1',
+              links: [
+                {
+                  title: 'Painting and decorating (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=22',
+                  topics: 5
+                },
+                {
+                  title: 'Construction (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=32',
+                  topics: 3
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Electrical (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=33',
+                  topics: 3
+                },
+                {
+                  title: 'Plumbing (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=39',
+                  topics: 5
                 }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'Engineering and Manufacturing Technologies' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Engineering Level 2 and 3 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=34',
-                      topics: 18
-                    },
-                    {
-                      title: 'Automotive Level 2 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=30',
-                      topics: 10,
-                      updated: true,
-                      show_updates: @show_updates
-                    }
-                  ]
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Automotive (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=30',
+                  topics: 10,
                 }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2 & 3',
+              links: [
+                {
+                  title: 'Engineering (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=34',
+                  topics: 18
+                }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'English and ESOL' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Literacy entry level 3 (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=11',
-                      topics: 30
-                    },
-                    {
-                      title: 'English level 2 (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=10',
-                      topics: 30
-                    },
-                    {
-                      title: 'Spelling, punctuation and grammar (SPAG) level 2, SCORM',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=15',
-                      topics: 15
-                    },
-                    {
-                      title: 'English to speakers of other langauges (ESOL) videos',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=20',
-                      topics: 3
-                    }
-                  ]
+              title: 'All levels',
+              links: [
+                {
+                  title: 'English to speakers of other langauges (ESOL) videos',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=20',
+                  topics: 3
                 }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'English (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=10',
+                  topics: 30
+                },
+                {
+                  title: 'Spelling, punctuation and grammar (SPAG), SCORM',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=15',
+                  topics: 15
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Literacy entry (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=11',
+                  topics: 30
+                }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'Health, public and social care' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Health and Social Care (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=3',
-                      topics: 11
-                    },
-                    {
-                      title: 'Childcare (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=16',
-                      topics: 10
-                    }
-                  ]
+              title: 'All levels',
+              links: [
+                {
+                  title: 'Health and Social Care (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=3',
+                  topics: 11
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Childcare (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=16',
+                  topics: 10
                 }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'Retail and Commercial Enterprise' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Barbering Level 2 and 3 (Microsoft Sway)',
-                      href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
-                      topics: 5,
-                      updated: true,
-                      show_updates: @show_updates
-                    }
-                  ]
+              title: 'Level 2 & 3',
+              links: [
+                {
+                  title: 'Barbering (Microsoft Sway)',
+                  href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
+                  topics: 5,
+                  updated: true,
+                  show_updates: @show_updates
                 }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'Public services' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Public services level 2 (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=8',
-                      topics: 30
-                    },
-                    {
-                      title: 'Public services level 3 (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=9',
-                      topics: 30
-                    }
-                  ]
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Public services (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=8',
+                  topics: 30
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Public services (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=9',
+                  topics: 30
                 }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'Leisure, Travel and Tourism' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Catering Level 2 (series)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
-                      topics: 10
-                    },
-                    {
-                      title: 'Sport (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
-                      topics: 10,
-                      updated: true,
-                      show_updates: @show_updates
-                    }
-                  ]
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Catering (series)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
+                  topics: 10
+                },
+                {
+                  title: 'Sport (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
                 }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'Science and mathematics' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Numeracy entry level 3 (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=13',
-                      topics: 30
-                    },
-                    {
-                      title: 'Numeracy level 1 (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=14',
-                      topics: 30
-                    },
-                    {
-                      title: 'Maths level 1 (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=12',
-                      topics: 30
-                    },
-                    {
-                      title: 'Applied Science Level 3 (videos)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=37',
-                      topics: 4
-                    }
-                  ]
+              title: 'Level 1',
+              links: [
+                {
+                  title: 'Numeracy (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=14',
+                  topics: 30
+                },
+                {
+                  title: 'Maths (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=12',
+                  topics: 30
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Numeracy entry (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=13',
+                  topics: 30
+                },
+                {
+                  title: 'Applied Science (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=37',
+                  topics: 4
                 }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'PSHE and wellbeing' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Mental health (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=6',
-                      topics: 13
-                    },
-                    {
-                      title: 'SEN',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=21',
-                      topics: 6
-                    }
-                  ]
+              title: 'All levels',
+              links: [
+                {
+                  title: 'Mental health (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=6',
+                  topics: 13
+                },
+                {
+                  title: 'SEN',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=21',
+                  topics: 6
                 }
+              ]}
             %>
           <% end %>
 
           <%= render layout: 'details', locals: { title: 'Skills and employment' } do %>
             <%= render partial: 'links_with_topics', locals: {
-                  links: [
-                    {
-                      title: 'Employability (SCORM)',
-                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=7',
-                      topics: 5
-                    }
-                  ]
+              title: 'All levels',
+              links: [
+                {
+                  title: 'Employability (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=7',
+                  topics: 5
                 }
+              ]}
             %>
           <% end %>
         </div>

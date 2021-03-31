@@ -1,3 +1,6 @@
+<% if local_assigns[:title] %>
+  <h5 class="govuk-heading-s"><%= title %></h5>
+<% end %>
 <ul class="govuk-list govuk-list--bullet">
   <% links.each do |link| %>
     <li
