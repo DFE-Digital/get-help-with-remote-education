@@ -11,56 +11,6 @@
     <p class="govuk-body">
       Remote education resources, including lessons from Oak National Academy, as well as guidance, lesson plans and webinars on teaching remotely.
     </p>
-    <div class="event-panel">
-      <h2 class="govuk-heading-m">Online event<br>
-        <br>
-        Get help with remote education and catch-up provision</h2>
-      <p class="govuk-body">On Wednesday 27 January a sector-led online event took place which provided the following:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>examples of the best approaches to remote education</li>
-        <li>advice on delivering the curriculum virtually, featuring Oak National Academy, the EdTech Demonstrator Network, Microsoft and Google</li>
-        <li>top tips on maintaining wellbeing, motivation and keeping pupils safe whilst delivering remote education</li>
-      </ul>
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Read the full agenda
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">The event will be led by a selection of primary and secondary schools, including those who have accessed the DfE’s support package and Oak National Academy. Sessions include:</p>
-          <h3 class="govuk-heading-m">Getting the basics right</h3>
-          <p class="govuk-body">This session will explore:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>recommendations to strengthen your remote education strategy</li>
-            <li>long-term sustainable benefits of adopting the DfE's remote education offer</li>
-            <li>use of digital platforms</li>
-          </ul>
-          <h3 class="govuk-heading-m">Delivering the curriculum virtually</h3>
-          <p class="govuk-body">This session will explore ways to maintain high-quality teaching remotely, including:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>managing the complexity of delivering lessons to pupils in and outside of the classroom simultaneously</li>
-            <li>ensuring the curriculum is accessible to all pupils</li>
-            <li>ways Oak National Academy can be used interactively</li>
-            <li>maintaining high quality teaching in the remote environment</li>
-            <li>using technology to support catch-up activities</li>
-          </ul>
-          <h3 class="govuk-heading-m">Maintaining wellbeing, motivation and keeping pupils safe</h3>
-          <p class="govuk-body">This session will explore:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>how to ensure pupils remain motivated and able to learn</li>
-            <li>supporting school staff, including teacher workload</li>
-            <li>securing e-safety</li>
-          </ul>
-        </div>
-      </details>
-      <p class="govuk-body">
-        If you missed the event you can <%= link_to("access it on demand", "https://www.giggabox.co.uk/department-for-education/", class: "govuk-link") %>.
-      </p>
-      <p class="govuk-body">
-        A follow up event was held on 3 February 2021 where a panel responded to questions asked during (and after) the sector-led session on 27 January 2021.  You can <%= link_to("watch this event", "https://www.giggabox.co.uk/department-for-education/", class: "govuk-link") %> if you missed it.
-      </p>
-    </div>
     <h2 class="govuk-heading-l">Schools</h2>
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
@@ -177,7 +127,7 @@
       <div class="govuk-accordion__section ">
       <div class="govuk-accordion__section-header">
         <h2 class="govuk-accordion__section-heading">
-          <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+          <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
             Accessing and buying resources for remote education
           </span>
         </h2>
@@ -192,10 +142,8 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span
-              class="govuk-accordion__section-button updated-content <%= 'active' if @show_updates %>"
-              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-              data-updated
-              id="accordion-default-heading-3"
+              class="govuk-accordion__section-button"
+              id="accordion-default-heading-4"
             >
               Videos, webinars and online events
             </span>
@@ -241,13 +189,67 @@
             <a class="govuk-link" href="https://edtech-demonstrator.lgfl.net/support-and-resources/upcoming-events">upcoming events</a>
             on their website
           </p>
+          <h4 class="govuk-heading-s">Get help with remote education and catch-up provision</h4>
+          <p class="govuk-body">On Wednesday 27 January a sector-led online event took place which provided the following:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>examples of the best approaches to remote education</li>
+            <li>advice on delivering the curriculum virtually, featuring Oak National Academy, the EdTech Demonstrator Network, Microsoft and Google</li>
+            <li>top tips on maintaining wellbeing, motivation and keeping pupils safe whilst delivering remote education</li>
+          </ul>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Read the full agenda
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">The event was led by a selection of primary and secondary schools, including those who have accessed the DfE’s support package and Oak National Academy. Sessions included:</p>
+              <h3 class="govuk-heading-m">Getting the basics right</h3>
+              <p class="govuk-body">This session explored:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>recommendations to strengthen your remote education strategy</li>
+                <li>long-term sustainable benefits of adopting the DfE's remote education offer</li>
+                <li>use of digital platforms</li>
+              </ul>
+              <h3 class="govuk-heading-m">Delivering the curriculum virtually</h3>
+              <p class="govuk-body">This session explored ways to maintain high-quality teaching remotely, including:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>managing the complexity of delivering lessons to pupils in and outside of the classroom simultaneously</li>
+                <li>ensuring the curriculum is accessible to all pupils</li>
+                <li>ways Oak National Academy can be used interactively</li>
+                <li>maintaining high quality teaching in the remote environment</li>
+                <li>using technology to support catch-up activities</li>
+              </ul>
+              <h3 class="govuk-heading-m">Maintaining wellbeing, motivation and keeping pupils safe</h3>
+              <p class="govuk-body">This session explored:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>how to ensure pupils remain motivated and able to learn</li>
+                <li>supporting school staff, including teacher workload</li>
+                <li>securing e-safety</li>
+              </ul>
+            </div>
+          </details>
+          <p class="govuk-body">
+            If you missed the event you can <%= link_to("access it on demand", "https://www.giggabox.co.uk/department-for-education/", class: "govuk-link") %>.
+          </p>
+          <p class="govuk-body">
+            A follow up event was held on 3 February 2021 where a panel responded to questions asked during (and after) the sector-led session on 27 January 2021.  You can <%= link_to("watch this event", "https://www.giggabox.co.uk/department-for-education/", class: "govuk-link") %> if you missed it.
+          </p>
         </div>
       </div>
     </div>
     <h2 class="govuk-heading-l">Further education</h2>
     <% fe_update_date = t('good_teaching_practice.fe.last_update').to_date %>
-    <%= render layout: 'summary', locals: { update_date: fe_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: false } do; end %>
-
+    <%= render layout: 'summary', locals: { update_date: fe_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: true } do %>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          New resources from Venn Colleges
+        </li>
+        <li>
+          New resources from Fareham College
+        </li>
+      </ul>
+    <% end %>
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
@@ -304,295 +306,593 @@
           </p>
 
           <h4
-            class="govuk-heading-s updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-heading-s"
           >
             EdTech Demonstrator webinars
           </h4>
           <p
-            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-body"
           >
             <a class="govuk-link" href="https://edtech-demonstrator.lgfl.net/home">The EdTech Demonstrator programme</a> helps schools and colleges with support for remote
             education. Their webinars can help improve the quality of remote provision in line with the expectations set out in the 
             <%= link_to_govuk_content("Further education coronavirus (COVID-19) operational guidance", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision") %>.
           </p>
 
-          <h4 class="govuk-heading-s">Agriculture, horticulture, and animal care</h4>
-          <%= render partial: 'links_with_topics', locals: {
+          <%= render layout: 'details', locals: { title: 'Agriculture, horticulture, and animal care' } do %>
+            <%= render partial: 'links_with_topics', locals: {
+                title: 'All levels',
                 links: [
                   {
                     title: 'Animal Care (videos)',
                     href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=17',
                     topics: 10
-                  },
+                  }
+                ]}
+              %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+                links: [
+                    {
+                      title: 'Agriculture (videos)',
+                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=28',
+                      topics: 3
+                    },
+                    {
+                      title: 'Arboriculture (videos)',
+                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=27',
+                      topics: 3
+                    },
+                    {
+                      title: 'Land and Wildlife (videos)',
+                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=35',
+                      topics: 1
+                    }
+                ]}
+              %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+                links: [
                   {
-                    title: 'Animal Care Level 3 (Microsoft Sway)',
+                    title: 'Animal Care (Microsoft Sway)',
                     href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
                     topics: 1,
-                    updated: true,
-                    show_updates: @show_updates
                   },
-                  {
-                    title: 'Agriculture Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=28',
-                    topics: 3
-                  },
-                  {
-                    title: 'Arboriculture Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=27',
-                    topics: 3
-                  },
-                  {
-                    title: 'Land and Wildlife Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=35',
-                    topics: 1
-                  }
-                ]
-              }
-          %>
+                ]}
+              %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Arts, media and publishing</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Photography and Media Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=26',
-                    topics: 9
-                  },
-                  {
-                    title: 'Art Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=29',
-                    topics: 1
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: { title: 'Arts, media and publishing' } do %>
+            <%= render partial: 'links_with_topics', locals: {
+            title: 'Level 2',
+              links: [
+                {
+                  title: 'Photography and Media (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=26',
+                  topics: 9
+                },
+                {
+                  title: 'Art (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=29',
+                  topics: 1
+                }
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Business, administration, finance and law</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Business and entrepreneurship (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=2',
-                    topics: 22
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'Business, administration, finance and law',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
+            <%= render partial: 'links_with_topics', locals: {
+                  title: 'All levels',
+                  links: [
+                    {
+                      title: 'Business and entrepreneurship (SCORM)',
+                      href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=2',
+                      topics: 22
+                    }
+                  ]
+                }
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+                  title: 'Level 3',
+                  links: [
+                    {
+                      title: 'Business (Recorded lesson)',
+                      href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=business-a-level-and-level-3',
+                      topics: 21,
+                      updated: true,
+                      show_updates: @show_updates
+                    },
+                    {
+                      title: 'Law (Recorded lesson)',
+                      href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=law-a-level-and-applied',
+                      topics: 20,
+                      updated: true,
+                      show_updates: @show_updates
+                    },
+                  ]
+                }
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Construction, Planning and the Built Environment</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Painting and decorating Level 1 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=22',
-                    topics: 5
-                  },
-                  {
-                    title: 'Carpentry Level 1 and 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=19',
-                    topics: 10
-                  },
-                  {
-                    title: 'Construction Level 1 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=32',
-                    topics: 3
-                  },
-                  {
-                    title: 'Electrical Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=33',
-                    topics: 3
-                  },
-                  {
-                    title: 'Plumbing Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=39',
-                    topics: 5
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'Construction, Planning and the Built Environment',
+            updated: true,
+            show_updates: @show_updates
+           } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 1 & 2',
+              links: [
+                {
+                  title: 'Carpentry (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=19',
+                  topics: 12,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 1',
+              links: [
+                {
+                  title: 'Painting and decorating (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=22',
+                  topics: 5
+                },
+                {
+                  title: 'Construction (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=32',
+                  topics: 3
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Electrical (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=33',
+                  topics: 3
+                },
+                {
+                  title: 'Plumbing (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=39',
+                  topics: 5
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Fabrication and Welding (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=43',
+                  topics: 11,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Engineering and Manufacturing Technologies</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Engineering Level 2 and 3 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=34',
-                    topics: 18
-                  },
-                  {
-                    title: 'Automotive Level 2 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=30',
-                    topics: 10,
-                    updated: true,
-                    show_updates: @show_updates
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'Engineering and Manufacturing Technologies',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Automotive (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=30',
+                  topics: 18,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Engineering (SCORM)',
+                  href: 'https://www.fareham.ac.uk/ccf-engineering/',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2 & 3',
+              links: [
+                {
+                  title: 'Engineering (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=34',
+                  topics: 22,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">English and ESOL</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Literacy entry level 3 (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=11',
-                    topics: 30
-                  },
-                  {
-                    title: 'English level 2 (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=10',
-                    topics: 30
-                  },
-                  {
-                    title: 'Spelling, punctuation and grammar (SPAG) level 2, SCORM',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=15',
-                    topics: 15
-                  },
-                  {
-                    title: 'English to speakers of other langauges (ESOL) videos',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=20',
-                    topics: 3
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'English and ESOL',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'All levels',
+              links: [
+                {
+                  title: 'English to speakers of other languages (ESOL) videos',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=20',
+                  topics: 3
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'English (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=10',
+                  topics: 30
+                },
+                {
+                  title: 'Spelling, punctuation and grammar (SPAG), SCORM',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=15',
+                  topics: 15
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Literacy entry (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=11',
+                  topics: 30
+                },
+                {
+                  title: 'English A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=english-a-level',
+                  topics: 14,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Health, public and social care</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Health and Social Care (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=3',
-                    topics: 11
-                  },
-                  {
-                    title: 'Childcare (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=16',
-                    topics: 10
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'Health, public and social care',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'All levels',
+              links: [
+                {
+                  title: 'Health and Social Care (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=3',
+                  topics: 11
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Childcare (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=16',
+                  topics: 10
+                },
+                {
+                  title: 'Public Services (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=8',
+                  topics: 30,
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Public Services (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=9',
+                  topics: 30,
+                },
+                {
+                  title: 'Clinical Skills (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=42',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Criminology A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=criminology-a-level',
+                  topics: 20,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Health and Social Care (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=health-and-social-care-level-3',
+                  topics: 20,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Health and Social Care (SCORM)',
+                  href: 'https://www.fareham.ac.uk/ccf-hsc/',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Childcare (SCORM)',
+                  href: 'https://www.fareham.ac.uk/ccf-childcare/',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Retail and Commercial Enterprise</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Barbering Level 2 and 3 (Microsoft Sway)',
-                    href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
-                    topics: 5,
-                    updated: true,
-                    show_updates: @show_updates
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'Information and Communication Technology (ICT)',
+            updated: true,
+            show_updates: @show_updates
+           } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Computing (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=36',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Public services</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Public services level 2 (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=8',
-                    topics: 30
-                  },
-                  {
-                    title: 'Public services level 3 (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=9',
-                    topics: 30
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'Leisure, Travel and Tourism',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2 & 3',
+              links: [
+                {
+                  title: 'Catering (series)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
+                  topics: 12,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2',
+              links: [
+                {
+                  title: 'Sport (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
+                  topics: 16,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Physical Education A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=physical-education-a-level',
+                  topics: 14,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Sport (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=sport-level-3',
+                  topics: 26,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Leisure, Travel and Tourism</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Catering Level 2 (series)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=38',
-                    topics: 10
-                  },
-                  {
-                    title: 'Sport (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=40',
-                    topics: 10,
-                    updated: true,
-                    show_updates: @show_updates
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: { title: 'Retail and Commercial Enterprise' } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 2 & 3',
+              links: [
+                {
+                  title: 'Barbering (Microsoft Sway)',
+                  href: 'https://www.wiltshire.ac.uk/college-collaboration-fund',
+                  topics: 5
+                }
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Science and mathematics</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Numeracy entry level 3 (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=13',
-                    topics: 30
-                  },
-                  {
-                    title: 'Numeracy level 1 (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=14',
-                    topics: 30
-                  },
-                  {
-                    title: 'Maths level 1 (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=12',
-                    topics: 30
-                  },
-                  {
-                    title: 'Applied Science Level 3 (videos)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=37',
-                    topics: 4
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'Mathematics',
+            updated: true,
+            show_updates: @show_updates
+          } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Entry Level 3',
+              links: [
+                {
+                  title: 'Numeracy (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=13',
+                  topics: 30
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 1',
+              links: [
+                {
+                  title: 'Numeracy (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=14',
+                  topics: 30
+                },
+                {
+                  title: 'Maths (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=12',
+                  topics: 30
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'GCSE',
+              links: [
+                {
+                  title: 'Maths GCSE (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=maths-gcse',
+                  topics: 30,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Maths Bridging (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=maths-bridging',
+                  topics: 15,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Maths A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=maths-a-level',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">PSHE and wellbeing</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Mental health (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=6',
-                    topics: 13
-                  },
-                  {
-                    title: 'SEN',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=21',
-                    topics: 6
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: {
+            title: 'Science',
+            updated: true,
+            show_updates: @show_updates
+           } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Applied Science (videos)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=37',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Biology A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=biology-a-level',
+                  topics: 28,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Chemistry A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=chemistry-a-level',
+                  topics: 10,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Psychology A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=psychology-a-level',
+                  topics: 9,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Physics A Level (Recorded lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=physics-a-level',
+                  topics: 4,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+              ]}
+            %>
+          <% end %>
 
-          <h4 class="govuk-heading-s">Skills and employment</h4>
-          <%= render partial: 'links_with_topics', locals: {
-                links: [
-                  {
-                    title: 'Employability (SCORM)',
-                    href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=7',
-                    topics: 5
-                  }
-                ]
-              }
-          %>
+          <%= render layout: 'details', locals: { title: 'PSHE and wellbeing' } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'All levels',
+              links: [
+                {
+                  title: 'Mental health (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=6',
+                  topics: 13
+                },
+                {
+                  title: 'SEN',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=21',
+                  topics: 6
+                }
+              ]}
+            %>
+          <% end %>
+
+          <%= render layout: 'details', locals: {
+            title: 'Skills and employment',
+            updated: true,
+            show_updates: @show_updates
+           } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'All levels',
+              links: [
+                {
+                  title: 'Employability (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=7',
+                  topics: 5
+                }
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 3',
+              links: [
+                {
+                  title: 'Metacognition (Recorded Lesson)',
+                  href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=metacognition',
+                  topics: 5,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
+          <% end %>
         </div>
       </div>
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span
-              class="govuk-accordion__section-button updated-content <%= 'active' if @show_updates %>"
+              class="govuk-accordion__section-button"
               id="accordion-default-heading-10"
-              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-              data-updated
             >
               Case Studies
             </span>
@@ -600,9 +900,7 @@
         </div>
         <div id="accordion-default-content-10" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
           <p
-            class="govuk-body updated-content <%= 'active' if @show_updates %>" 
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-body"
           >
             Colleges and FE providers can access
             <a class="govuk-link" href="https://www.gov.uk/government/publications/remote-and-blended-learning-good-practice-fe-colleges">case studies on delivering high-quality remote education</a>.

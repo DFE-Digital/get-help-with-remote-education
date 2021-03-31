@@ -1,0 +1,16 @@
+<details class="govuk-details resources-detail" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      <h4
+        class="<%= "updated-content" if local_assigns[:updated] %> <%= "active" if local_assigns[:show_updates] %>"
+        <%= "data-qa=updated-content#{ local_assigns[:show_updates] ? '__highlighted' : '' }" if local_assigns[:updated] %>
+        <%= "data-updated" if local_assigns[:updated] %>
+      >
+        <%= title %>
+      </h4>
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <%= yield %>
+  </div>
+</details>

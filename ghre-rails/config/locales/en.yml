@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  videos_webinars:
+    last_update_date: "31/03/2021"
   statutory_obligations:
     last_update_date: "08/03/2021"
     main_title_paragraph: 
@@ -37,11 +39,11 @@ en:
   safeguarding:
     last_update_date: "15/03/2021"
   good_teaching_practice:
-    last_update_date: "08/03/2021"
+    last_update_date: "31/03/2021"
     schools:
       last_update: "08/03/2021"
     fe:
-      last_update: "08/03/2021"
+      last_update: "31/03/2021"
   send:
     last_update_date: "09/03/2021"
     training_in_assistive_technology:

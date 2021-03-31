@@ -45,3 +45,44 @@ hr {
   padding: 1rem;
   margin: 2rem 0;
 }
+
+.blue-panel {
+  background-color: $govuk-card-blue;
+  left: 50%;
+  margin-bottom: 30px;
+  margin-left: -50vw;
+  padding-bottom: 15px;
+  padding-top: 30px;
+  position: relative;
+  width: 100vw;
+
+  * {
+    color: govuk-colour("white") !important;
+  }
+
+  .govuk-grid-row {
+    margin: 0;
+  }
+}
+
+.govuk-details {
+  .govuk-details__text {
+    background: govuk-colour("light-grey");
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  h5 {
+    margin-top: 0;
+  }
+}
+
+details:first-of-type {
+  margin-top: 30px;
+
+  @media (min-width: 40.0625em) {
+    margin-top: 40px;
+  }
+}
