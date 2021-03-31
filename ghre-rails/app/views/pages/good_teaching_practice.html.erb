@@ -735,6 +735,16 @@
             show_updates: @show_updates
           } do %>
             <%= render partial: 'links_with_topics', locals: {
+              title: 'Entry Level 3',
+              links: [
+                {
+                  title: 'Numeracy (SCORM)',
+                  href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=13',
+                  topics: 30
+                },
+              ]}
+            %>
+            <%= render partial: 'links_with_topics', locals: {
               title: 'Level 1',
               links: [
                 {
