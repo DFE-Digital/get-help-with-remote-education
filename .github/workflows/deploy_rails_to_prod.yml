@@ -1,6 +1,6 @@
 name: Deploy rails to prod
 
-# Workflow will run on push to main branch
+# Workflow will run on manual trigger in github actions UI
 on:
   workflow_dispatch:
 
@@ -16,19 +16,26 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "##[set-output name=branch;]$(git rev-parse --abbrev-ref HEAD)"
-          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v1
+          echo "::set-output name=image_commit_tag::ghcr.io/dfe-digital/get-help-with-remote-education-prod:$(git rev-parse --short HEAD)"
+          echo "::set-output name=image_latest_tag::ghcr.io/dfe-digital/get-help-with-remote-education-prod:latest"
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
         with:
-          build_args: GIT_COMMIT_SHA=${{ steps.vars.outputs.sha_short }},GIT_BRANCH=${{ steps.vars.outputs.branch }}
-          path: ./ghre-rails
-          dockerfile: ./ghre-rails/Dockerfile
+          registry: ghcr.io
           username: ghre-docker
           password: ${{ secrets.GH_USER_GHRE_DOCKER_PAT }}
-          registry: ghcr.io
-          repository: dfe-digital/get-help-with-remote-education-prod
-          tags: ${{ steps.vars.outputs.sha_short }}, latest
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./ghre-rails
+          push: true
+          tags: ${{ steps.vars.outputs.image_commit_tag }}, ${{ steps.vars.outputs.image_latest_tag }}
 
   deploy-to-paas:
     defaults:
@@ -43,7 +50,7 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+          echo "::set-output name=image_commit_tag::ghcr.io/dfe-digital/get-help-with-remote-education-prod:$(git rev-parse --short HEAD)"
       - name: Install CloudFoundry CLI
         shell: bash
         id: install-cf-cli
@@ -80,9 +87,9 @@ jobs:
         id: deploy-to-paas
         shell: bash
         env:
-          GH_IMAGE_COMMIT_TAG: ${{ steps.vars.outputs.sha_short }}
+          GH_IMAGE_COMMIT_TAG: ${{ steps.vars.outputs.image_commit_tag }}
         run: |
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
           cf target -o dfe -s get-help-with-remote-education-prod
-          cf push -f ./config/manifests/prod_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-prod:$GH_IMAGE_COMMIT_TAG --strategy rolling
+          cf push -f ./config/manifests/prod_manifest.yml --docker-image $GH_IMAGE_COMMIT_TAG
