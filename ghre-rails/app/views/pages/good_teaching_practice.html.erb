@@ -598,6 +598,13 @@
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=8',
                   topics: 30,
                 },
+                {
+                  title: 'Health and Social Care (Microsoft OneNote)',
+                  href: 'https://drive.google.com/drive/folders/17jauQzL_ysJhdfgqkhORXbOrUpKQB94h',
+                  topics: 3,
+                  updated: true,
+                  show_updates: @show_updates
+                },
               ]}
             %>
             <%= render partial: 'links_with_topics', locals: {
@@ -637,6 +644,13 @@
                   show_updates: @show_updates
                 },
                 {
+                  title: 'Health and Social Care (Microsoft OneNote)',
+                  href: 'https://drive.google.com/drive/folders/1-iHU4-uHPt5SNuR_5BqJiHbA756pEALX',
+                  topics: 12,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
                   title: 'Childcare (SCORM)',
                   href: 'https://www.fareham.ac.uk/ccf-childcare/',
                   topics: 10,
@@ -671,6 +685,18 @@
             updated: true,
             show_updates: @show_updates
           } do %>
+            <%= render partial: 'links_with_topics', locals: {
+              title: 'Level 1',
+              links: [
+                {
+                  title: 'Travel & Tourism (Microsoft OneNote)',
+                  href: 'https://drive.google.com/drive/folders/1aReDS-nQUhgO0aLkAxLbejy0MEPFSUqH',
+                  topics: 3,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+              ]}
+            %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'Level 2 & 3',
               links: [
@@ -869,6 +895,20 @@
                   title: 'Employability (SCORM)',
                   href: 'https://ccf-project.howcollege.ac.uk/course/view.php?id=7',
                   topics: 5
+                },
+                {
+                  title: 'Tutorial - Money Matters (Microsoft OneNote)',
+                  href: 'https://drive.google.com/drive/folders/1lHihVkaQ2a5vJ2LsIBUo5NyNuBqi_hoD',
+                  topics: 1,
+                  updated: true,
+                  show_updates: @show_updates
+                }
+                {
+                  title: 'Work Experience Webinar Platform (Microsoft OneNote)',
+                  href: 'https://drive.google.com/drive/folders/10g1pOKgPtwjORArL1j4i1avPR2XEv-6x',
+                  topics: 1,
+                  updated: true,
+                  show_updates: @show_updates
                 }
               ]}
             %>
