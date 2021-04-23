@@ -243,7 +243,7 @@
     <%= render layout: 'summary', locals: { update_date: fe_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: true } do %>
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          New resources
+          New skills & employment resources from Cirencester College
         </li>
       </ul>
     <% end %>
@@ -396,16 +396,12 @@
                     {
                       title: 'Business (Recorded lesson)',
                       href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=business-a-level-and-level-3',
-                      topics: 21,
-                      updated: true,
-                      show_updates: @show_updates
+                      topics: 21
                     },
                     {
                       title: 'Law (Recorded lesson)',
                       href: 'https://www.venncolleges.ac.uk/resource-hubs/resources-hub/?subject=law-a-level-and-applied',
-                      topics: 20,
-                      updated: true,
-                      show_updates: @show_updates
+                      topics: 20
                     },
                   ]
                 }
@@ -548,9 +544,7 @@
           <% end %>
 
           <%= render layout: 'details', locals: {
-            title: 'Health, public and social care',
-            updated: true,
-            show_updates: @show_updates
+            title: 'Health, public and social care'
           } do %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'All levels',
@@ -578,9 +572,7 @@
                 {
                   title: 'Health and Social Care (Microsoft OneNote)',
                   href: 'https://drive.google.com/drive/folders/17jauQzL_ysJhdfgqkhORXbOrUpKQB94h',
-                  topics: 3,
-                  updated: true,
-                  show_updates: @show_updates
+                  topics: 3
                 },
               ]}
             %>
@@ -615,9 +607,7 @@
                 {
                   title: 'Health and Social Care (Microsoft OneNote)',
                   href: 'https://drive.google.com/drive/folders/1-iHU4-uHPt5SNuR_5BqJiHbA756pEALX',
-                  topics: 12,
-                  updated: true,
-                  show_updates: @show_updates
+                  topics: 12
                 },
                 {
                   title: 'Childcare (SCORM)',
@@ -645,8 +635,6 @@
 
           <%= render layout: 'details', locals: {
             title: 'Leisure, Travel and Tourism',
-            updated: true,
-            show_updates: @show_updates
           } do %>
             <%= render partial: 'links_with_topics', locals: {
               title: 'Level 1',
@@ -654,9 +642,7 @@
                 {
                   title: 'Travel & Tourism (Microsoft OneNote)',
                   href: 'https://drive.google.com/drive/folders/1aReDS-nQUhgO0aLkAxLbejy0MEPFSUqH',
-                  topics: 3,
-                  updated: true,
-                  show_updates: @show_updates
+                  topics: 3
                 }
               ]}
             %>
@@ -834,17 +820,34 @@
                 {
                   title: 'Tutorial - Money Matters (Microsoft OneNote)',
                   href: 'https://drive.google.com/drive/folders/1lHihVkaQ2a5vJ2LsIBUo5NyNuBqi_hoD',
-                  topics: 1,
-                  updated: true,
-                  show_updates: @show_updates
+                  topics: 1
                 },
                 {
                   title: 'Work Experience Webinar Platform (Microsoft OneNote)',
                   href: 'https://drive.google.com/drive/folders/10g1pOKgPtwjORArL1j4i1avPR2XEv-6x',
+                  topics: 1
+                },
+                {
+                  title: 'Parent and Student Guides',
+                  href: 'https://www.cirencester.ac.uk/ccf-resources/',
+                  topics: 3,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Transition To College',
+                  href: 'https://www.cirencester.ac.uk/ccf-resources/',
+                  topics: 5,
+                  updated: true,
+                  show_updates: @show_updates
+                },
+                {
+                  title: 'Online Learning Guidance',
+                  href: 'https://www.cirencester.ac.uk/ccf-resources/',
                   topics: 1,
                   updated: true,
                   show_updates: @show_updates
-                }
+                },
               ]}
             %>
             <%= render partial: 'links_with_topics', locals: {
