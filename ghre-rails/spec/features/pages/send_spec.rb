@@ -69,10 +69,6 @@ RSpec.describe "/pages/send.html.erb", type: :feature do
           expect(page).to have_selector('[data-qa="update-summary__visible"]')
         end
 
-        it "should highlight the updated sections" do
-          expect(page).to have_selector('[data-qa="updated-content__highlighted"]')
-        end
-
         it "should have the button for hiding updates" do
           expect(page).to have_selector('[data-qa="update-summary-toggle__hide"]')
         end
