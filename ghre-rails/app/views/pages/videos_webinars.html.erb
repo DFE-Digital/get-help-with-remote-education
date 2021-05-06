@@ -12,7 +12,7 @@
     <%= render layout: 'summary', locals: { update_date: videos_webinars_update_date, show_updates: @show_updates, page: 'videos_webinars', has_content: true } do %>
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          Whole page added
+          Cyber security section added
         </li>
       </ul>
     <% end %>
@@ -131,6 +131,55 @@
           <ul class="govuk-list govuk-list--bullet">
             <li><a href="https://edtech-demonstrator.lgfl.net/guidance/special-educational-needs">using technology to support pupils with special education needs (SEND)</a></li>
           </ul>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2
+            class="govuk-accordion__section-heading updated-content  <%= 'active' if @show_updates %>"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated
+          >
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+              Cyber security training
+            </span>
+          </h2>
+        </div>
+        <div
+          id="accordion-default-content-3"
+          class="govuk-accordion__section-content updated-content  <%= 'active' if @show_updates %>"
+          data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+          data-updated
+        >
+          <p class="govuk-body">
+            The National Cyber Security Centre (NCSC) is offering free training to
+            <%= link_to("school staff to improve cyber resilience", "https://www.ncsc.gov.uk/news/school-staff-offered-training-to-help-cyber-defences") %>.
+          </p>
+          <p class="govuk-body">
+            The
+            <%= link_to("cyber security training", "https://www.ncsc.gov.uk/information/cyber-security-training-schools") %>
+            sets out real-life incident case studies and four practical steps staff can take to protect themselves online.
+          </p>
+          <div class="event-panel">
+            <h3 class="govuk-heading-s">Ransomware, the risk to schools and ways to prevent it</h3>
+            <p class="govuk-body">
+              On <strong>Wed 12 May 15:30-16:30</strong> NCSC and the Department for Education are running a session focussing on ransomware,
+              following a recent spate of ransomware attacks against the education sector. The session will include:
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>an overview of ransomware</li>
+              <li>an exploration of how to back-up school data</li>
+              <li>advice from the NCSC Incident Management team about managing a ransomware incident</li>
+              <li>a high-level panel discussion on cyber resilience in the education sector</li>
+            </ul>
+            <p class="govuk-body">
+              Details can be found
+              <%= link_to("here", "https://www.ncsc.gov.uk/section/cyberuk/overview") %>
+              including the
+              <%= link_to("YouTube link", "https://www.youtube.com/channel/UCyAPLAtCSeL1s85YMY8ULnw") %>
+              for joining the session.
+            </p>
+        </div>
         </div>
       </div>
     </div>
