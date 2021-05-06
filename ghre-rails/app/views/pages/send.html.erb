@@ -4,75 +4,126 @@
   <a href="/" class="govuk-back-link">Back</a>
 <% end %>
 <h1 class="govuk-heading-xl">
-  Special educational needs and disabilities (SEND)
+  Special educational needs and disabilities (SEND) and vulnerable children
 </h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <% send_update_date = t('send.last_update_date').to_date %>
-    <%= render layout: 'summary', locals: { update_date: send_update_date, show_updates: @show_updates, page: 'send', has_content: false } do %>
-    <% end %>
-    <p class="govuk-body">
-      How to support pupils and students with special educational needs and disabilities (SEND) and write contingency plans for remote education.
-    </p>
-    <p class="govuk-body">
-      The requirement to ensure pupils and students with SEND can access remote education is exactly the same as it is for all other pupils and students in 
-      all types of school. 
-    </p>
-    <h2 class="govuk-heading-l">Guidance</h2>
-    <p
-      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      data-updated
-    >
-      Where a pupil, class, group or small number of pupils need to self-isolate, or there are local restrictions in place requiring pupils to remain at home, DfE expects schools to be able to immediately offer them access to remote education.
-    </p>
-    <p
-      class="govuk-body updated-content  <%= 'active' if @show_updates %>"
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      data-updated
-    >
-      You can read the
-      <%= link_to_govuk_content("guidance", "https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak/schools-coronavirus-covid-19-operational-guidance", "#remote-education") %>
-      on supporting pupils and students with SEND for remote education.
-    </p>
-    <h2 class="govuk-heading-l">Get devices for those who cannot attend school</h2>
-    <p class="govuk-body">
-      Where a child or young person has been advised not to attend school by a GP or specialist clinician, and does not have access to a device, their school 
-      should contact the Department for Education (DfE), so that we can help them to provide support. You can read further guidance on
-      <%= link_to_govuk_content("getting laptops and tablets for those who cannot attend school", "https://www.gov.uk/guidance/get-laptops-and-tablets-for-children-who-cannot-attend-school-due-to-coronavirus-covid-19") %>.
-    </p>
-    <h2 class="govuk-heading-l">Support for low-income families</h2>
-    <p class="govuk-body">
-      Further support for low-income families with disabled and critically ill children, including helping to buy specialist equipment, has been made 
-      available through the Family Fund. You can read further 
-      <a class="govuk-link" href="https://www.familyfund.org.uk/">guidance on how to apply for the Family Fund</a>.
-    </p>
-    <h2 class="govuk-heading-l" data-qa="training-assistive-technology">Training in assistive technology</h2>
-    <p 
-      class="govuk-body" 
-    >
-      We are funding National Star College to provide specialist online training on assistive technology to strengthen remote education provision for pupils with special educational
-      needs. Training is available to school leaders, teachers and SEN Coordinators until March 2021. Read further information about the 
-      <a href="https://www.nationalstar.org/products-services-facilities/star-technology/accessible-tech/send-support-hub/" class="govuk-link">SEND support hub</a> on the National Star
-      College website.
-    </p>
-    <h2
-      class="govuk-heading-l updated-content  <%= 'active' if @show_updates %>"
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      data-updated
-    >
-      Videos, webinars and online events
-    </h2>
-    <ul
-      class="govuk-list govuk-list--bullet updated-content  <%= 'active' if @show_updates %>"
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      data-updated
-    >
+    <%= render layout: 'summary', locals: { update_date: send_update_date, show_updates: @show_updates, page: 'send', has_content: true } do %>
+    <ul class="govuk-list govuk-list--bullet">
       <li>
-        <a class="govuk-link" href="https://edtech-demonstrator.lgfl.net/guidance/special-educational-needs">
-          using technology to support pupils with special education needs (SEND)
-        </a>
+        Whole page updated
       </li>
     </ul>
+    <% end %>
+    <h2 class="govuk-heading-l">Supporting pupils and young people with special educational needs and disabilities (SEND)</h2>
+    <p class="govuk-body">
+      The requirement to ensure pupils and students with SEND can access remote education is the same as it is for all other pupils and students in all types of schools and colleges.
+    </p>
+    <p class="govuk-body">
+      You can read school opening
+      <%= link_to_govuk_content("guidance", "https://www.gov.uk/government/publications/guidance-for-full-opening-special-schools-and-other-specialist-settings/send-and-specialist-settings-additional-operational-guidance-coronavirus-covid-19", "#remote-education-expectations-and-delivery") %>
+      for SEND and specialist settings. The guidance includes information on remote education for pupils and students whose attendance in school or college would be contrary to government guidance or law around coronavirus (COVID-19).
+    </p>
+    <p class="govuk-body">
+      For schools and colleges developing their remote education for pupils and students with SEND, the following support and information is available from third-party resources:
+    </p>
+    <ul
+      class="govuk-list govuk-list--bullet"
+    >
+      <li>
+        <%= link_to_govuk_content("Ofsted has shared insights into how remote education is working for children and young people with SEND during the pandemic", "https://www.gov.uk/government/publications/remote-education-and-send/how-remote-education-is-working-for-children-and-young-people-with-send") %>
+      </li>
+      <li>
+        support to help pupils and students
+        <%= link_to("with accessible technology", "https://www.nationalstar.org/wp-content/uploads/2021/02/Resource-Accessible-Tech-for-Education.pdf") %>
+        from National Star College
+      </li>
+      <li>
+        <%= link_to("SEND support hub", "https://www.nationalstar.org/products-services-facilities/star-technology/accessible-tech/send-support-hub/") %>
+        to enable specialist support for pupils and students with additional learning needs through assistive technology
+      </li>
+    </ul>
+    <p class="govuk-body">
+      Oak National Academy has produced a
+      <%= link_to("blog", "https://www.thenational.academy/blog/sen-support-accessible-remote-learning-and-making-the-most-of-the-oak-offer") %>
+      on accessible remote learning and making the most of the Oak offer. Oak Academy provides
+      <%= link_to("specialist subjects", "https://classroom.thenational.academy/specialist") %>
+      for pupils with additional needs and
+      <%= link_to("lessons", "https://classroom.thenational.academy/specialist/therapies") %>
+      to support occupational therapy, physical therapy, speech and language therapy and sensory integration.
+    </p>
+    <h2 class="govuk-heading-l">Supporting vulnerable children, including children with a social worker</h2>
+    <p class="govuk-body">
+      Throughout the pandemic, schools and colleges have been open to
+      <%= link_to_govuk_content("vulnerable children and young people", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-educational-provision/guidance-for-schools-colleges-and-local-authorities-on-maintaining-educational-provision", "#vulnerable-children-and-young-people") %>.
+      However, many of these pupils and students have remained in remote education. These pupils and students will continue with remote education if a pupil, class, group or a small number of pupils need to self-isolate. They may also remain at home where there are local or national restrictions in place.
+    </p>
+    <p class="govuk-body">
+      Where vulnerable pupils are self-isolating, it is important that systems are in place to keep in contact with them.
+    </p>
+    <p class="govuk-body">
+      When a vulnerable pupil is required to self-isolate, you should:
+    </p>
+    <ul
+      class="govuk-list govuk-list--bullet"
+    >
+      <li>notify their social worker (if they have one)</li>
+      <li>agree with the social worker the best way to maintain contact and offer support</li>
+    </ul>
+    <p class="govuk-body">
+      You should have procedures in place to: 
+    </p>
+    <ul
+      class="govuk-list govuk-list--bullet"
+    >
+      <li>check if a vulnerable pupil is able to access remote education support </li>
+      <li>support them to access remote education (as far as possible) </li>
+      <li>regularly check if they are accessing remote education </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Get devices for those who cannot attend school</h2>
+    <p class="govuk-body">
+      If a child or young person without access to a device is advised not to attend school by a GP or specialist clinician, their school should contact the Department for Education (DfE) for support. You can read further guidance on
+      <%= link_to_govuk_content("getting laptops and tablets for those who cannot attend school", "https://www.gov.uk/guidance/get-laptops-and-tablets-for-children-who-cannot-attend-school-due-to-coronavirus-covid-19") %>.
+    </p>
+
+    <h2 class="govuk-heading-l">Support for low-income families</h2>
+    <p class="govuk-body">
+      Further support for low-income families with disabled and critically ill children, including helping to buy specialist equipment, has been made available through the Family Fund. You can read further
+      <%= link_to("guidance on how to apply for the Family Fund", "https://www.familyfund.org.uk/") %>.
+    </p>
+
+    <h2 class="govuk-heading-l">Safeguarding and working with other agencies</h2>
+    <p class="govuk-body">
+      Keeping pupils, students and teachers safe during remote education is essential. DfE has published guidance on
+      <%= link_to_govuk_content("Safeguarding and remote education during coronavirus (COVID-19)", "https://www.gov.uk/guidance/safeguarding-and-remote-education-during-coronavirus-covid-19") %>.
+      This guidance details how to follow safeguarding procedures when planning remote education strategies and teaching remotely during the coronavirus outbreak.
+    </p>
+    <p class="govuk-body">
+      The guidance covers
+    </p>
+    <ul
+      class="govuk-list govuk-list--bullet"
+    >
+      <li>Safeguarding pupils and teachers online</li>
+      <li>Reporting concerns</li>
+      <li>Online safety advice for parents and carers</li>
+      <li>Virtual lessons and live streaming</li>
+      <li>Providing pastoral care remotely</li>
+      <li>Personal data and GDPR</li>
+    </ul>
+    <p class="govuk-body">
+      DfE revised Keeping Children Safe in Education, which came into force on 1 September 2020, and it now includes additional information and 
+      support to help schools and colleges keep children and young people safe online. It includes for the first time a dedicated collection of 
+      resources (at Annex C) to support safe remote education, virtual lessons and live streaming. It also includes support for schools and colleges 
+      to signpost parents and carers to help them keep their children safe online.
+    </p>
+
+    <h2 class="govuk-heading-l">Videos, webinars and online events</h2>
+    <p class="govuk-body">
+      Resources from EdTech Demonstrator schools on how to
+      <%= link_to("use technology to support pupils with special education needs (SEND)", "https://edtech-demonstrator.lgfl.net/guidance/special-educational-needs") %>.
+    </p>
   </div>
 </div>
