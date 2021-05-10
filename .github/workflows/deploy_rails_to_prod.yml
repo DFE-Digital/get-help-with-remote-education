@@ -92,4 +92,4 @@ jobs:
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
           cf target -o dfe -s get-help-with-remote-education-prod
-          cf push -f ./config/manifests/prod_manifest.yml --docker-image $GH_IMAGE_COMMIT_TAG
+          cf push -f ./config/manifests/prod_manifest.yml --docker-image $GH_IMAGE_COMMIT_TAG  --strategy rolling
