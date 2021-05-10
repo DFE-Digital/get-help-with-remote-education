@@ -15,7 +15,7 @@
 <div class="govuk-card-row">
   <div class="govuk-card">
     <h2 class="govuk-heading-s">
-      <%= link_to("Review your remote education provision", "review-your-remote-education-provision", class: "govuk-link") %>
+      <%= govuk_link_to("Review your remote education provision", "review-your-remote-education-provision", class: "govuk-link") %>
     <h2>
   </div>
   <div class="govuk-card">
@@ -39,7 +39,7 @@
       <%= render 'date_badge', update_date: t('good_teaching_practice.last_update_date').to_date, today: @today %>
   </div>
   <div class="govuk-card">
-      <h2 class="govuk-heading-s"><%= link_to("Get help with technology", "get-help-with-technology", class: "govuk-link") %></h2>
+      <h2 class="govuk-heading-s"><%= govuk_link_to("Get help with technology", "get-help-with-technology", class: "govuk-link") %></h2>
   </div>
 </div>
 <div class="govuk-card-row">
