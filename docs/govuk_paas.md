@@ -41,7 +41,6 @@ The current platform is configured with 3 environments. Please see details of th
 | `ghre-s3-private-dev`                   | aws-s3-bucket  | default              |                                                                                  | s3-broker    |
 | `ghre-s3-public-dev`                    | aws-s3-bucket  | default              |                                                                                  | s3-broker    |
 | `influxdb-ghre-dev`                     | influxdb       | tiny-1.x             | prometheus-ghre-dev                                                              | aiven-broker |
-| `logit-ssl-drain`                       | user-provided  |                      | get-help-with-remote-education-dev, get-help-with-remote-education-rails-dev     |              |
 
 #### Staging
 
@@ -65,7 +64,6 @@ The current platform is configured with 3 environments. Please see details of th
 | `get-help-with-remote-education-cdn-staging` | cdn-route     | cdn-route            |                                                                                       | cdn-broker  |
 | `get-help-with-remote-education-pg-staging`  | postgres      | tiny-unencrypted-12  | get-help-with-remote-education-rails-staging                                          | rds-broker  |
 | `ghre-s3-public-staging`                     | aws-s3-bucket | default              |                                                                                       | s3-broker   |
-| `logit-ssl-drain`                            | user-provided |                      | get-help-with-remote-education-rails-staging, get-help-with-remote-education-staging  |             |
 
 #### Production
 
@@ -95,4 +93,3 @@ The current platform is configured with 3 environments. Please see details of th
 | `ghre-s3-private-prod`                      | aws-s3-bucket   | default     |                                                                                | s3-broker    |
 | `ghre-s3-public-prod`                       | aws-s3-bucket   | default     |                                                                                | s3-broker    |
 | `influxdb-ghre-prod`                        | influxdb        | tiny-1.x    | prometheus-ghre-prod                                                           | aiven-broker |
-| `logit-ssl-drain`                           | user-provided                 | get-help-with-remote-education-prod, get-help-with-remote-education-rails-prod |              |
