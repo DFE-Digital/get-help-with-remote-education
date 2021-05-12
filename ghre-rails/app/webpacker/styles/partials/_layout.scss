@@ -59,10 +59,10 @@ hr {
   * {
     color: govuk-colour("white") !important;
   }
+}
 
-  .govuk-grid-row {
-    margin: 0;
-  }
+.govuk-grid-row_no-margin {
+  margin: 0;
 }
 
 .govuk-details {
