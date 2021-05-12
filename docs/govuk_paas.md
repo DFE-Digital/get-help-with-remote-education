@@ -27,7 +27,6 @@ The current platform is configured with 3 environments. Please see details of th
 | name                                       | processes   | routes                                                             |
 |------------------------------------------- |------------ |------------------------------------------------------------------- |
 | `alertmanager-ghre-dev`                    | web:1/1     | alertmanager-ghre-dev.london.cloudapps.digital                     |
-| `get-help-with-remote-education-dev`       | web:1/1     | get-help-with-remote-education-dev.london.cloudapps.digital        |
 | `get-help-with-remote-education-rails-dev` | web:1/1     | get-help-with-remote-education-rails-dev.london.cloudapps.digital  |
 | `grafana-ghre-dev`                         | web:1/1     | grafana-ghre-dev.london.cloudapps.digital                          |
 | `paas-prometheus-exporter-ghre-dev`        | web:1/1     | paas-prometheus-exporter-ghre-dev.london.cloudapps.digital         |
@@ -55,7 +54,6 @@ The current platform is configured with 3 environments. Please see details of th
 | name                                           | processes   | routes                                                                                                                        |
 |----------------------------------------------- |------------ |------------------------------------------------------------------------------------------------------------------------------ |
 | `get-help-with-remote-education-rails-staging` | web:1/1     | get-help-with-remote-education-rails-staging.london.coudapps.digital, get-help-with-remote-education-staging.education.gov.uk |
-| `get-help-with-remote-education-staging`       | web:0/1     | get-help-with-remote-education-staging.london.cloudapps.digital, get-help-with-remote-education-staging.education.gov.uk      |
 
 ##### Services available in staging:
 
@@ -78,7 +76,6 @@ The current platform is configured with 3 environments. Please see details of th
 | name                                        | processes   | routes                                                                                                              |
 |-------------------------------------------- |------------ |---------------------------------------------------------------------------------------------------------------------|
 | `alertmanager-ghre-prod`                    | web:1/1     | alertmanager-ghre-prod.london.cloudapps.digital                                                                     |
-| `get-help-with-remote-education-prod`       | web:0/3     | get-help-with-remote-education-prod.london.cloudapps.digital, get-help-with-remote-education.education.gov.uk       |
 | `get-help-with-remote-education-rails-prod` | web:3/3     | get-help-with-remote-education.education.gov.uk, get-help-with-remote-education-rails-prod.london.cloudapps.digital |
 | `grafana-ghre-prod`                         | web:1/1     | grafana-ghre-prod.london.cloudapps.digital                                                                          |
 | `paas-prometheus-exporter-ghre-prod`        | web:1/1     | paas-prometheus-exporter-ghre-prod.london.cloudapps.digital                                                         |

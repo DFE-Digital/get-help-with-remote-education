@@ -1,6 +1,10 @@
+## Uptime monitoring
+Statuscake is used for uptime monitoring of the prod deployment. If any downtime is detected the team dev email account will be notified: ghre-dev@digital.education.gov.uk.
+To manage the statuscake uptime alerts, ask for a statuscake user account with access to the DfeStatusCake sub account.
+
 ## Deploy monitoring
 A monitoring instance has access by default to all of the get-help-with-remote-education spaces.
-There is a prod montoring instance and a dev one to test new dashboatds, alerts, etc.
+There is a prod montoring instance and a dev one to test new dashboards, alerts, etc.
 
 ### Allow monitoring user
 The monitoring user must have at leat SpaceAuditor role in all the spaces to be able to read all the metrics.
