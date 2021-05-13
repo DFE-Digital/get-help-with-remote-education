@@ -8,6 +8,14 @@
 </h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <% support_update_date = t('support_recovery.last_update_date').to_date %>
+    <%= render layout: 'summary', locals: { update_date: support_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: true } do %>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Updated <%= govuk_link_to("National Tutoring Programme", "#ntp") %> guidance
+        </li>
+      </ul>
+    <% end %>
     <p class="govuk-body">
       Support to stop pupils and students falling behind, including the school-to-school support programme, the £650 million catch-up premium funding and in-school support through the National Tutoring Programme (NTP).
     </p>
@@ -45,20 +53,36 @@
         <%= link_to_govuk_content("coronavirus (COVID-19) catch-up premium: provisional allocations", "https://www.gov.uk/government/publications/coronavirus-covid-19-catch-up-premium-provisional-allocations") %>
       </li>
     </ul>
-    <h2 class="govuk-heading-l">The National Tutoring Programme (NTP)</h2>
-    <p class="govuk-body">
-      You can register your interest on the <a class="govuk-link" href="https://nationaltutoring.org.uk/">National Tutoring Programme</a>
-      website and find out more about how the programme will:
+    <h2 class="govuk-heading-l" id="ntp">The National Tutoring Programme (NTP)</h2>
+    <p
+      class="govuk-body updated-content <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      The National Tutoring Programme (NTP) aims to support schools in providing additional support to children and young people who have been hardest hit from disruption to their education as a result of the pandemic.
     </p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>increase access to high-quality tuition for disadvantaged and vulnerable pupils</li>
-      <li>support children and young people to catch up</li>
-      <li>help deliver schools’ curriculum plans</li>
-    </ul>
-    <p class="govuk-body">
-      You can read
-      <%= link_to_govuk_content("further information about the NTP", "https://www.gov.uk/guidance/coronavirus-covid-19-catch-up-premium#national-tutoring-programme") %>
-      and how the programme will comprise at least 3 parts in the 2020 to 2021 academic year.
+    <p
+      class="govuk-body updated-content <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      The programme has two pillars, all schools can access high quality subsidised tuition from approved Tuition Partners and our most disadvantaged schools are being supported to employ in-house Academic Mentors to provide tuition to their pupils.
+    </p>
+    <p
+      class="govuk-body updated-content <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      We are in the process of procuring a supplier of the NTP for next academic year, and will set out further details shortly.
+    </p>
+    <p
+      class="govuk-body updated-content <%= 'active' if @show_updates %>"
+      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+      data-updated
+    >
+      Further information and how to apply can be found on the
+      <%= govuk_link_to("National Tutoring Programme", "https://nationaltutoring.org.uk/") %>
+      website.
     </p>
   </div>
 </div>
