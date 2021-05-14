@@ -9,11 +9,12 @@
 
 ## Setting up the app in development
 
-1. Run `bundle install` to install the gem dependencies
-2. Run `yarn` to install node dependencies
-3. Run `bin/rails db:setup` to set up the database development and test schemas, and seed with test data
-4. Run `bundle exec rails server` to launch the app on http://localhost:3000
-5. Run `./bin/webpack-dev-server` in a separate shell for faster compilation of assets
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
+2. Clone down repository locally
+3. Run `docker-compose up -d --build` in `ghre-rails` folder
+4. Open Docker Desktop and expand `ghre-rails` application to view logs
+5. go to `localhost:3001` in web browser to see site
+6. Run `docker-compose up -d --build` again to rebuild the locally running application with the latest local code
 
 ### Environment variables
 
@@ -29,12 +30,12 @@
 
 ## Running specs, linter(without auto correct) and annotate models and serializers
 ```
-bundle exec rake
+docker-compose exec web bundle exec rake
 ```
 
 ## Running specs
 ```
-bundle exec rspec
+docker-compose exec web bundle exec rspec
 ```
 
 ## Linting
@@ -42,14 +43,20 @@ bundle exec rspec
 It's best to lint just your app directories and not those belonging to the framework, e.g.
 
 ```bash
-bundle exec rubocop app config db lib spec Gemfile --format clang -a
+docker-compose exec web bundle exec rubocop app config db lib spec Gemfile --format clang -a
 
 or
 
-bundle exec scss-lint app/webpacker/styles
+docker-compose exec web bundle exec scss-lint app/webpacker/styles
 ```
 
 ## Deploying on GOV.UK PaaS
+
+This service is built to deploy to [GOV PaaS](https://www.cloud.service.gov.uk/) using Docker.
+
+[Github actions on the repo](https://github.com/DFE-Digital/get-help-with-remote-education/actions) can be manually triggered to deploy any branch to any of the 3 environments - dev, staging & prod
+
+It is sometimes useful to deploy from your local machine, here are the steps:
 
 ### Prerequisites
 
@@ -58,10 +65,6 @@ bundle exec scss-lint app/webpacker/styles
 - You have downloaded and installed the [Cloud Foundry CLI](https://github.com/cloudfoundry/cli#downloads) for your platform
 
 ### Deploy
-
-This service is built to deploy to [GOV PaaS](https://www.cloud.service.gov.uk/) using Docker.
-
-To deploy this service do the following:
 
 1. Build the latest version of the app in Docker
 2. Push the image to the github dfe-digital docker registry: `ghcr.io/dfe-digital/get-help-with-remote-education-${dev/staging/prod}:latest`
