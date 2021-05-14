@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  web:
+    build: .
+    environment:
+      DB_HOSTNAME: db
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+      GOOGLE_ANALYTICS_ID: testid
+      GOOGLE_TAG_MGR_ID: testid
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
