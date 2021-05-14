@@ -1,12 +1,5 @@
 # Get Help with Remote Education - Rails
 
-## Prerequisites
-
-- Ruby 2.7.2
-- PostgreSQL
-- NodeJS 12.13.x
-- Yarn 1.12.x
-
 ## Setting up the app in development
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
