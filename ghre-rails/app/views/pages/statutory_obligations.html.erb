@@ -11,8 +11,13 @@
     <p class="govuk-body">
       This page provides information on current remote education obligations and expectations.
     </p>
-    <% main_title_paragraph_update_date = t('statutory_obligations.main_title_paragraph.last_update').to_date %>
-    <%= render layout: 'summary', locals: { update_date: main_title_paragraph_update_date, show_updates: @show_updates, page: 'statutory-obligations', has_content: false } do %>
+    <% update_date = t('statutory_obligations.last_update_date').to_date %>
+    <%= render layout: 'summary', locals: { update_date: update_date, show_updates: @show_updates, page: 'statutory-obligations', has_content: true } do %>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Whole page updated
+        </li>
+      </ul>
     <% end %>
     <h2 id="schools" class="govuk-heading-l">
       Schools
