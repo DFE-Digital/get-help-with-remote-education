@@ -12,7 +12,7 @@
     <%= render layout: 'summary', locals: { update_date: videos_webinars_update_date, show_updates: @show_updates, page: 'videos_webinars', has_content: true } do %>
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          Cybersecurity: Streaming link added for NCSC ransomware Webinar
+          Updated link for EdTech demonstrator programme
         </li>
       </ul>
     <% end %>
@@ -23,49 +23,32 @@
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
+          <h2
+            class="govuk-accordion__section-heading updated-content  <%= 'active' if @show_updates %>"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated  
+          >
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Safeguarding
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-          <p class="govuk-body">Resources on keeping pupils safe online and using technology to support wellbeing.</p>
-
-          <h3 class="govuk-heading-s">EdTech Demonstrator webinars</h3>
-
-          <ul class="govuk-list govuk-list--bullet">
-            <li><a href="https://edtech-demonstrator.lgfl.net/guidance/safeguarding">keeping pupils safe online</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="govuk-accordion__section ">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
               Good teaching practice and resources
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
           <h3 class="govuk-heading-s">DfE school-led webinars</h3>
 
           <p class="govuk-body">The DfE is offering several <a href="https://www.gov.uk/guidance/remote-education-webinars?utm_source=remote_education">school-led webinars</a> on remote education to help share good practice.</p>
 
-          <h3 class="govuk-heading-s">EdTech Demonstrator webinars</h3>
-
-          <p class="govuk-body"><a href="https://edtech-demonstrator.lgfl.net/home">The EdTech Demonstrator programme</a> helps schools and colleges with support for remote education. Their webinars can help improve the quality of remote provision in line with the expectations set out in the <a href="https://www.gov.uk/government/publications/actions-for-schools-during-the-coronavirus-outbreak?utm_source=remote_education">Schools coronavirus (COVID-19) operational guidance</a>.</p>
-
-          <p class="govuk-body">Webinars include:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li><a href="https://edtech-demonstrator.lgfl.net/guidance/contingency">contingency planning guidance</a></li>
-            <li><a href="https://edtech-demonstrator.lgfl.net/guidance/getting-started">setting up a virtual classroom</a></li>
-            <li><a href="https://edtech-demonstrator.lgfl.net/guidance">using platforms such as Google Workspace (formerly G Suite) or Microsoft Office 365</a></li>
-            <li><a href="https://edtech-demonstrator.lgfl.net/guidance/strategy">embedding technology across your organisation and introducing a digital strategy</a></li>
-          </ul>
-
-          <p class="govuk-body">See all of EdTech's <a href="https://edtech-demonstrator.lgfl.net/support-and-resources/upcoming-events">upcoming events</a> on their website.</p>
+          <h3 class="govuk-heading-s">EdTech Demonstrator programme</h3>
+          <p class="govuk-body">The EdTech Demonstrator programme provides schools and colleges free peer-to-peer support on effective use of technology in education.</p>
+          <p
+            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated
+          >
+            Schools and colleges who want to access support can register their interest on the
+            <%= govuk_link_to("EdTech demonstrator schools and colleges", "https://edtechdemo.ucst.uk/") %>
+            website for more information.
+          </p>
 
           <h3 class="govuk-heading-s">Get help with remote education and catch-up provision</h3>
           <p class="govuk-body">On Wednesday 27 January a sector-led online event took place which provided the following:</p>
@@ -117,51 +100,30 @@
       </div>
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
-              Special educational needs and disabilities (SEND)
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
-          <p class="govuk-body">Resources for supporting pupils with special educational needs.</p>
-
-          <h3 class="govuk-heading-s">EdTech Demonstrator webinars</h3>
-
-          <ul class="govuk-list govuk-list--bullet">
-            <li><a href="https://edtech-demonstrator.lgfl.net/guidance/special-educational-needs">using technology to support pupils with special education needs (SEND)</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="govuk-accordion__section ">
-        <div class="govuk-accordion__section-header">
           <h2
-            class="govuk-accordion__section-heading updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-accordion__section-heading"
           >
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
               Cyber security training
             </span>
           </h2>
         </div>
         <div
-          id="accordion-default-content-3"
+          id="accordion-default-content-2"
+          aria-labelledby="accordion-default-heading-2"
           class="govuk-accordion__section-content"
         >
           <p class="govuk-body">
             The National Cyber Security Centre (NCSC) is offering free training to
-            <%= govuk_link_to("school staff to improve cyber resilience", "https://www.ncsc.gov.uk/news/school-staff-offered-training-to-help-cyber-defences") %>.
+            <%= link_to_govuk_content("school staff to improve cyber resilience", "https://www.ncsc.gov.uk/news/school-staff-offered-training-to-help-cyber-defences") %>.
           </p>
           <p class="govuk-body">
             The
-            <%= govuk_link_to("cyber security training", "https://www.ncsc.gov.uk/information/cyber-security-training-schools") %>
+            <%= link_to_govuk_content("cyber security training", "https://www.ncsc.gov.uk/information/cyber-security-training-schools") %>
             sets out real-life incident case studies and four practical steps staff can take to protect themselves online.
           </p>
           <p
-            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-body"
           >
             NCSC and the Department for Education webinar
             <%= govuk_link_to("Ransomware, the risk to schools and ways to prevent it", "https://www.youtube.com/watch?v=FppzWedY0ic") %>
