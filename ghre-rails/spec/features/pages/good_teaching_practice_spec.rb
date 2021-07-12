@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "pages/good_teaching_practice.html.erb", type: :feature do
-  let(:date_updated) { I18n.t("good_teaching_practice.fe.last_update").to_date }
+  let(:date_updated) { I18n.t("good_teaching_practice.last_update_date").to_date }
 
   describe "update summary badge" do
     it "appears once in the page" do
