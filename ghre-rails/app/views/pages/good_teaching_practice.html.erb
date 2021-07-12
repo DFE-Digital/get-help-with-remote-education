@@ -14,6 +14,9 @@
         <li>
           Updated link for EdTech demonstrator programme
         </li>
+        <li>
+          Updated links for FE digital curriculum resources
+        </li>
       </ul>
     <% end %>
     <p class="govuk-body">
@@ -285,29 +288,48 @@
             Support in using educational technology and developing online teaching skills from the <%= govuk_link_to("Education and Training Foundation", "https://enhance.etfoundation.co.uk/") %>.
           </p>
           <p class="govuk-body">
-            Digital content and resources are available from organisations funded by DfE, including 
+            Digital curriculum content and resources are available from organisations funded by DfE, including 
             <%= govuk_link_to("Jisc", "https://www.jisc.ac.uk/learning-and-research-resources/") %>
             and 
-            <%= govuk_link_to("World Skills UK", "https://www.worldskillsuk.org/directions/careers-advice-resources/") %>
+            <%= govuk_link_to("World Skills UK", "https://www.worldskillsuk.org/careers-advice/") %>
             .
           </p>
-          <p class="govuk-body">
-            DfE has also funded colleges to produce a range of content for the FE sector. The content consists of free, Sharable Content Object Reference Model (SCORM) compliant resources for use across the FE curriculum.
+          <p
+            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated
+          >
+            <%= govuk_link_to("The EdTech Demonstrator programme", "https://edtechdemo.ucst.uk/") %>
+            helps schools and colleges with support for remote education. Their webinars can help improve the quality of remote provision in line with the expectations set out in the
+            <%= link_to_govuk_content("Further education coronavirus (COVID-19) operational guidance", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision") %>.
           </p>
+
+          <p
+            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated
+          >
+            The
+            <%= govuk_link_to("College Collaboration Fund", "https://www.gov.uk/guidance/college-collaboration-fund-ccf#successful-applicants") %>
+            has funded a range of digital
+            <%= link_to_govuk_content("resources", "https://www.gov.uk/government/publications/college-collaboration-fund-ccf-projects/resources-college-collaboration-fund-ccf") %>
+            to support sharing of good practice across FE colleges on a range of topics including staff development, mental health and wellbeing, safeguarding and student progression and transition support.
+          </p>
+
           <h4
             class="govuk-heading-s"
           >
-            EdTech Demonstrator webinars
+            Fe digital curriculum resources
           </h4>
           <p
             class="govuk-body updated-content  <%= 'active' if @show_updates %>"
             data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
             data-updated
           >
-            
+            The
             <%= govuk_link_to("The EdTech Demonstrator programme", "https://edtechdemo.ucst.uk/") %>
-            helps schools and colleges with support for remote education. Their webinars can help improve the quality of remote provision in line with the expectations set out in the
-            <%= link_to_govuk_content("Further education coronavirus (COVID-19) operational guidance", "https://www.gov.uk/government/publications/coronavirus-covid-19-maintaining-further-education-provision") %>.
+            College Collaboration Fund
+            has also funded colleges to produce a range of digital content for the FE sector. The content consists of free, Sharable Content Object Reference Model (SCORM) compliant resources for use across the FE curriculum.
           </p>
 
           <%= render layout: 'details', locals: { title: 'Agriculture, horticulture, and animal care' } do %>
