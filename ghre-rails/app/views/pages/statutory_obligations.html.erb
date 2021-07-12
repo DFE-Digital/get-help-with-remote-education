@@ -8,9 +8,6 @@
 </h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body">
-      This page provides information on current remote education obligations and expectations.
-    </p>
     <% update_date = t('statutory_obligations.last_update_date').to_date %>
     <%= render layout: 'summary', locals: { update_date: update_date, show_updates: @show_updates, page: 'statutory-obligations', has_content: true } do %>
       <ul class="govuk-list govuk-list--bullet">
@@ -19,6 +16,9 @@
         </li>
       </ul>
     <% end %>
+    <p class="govuk-body">
+      This page provides information on current remote education obligations and expectations.
+    </p>
     <h2 id="schools" class="govuk-heading-l">
       Schools
     </h2>
