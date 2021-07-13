@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
-  let(:date_updated) { I18n.t("statutory_obligations.main_title_paragraph.last_update").to_date }
+  let(:date_updated) { I18n.t("statutory_obligations.last_update_date").to_date }
 
   describe "update summary badge" do
     it "should appear once in the page" do
@@ -66,11 +66,11 @@ RSpec.describe "pages/statutory_obligations.html.erb", type: :feature do
       it "should show the toggle button for showing updates" do
         expect(page).to have_selector('[data-qa="update-summary-toggle__hide"]')
       end
-
-      it "should highlight the updated sections" do
-        expect(page).to have_selector('[data-qa="updated-content__highlighted"]')
-        expect(page.find_all('[data-qa="updated-content__highlighted"]').count).to eq(2)
-      end
+      # NO UPDATED SECTION CURRENTLY HIGHLIGHTED
+      # it "should highlight the updated sections" do
+      #   expect(page).to have_selector('[data-qa="updated-content__highlighted"]')
+      #   expect(page.find_all('[data-qa="updated-content__highlighted"]').count).to eq(2)
+      # end
 
       it "allows the user to toggle the update summary" do
         page.find('[data-qa="update-summary-toggle__hide"]').click
