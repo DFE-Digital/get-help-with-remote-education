@@ -1,10 +1,10 @@
-<% page_title = "Support for recovery and catch-up"%>
+<% page_title = "Support for education recovery"%>
 <%= content_for :page_title, page_title%>
 <%= content_for :before_content do %>
   <a href="/" class="govuk-back-link">Back</a>
 <% end %>
 <h1 class="govuk-heading-xl">
-  Support for recovery and catch-up
+  Support for education recovery
 </h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -12,77 +12,26 @@
     <%= render layout: 'summary', locals: { update_date: support_update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: true } do %>
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          Updated <%= govuk_link_to("National Tutoring Programme", "#ntp") %> guidance
+          Whole page updated
         </li>
       </ul>
     <% end %>
     <p class="govuk-body">
-      Support to stop pupils and students falling behind, including the school-to-school support programme, the £650 million catch-up premium funding and in-school support through the National Tutoring Programme (NTP).
-    </p>
-    <h2 class="govuk-heading-l">School-to-school support for coronavirus (COVID-19) recovery</h2>
-    <p class="govuk-body">
-      The government is funding 
-      <%= link_to_govuk_content "school-to-school support programme", "https://www.gov.uk/government/publications/school-leadership-support/school-leadership-support" %>
-      for schools that need particular help with coronavirus (COVID-19) recovery, which can include
-      support to develop remote education provision. System leaders in education can provide support for an average of 5 days in line with the current
-      coronavirus (COVID-19) guidance for schools.
+      We know that extended school and college restrictions on attendance have had a substantial impact on children and young people’s education.
     </p>
     <p class="govuk-body">
-      Contact your
-      <%= link_to_govuk_content("local Regional School Commissioner’s office", "https://www.gov.uk/government/organisations/regional-schools-commissioners/about#who-we-are") %>
-      to find out more.
+      We have produced
+      <%= link_to_govuk_content("information for early years settings, schools and providers of 16-19 education", "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/993053/Education_recovery_support_June-2021.pdf") %>
+      about the programmes and activities the Department for Education is funding to support education recovery and children’s and young people’s wellbeing.
     </p>
-    <h2 class="govuk-heading-l">Educational Endowment Foundation coronavirus (COVID-19) support</h2>
     <p class="govuk-body">
-      The
-      <a class="govuk-link" href="https://educationendowmentfoundation.org.uk/covid-19-resources/national-tutoring-programme/covid-19-support-guide-for-schools/#closeSignup">
-        Education Endowment Foundation Covid-19 support guide for schools
-      </a>
-      includes information on how to support effective remote education and access to technology.
-    </p>
-    <h2 class="govuk-heading-l">Catch-up premium</h2>
-    <p class="govuk-body">
-      To support pupils from falling behind, schools can spend their catch-up premium on contingency planning for remote education, for example purchasing additional devices or more textbooks.
-      Read the guidance on the:
-    </p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>
-        <%= link_to_govuk_content("coronavirus (COVID-19) catch-up premium", "https://www.gov.uk/guidance/coronavirus-covid-19-catch-up-premium") %>
-      </li>
-      <li>
-        <%= link_to_govuk_content("coronavirus (COVID-19) catch-up premium: provisional allocations", "https://www.gov.uk/government/publications/coronavirus-covid-19-catch-up-premium-provisional-allocations") %>
-      </li>
-    </ul>
-    <h2 class="govuk-heading-l" id="ntp">The National Tutoring Programme (NTP)</h2>
-    <p
-      class="govuk-body updated-content <%= 'active' if @show_updates %>"
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      data-updated
-    >
-      The National Tutoring Programme (NTP) aims to support schools in providing additional support to children and young people who have been hardest hit from disruption to their education as a result of the pandemic.
-    </p>
-    <p
-      class="govuk-body updated-content <%= 'active' if @show_updates %>"
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      data-updated
-    >
-      The programme has two pillars, all schools can access high quality subsidised tuition from approved Tuition Partners and our most disadvantaged schools are being supported to employ in-house Academic Mentors to provide tuition to their pupils.
-    </p>
-    <p
-      class="govuk-body updated-content <%= 'active' if @show_updates %>"
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      data-updated
-    >
-      We are in the process of procuring a supplier of the NTP for next academic year, and will set out further details shortly.
-    </p>
-    <p
-      class="govuk-body updated-content <%= 'active' if @show_updates %>"
-      data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-      data-updated
-    >
-      Further information and how to apply can be found on the
-      <%= govuk_link_to("National Tutoring Programme", "https://nationaltutoring.org.uk/") %>
-      website.
+      This includes the recovery package announced in
+      <%= link_to_govuk_content("June 2021", "https://www.gov.uk/government/news/huge-expansion-of-tutoring-in-next-step-of-education-recovery") %>
+      , as well as those programmes announced in
+      <%= link_to_govuk_content("June 2020", "https://www.gov.uk/government/news/billion-pound-covid-catch-up-plan-to-tackle-impact-of-lost-teaching-time") %>
+      and in
+      <%= link_to_govuk_content("February 2021", "https://www.gov.uk/government/news/new-education-recovery-package-for-children-and-young-people") %>
+      .
     </p>
   </div>
 </div>
