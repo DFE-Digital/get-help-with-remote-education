@@ -12,10 +12,7 @@
     <%= render layout: 'summary', locals: { update_date: update_date, show_updates: @show_updates, page: 'good-teaching-practice', has_content: true } do %>
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          Updated link for EdTech demonstrator programme
-        </li>
-        <li>
-          Updated links for FE digital curriculum resources
+          New case studies.
         </li>
       </ul>
     <% end %>
@@ -42,24 +39,25 @@
       </div>
     </div>
     <div class="govuk-accordion__section ">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span
-              class="govuk-accordion__section-button"
-              id="accordion-default-heading-10"
-            >
-              Case Studies
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-10" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-10">
-          <p
-            class="govuk-body"
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span
+            class="govuk-accordion__section-button updated-content  <%= 'active' if @show_updates %>"
+            id="accordion-default-heading-10"
+            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+            data-updated
           >
-            Early years providers can access
-            <%= link_to_govuk_content("case studies on delivering high-quality remote education", "https://gov.uk/government/publications/schools-blended-delivery-case-studies") %>.
-          </p>
-        </div>
+            Case Studies
+          </span>
+        </h2>
+      </div>
+      <div id="accordion-default-content-10" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-10">
+        <p
+          class="govuk-body"
+        >
+          Early years providers can access
+          <%= link_to_govuk_content("case studies on delivering high-quality remote education", "https://gov.uk/government/publications/schools-blended-delivery-case-studies") %>.
+        </p>
       </div>
     </div>
     <h2 class="govuk-heading-l">Schools</h2>
@@ -181,9 +179,7 @@
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2
-            class="govuk-accordion__section-heading updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-accordion__section-heading"
           >
             <span
               class="govuk-accordion__section-button"
@@ -202,9 +198,7 @@
           <h4 class="govuk-heading-s">EdTech Demonstrator programme</h3>
           <p class="govuk-body">The EdTech Demonstrator programme provides schools and colleges free peer-to-peer support on effective use of technology in education.</p>
           <p
-            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-body"
           >
             Schools and colleges who want to access support can register their interest on the
             <%= govuk_link_to("EdTech demonstrator schools and colleges", "https://edtechdemo.ucst.uk/") %>
@@ -276,8 +270,10 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span
-              class="govuk-accordion__section-button"
+              class="govuk-accordion__section-button updated-content  <%= 'active' if @show_updates %>"
               id="accordion-default-heading-10"
+              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+              data-updated
             >
               Case Studies
             </span>
@@ -315,10 +311,8 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span
-              class="govuk-accordion__section-button updated-content <%= 'active' if @show_updates %>"
+              class="govuk-accordion__section-button"
               id="accordion-default-heading-7"
-              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-              data-updated
             >
               Support and resources
             </span>
@@ -336,9 +330,7 @@
             .
           </p>
           <p
-            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-body"
           >
             The
             <%= govuk_link_to("EdTech Demonstrator programme", "https://edtechdemo.ucst.uk/") %>
@@ -346,9 +338,7 @@
           </p>
 
           <p
-            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-body"
           >
             The
             <%= link_to_govuk_content("College Collaboration Fund", "https://www.gov.uk/guidance/college-collaboration-fund-ccf", "#successful-applicants") %>
@@ -363,9 +353,7 @@
             FE digital curriculum resources
           </h4>
           <p
-            class="govuk-body updated-content  <%= 'active' if @show_updates %>"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+            class="govuk-body"
           >
             The
             <%= link_to_govuk_content("College Collaboration Fund", "https://www.gov.uk/guidance/college-collaboration-fund-ccf", "#successful-applicants") %>
@@ -916,8 +904,10 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span
-              class="govuk-accordion__section-button"
+              class="govuk-accordion__section-button updated-content  <%= 'active' if @show_updates %>"
               id="accordion-default-heading-10"
+              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+              data-updated
             >
               Case Studies
             </span>
