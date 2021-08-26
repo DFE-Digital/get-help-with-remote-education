@@ -20,16 +20,16 @@
       Remote education resources, including lessons from Oak National Academy, as well as guidance, lesson plans and webinars on teaching remotely.
     </p>
     <h2 class="govuk-heading-l">Early years</h2>
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-ey">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+            <span class="govuk-accordion__section-button" id="accordion-ey-heading-1">
               Support and resources
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+        <div id="accordion-ey-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-ey-heading-1">
           <p class="govuk-body">
             Resources from
             <%= govuk_link_to("Hungry Little Minds", "https://hungrylittleminds.campaign.gov.uk/") %>,
@@ -37,40 +37,40 @@
           </p>
         </div>
       </div>
-    </div>
-    <div class="govuk-accordion__section ">
-      <div class="govuk-accordion__section-header">
-        <h2 class="govuk-accordion__section-heading">
-          <span
-            class="govuk-accordion__section-button updated-content  <%= 'active' if @show_updates %>"
-            id="accordion-default-heading-10"
-            data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span
+              class="govuk-accordion__section-button updated-content  <%= 'active' if @show_updates %>"
+              id="accordion-ey-heading-2"
+              data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
+              data-updated
+            >
+              Case Studies
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-ey-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-ey-heading-2">
+          <p
+            class="govuk-body"
           >
-            Case Studies
-          </span>
-        </h2>
-      </div>
-      <div id="accordion-default-content-10" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-10">
-        <p
-          class="govuk-body"
-        >
-          Early years providers can access
-          <%= link_to_govuk_content("case studies on delivering high-quality remote education", "https://gov.uk/government/publications/schools-blended-delivery-case-studies") %>.
-        </p>
+            Early years providers can access
+            <%= link_to_govuk_content("case studies on delivering high-quality remote education", "https://gov.uk/government/publications/schools-blended-delivery-case-studies") %>.
+          </p>
+        </div>
       </div>
     </div>
     <h2 class="govuk-heading-l">Schools</h2>
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-schools">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+            <span class="govuk-accordion__section-button" id="accordion-schools-heading-1">
               Guidance
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+        <div id="accordion-schools-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-schools-heading-1">
           <p class="govuk-body">
             A sector-led
             <%= link_to_govuk_content("remote education good practice guide", "https://www.gov.uk/government/publications/remote-education-good-practice") %>
@@ -90,12 +90,12 @@
       >
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-3" >
+            <span class="govuk-accordion__section-button" id="accordion-schools-heading-2" >
               Support and resources
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+        <div id="accordion-schools-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-schools-heading-2">
           <p class="govuk-body">
             <%= link_to_govuk_content("Example lesson plans", "https://www.gov.uk/government/publications/example-lessons-for-remote-teaching") %>
             shared by schools to help teachers adapt their classroom practice for remote education.
@@ -183,13 +183,13 @@
           >
             <span
               class="govuk-accordion__section-button"
-              id="accordion-default-heading-4"
+              id="accordion-schools-heading-3"
             >
               Videos, webinars and training
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+        <div id="accordion-schools-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-schools-heading-3">
           <h4 class="govuk-heading-s">DfE school-led webinars</h4>
           <p class="govuk-body">
             The DfE is offering several <%= link_to_govuk_content("school-led webinars", "https://www.gov.uk/guidance/remote-education-webinars") %> on remote education
@@ -255,12 +255,12 @@
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-5">
+            <span class="govuk-accordion__section-button" id="accordion-schools-heading-4">
               Buying for remote education
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-5" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-5">
+        <div id="accordion-schools-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-schools-heading-4">
           <p class="govuk-body">
             <%= link_to_govuk_content("Help with accessing and buying resources for remote education", "https://www.gov.uk/guidance/help-with-accessing-and-buying-resources-for-remote-education") %>.
           </p>
@@ -271,7 +271,7 @@
           <h2 class="govuk-accordion__section-heading">
             <span
               class="govuk-accordion__section-button updated-content  <%= 'active' if @show_updates %>"
-              id="accordion-default-heading-10"
+              id="accordion-schools-heading-5"
               data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
               data-updated
             >
@@ -279,7 +279,7 @@
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-10" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-10">
+        <div id="accordion-schools-content-5" class="govuk-accordion__section-content" aria-labelledby="accordion-schools-heading-5">
           <p
             class="govuk-body"
           >
@@ -290,16 +290,16 @@
       </div>
     </div>
     <h2 class="govuk-heading-l">Further education</h2>
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-fe">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-6">
+            <span class="govuk-accordion__section-button" id="accordion-fe-heading-1">
               Guidance
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-6" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-6">
+        <div id="accordion-fe-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-fe-heading-1">
           <p class="govuk-body">
             Guidance on how FE colleges can use the <%= link_to_govuk_content("16 to 19 Bursary Fund", "https://www.gov.uk/1619-bursary-fund") %> and the
             <%= link_to_govuk_content("adult education budget", "https://www.gov.uk/guidance/adult-education-budget-aeb-funding-rules-2020-to-2021") %> to
@@ -312,13 +312,13 @@
           <h2 class="govuk-accordion__section-heading">
             <span
               class="govuk-accordion__section-button"
-              id="accordion-default-heading-7"
+              id="accordion-fe-heading-2"
             >
               Support and resources
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-7" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-7">
+        <div id="accordion-fe-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-fe-heading-2">
           <p class="govuk-body">
             Support in using educational technology and developing online teaching skills from the <%= govuk_link_to("Education and Training Foundation", "https://enhance.etfoundation.co.uk/") %>.
           </p>
@@ -905,7 +905,7 @@
           <h2 class="govuk-accordion__section-heading">
             <span
               class="govuk-accordion__section-button updated-content  <%= 'active' if @show_updates %>"
-              id="accordion-default-heading-10"
+              id="accordion-fe-heading-3"
               data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
               data-updated
             >
@@ -913,7 +913,7 @@
             </span>
           </h2>
         </div>
-        <div id="accordion-default-content-10" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-10">
+        <div id="accordion-fe-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-fe-heading-3">
           <p
             class="govuk-body"
           >
