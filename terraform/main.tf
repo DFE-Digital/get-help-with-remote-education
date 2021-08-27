@@ -11,6 +11,7 @@ module prometheus_all {
   # alertmanager_config      = file("${path.module}/files/alertmanager.yml")
   grafana_admin_password = var.grafana_admin_password
   grafana_json_dashboards  = [file("${path.module}/dashboards/web_traffic.json")]
+  grafana_runtime_version = "6.5.1"
 }
 
 resource statuscake_test alert {
