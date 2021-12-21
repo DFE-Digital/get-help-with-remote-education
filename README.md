@@ -4,10 +4,11 @@
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
 2. Clone down repository locally
-3. Run `docker-compose up -d --build` in `ghre-rails` folder
-4. Open Docker Desktop and expand `ghre-rails` application to view logs
-5. go to `localhost:3001` in web browser to see site
-6. Run `docker-compose up -d --build` again to rebuild the locally running application with the latest local code
+3. Run `docker-compose run web rake db:create` to create the test and development databases
+4. Run `docker-compose up -d --build` in `ghre-rails` folder
+5. Open Docker Desktop and expand `ghre-rails` application to view logs
+6. go to `localhost:3001` in web browser to see site
+7. Run `docker-compose up -d --build` again to rebuild the locally running application with the latest local code
 
 ### Environment variables
 
