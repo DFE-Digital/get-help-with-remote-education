@@ -1,5 +1,5 @@
-<% page_title = "Videos, webinars and online events"%>
-<%= content_for :page_title, page_title%>
+<% page_title = "Videos, webinars and online events" %>
+<%= content_for :page_title, page_title %>
 <%= content_for :before_content do %>
   <a href="/" class="govuk-back-link">Back</a>
 <% end %>
@@ -26,7 +26,7 @@
           <h2
             class="govuk-accordion__section-heading updated-content  <%= 'active' if @show_updates %>"
             data-qa="updated-content<%= @show_updates ? '__highlighted' : '' %>"
-            data-updated  
+            data-updated
           >
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
               Good teaching practice and resources
@@ -34,6 +34,9 @@
           </h2>
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <h3 class="govuk-heading-s">Sustaining Digital and Remote Education: A Toolkit for School Leaders</h3>
+            <p class="govuk-body">Designed by Sandringham School, <%= govuk_link_to("the course", "https://www.digitallyempowered.co.uk") %>  will help participants develop an understanding of research informed remote education practices, and reflect upon Sandringham School’s particular experiences in delivering digital and remote education.</p>
+
           <h3 class="govuk-heading-s">DfE school-led webinars</h3>
 
           <p class="govuk-body">The DfE is offering several <a href="https://www.gov.uk/guidance/remote-education-webinars?utm_source=remote_education">school-led webinars</a> on remote education to help share good practice.</p>
@@ -51,11 +54,16 @@
           </p>
 
           <h3 class="govuk-heading-s">Get help with remote education and catch-up provision</h3>
-          <p class="govuk-body">On Wednesday 27 January a sector-led online event took place which provided the following:</p>
+          <p class="govuk-body">On Wednesday 27 January a sector-led online event took place which provided the
+            following:</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>examples of the best approaches to remote education</li>
-            <li>advice on delivering the curriculum virtually, featuring Oak National Academy, the EdTech Demonstrator Network, Microsoft and Google</li>
-            <li>top tips on maintaining wellbeing, motivation and keeping pupils safe whilst delivering remote education</li>
+            <li>advice on delivering the curriculum virtually, featuring Oak National Academy, the EdTech Demonstrator
+              Network, Microsoft and Google
+            </li>
+            <li>top tips on maintaining wellbeing, motivation and keeping pupils safe whilst delivering remote
+              education
+            </li>
           </ul>
           <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
@@ -64,7 +72,8 @@
               </span>
             </summary>
             <div class="govuk-details__text">
-              <p class="govuk-body">The event was led by a selection of primary and secondary schools, including those who have accessed the DfE’s support package and Oak National Academy. Sessions included:</p>
+              <p class="govuk-body">The event was led by a selection of primary and secondary schools, including those
+                who have accessed the DfE’s support package and Oak National Academy. Sessions included:</p>
               <h3 class="govuk-heading-s">Getting the basics right</h3>
               <p class="govuk-body">This session explored:</p>
               <ul class="govuk-list govuk-list--bullet">
@@ -73,9 +82,12 @@
                 <li>use of digital platforms</li>
               </ul>
               <h3 class="govuk-heading-s">Delivering the curriculum virtually</h3>
-              <p class="govuk-body">This session explored ways to maintain high-quality teaching remotely, including:</p>
+              <p class="govuk-body">This session explored ways to maintain high-quality teaching remotely,
+                including:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li>managing the complexity of delivering lessons to pupils in and outside of the classroom simultaneously</li>
+                <li>managing the complexity of delivering lessons to pupils in and outside of the classroom
+                  simultaneously
+                </li>
                 <li>ensuring the curriculum is accessible to all pupils</li>
                 <li>ways Oak National Academy can be used interactively</li>
                 <li>maintaining high quality teaching in the remote environment</li>
@@ -91,10 +103,14 @@
             </div>
           </details>
           <p class="govuk-body">
-            If you missed the event you can <%= govuk_link_to("access it on demand", "https://youtu.be/vFD3PJCxN1g", class: "govuk-link") %>.
+            If you missed the event you
+            can <%= govuk_link_to("access it on demand", "https://youtu.be/vFD3PJCxN1g", class: "govuk-link") %>.
           </p>
           <p class="govuk-body">
-            A follow up event was held on 3 February 2021 where a panel responded to questions asked during (and after) the sector-led session on 27 January 2021.  You can <%= govuk_link_to("watch this event", "https://youtu.be/csIamuQkPR0", class: "govuk-link") %> if you missed it.
+            A follow up event was held on 3 February 2021 where a panel responded to questions asked during (and after)
+            the sector-led session on 27 January 2021. You
+            can <%= govuk_link_to("watch this event", "https://youtu.be/csIamuQkPR0", class: "govuk-link") %> if you
+            missed it.
           </p>
         </div>
       </div>
@@ -115,12 +131,14 @@
         >
           <p class="govuk-body">
             The National Cyber Security Centre (NCSC) is offering free training to
-            <%= link_to_govuk_content("school staff to improve cyber resilience", "https://www.ncsc.gov.uk/news/school-staff-offered-training-to-help-cyber-defences") %>.
+            <%= link_to_govuk_content("school staff to improve cyber resilience", "https://www.ncsc.gov.uk/news/school-staff-offered-training-to-help-cyber-defences") %>
+            .
           </p>
           <p class="govuk-body">
             The
             <%= link_to_govuk_content("cyber security training", "https://www.ncsc.gov.uk/information/cyber-security-training-schools") %>
-            sets out real-life incident case studies and four practical steps staff can take to protect themselves online.
+            sets out real-life incident case studies and four practical steps staff can take to protect themselves
+            online.
           </p>
           <p
             class="govuk-body"

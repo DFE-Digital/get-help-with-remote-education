@@ -1,5 +1,5 @@
-<% page_title = "Special educational needs and disabilities (SEND)"%>
-<%= content_for :page_title, page_title%>
+<% page_title = "Special educational needs and disabilities (SEND)" %>
+<%= content_for :page_title, page_title %>
 <%= content_for :before_content do %>
   <a href="/" class="govuk-back-link">Back</a>
 <% end %>
@@ -10,20 +10,23 @@
   <div class="govuk-grid-column-two-thirds">
     <% send_update_date = t('send.last_update_date').to_date %>
     <%= render layout: 'summary', locals: { update_date: send_update_date, show_updates: @show_updates, page: 'send', has_content: true } do %>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>
-        Whole page updated
-      </li>
-    </ul>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Whole page updated
+        </li>
+      </ul>
     <% end %>
-    <h2 class="govuk-heading-l">Supporting pupils and young people with special educational needs and disabilities (SEND)</h2>
+    <h2 class="govuk-heading-l">Supporting pupils and young people with special educational needs and disabilities
+      (SEND)</h2>
     <p class="govuk-body">
-      The requirement to ensure pupils and students with SEND can access remote education is the same as it is for all other pupils and students in all types of schools and colleges. You can read the
+      The requirement to ensure pupils and students with SEND can access remote education is the same as it is for all
+      other pupils and students in all types of schools and colleges. You can read the
       <%= link_to_govuk_content("statutory obligations and expectations", "/statutory-obligations") %>
       for all pupils and students including those with SEND.
     </p>
     <p class="govuk-body">
-      For schools and colleges developing their remote education for pupils and students with SEND, the following support and information is available from third-party resources:
+      For schools and colleges developing their remote education for pupils and students with SEND, the following
+      support and information is available from third-party resources:
     </p>
     <ul
       class="govuk-list govuk-list--bullet"
@@ -50,9 +53,24 @@
       <%= govuk_link_to("lessons", "https://classroom.thenational.academy/specialist/therapies") %>
       to support occupational therapy, physical therapy, speech and language therapy and sensory integration.
     </p>
+    <h2 class="govuk-heading-l">Free peer-to-peer support for schools and colleges on using technology for SEND
+      support</h2>
+    <p class="govuk-body">
+      The DfE’s EdTech Demonstrator Programme offers free support to any publicly-funded school or college in England to
+      access help and advice on educational technology.
+      Tailored support is delivered by EdTech Demonstrator schools and colleges to help secure an accessible and
+      inclusive curriculum, including for pupils and students with SEND.</p>
+    <p class="govuk-body">
+      For more information and to register for support, please visit the <%= govuk_link_to("EdTech Demonstrator Website", "https://edtechdemo.ucst.uk/") %>.
+      To find EdTech
+      Demonstrator schools and colleges that are offering SEND support, please visit the <%= govuk_link_to("EdTech Demonstrators SEND support page", "https://edtechdemo.ucst.uk/demonstrators/search-for-a-demonstrator") %>.
+      To access EdTech Demonstrator resources on SEND support, please visit the <%= govuk_link_to("EdTech Demonstrator
+      Resources page", "https://edtechdemo.ucst.uk/resources") %>.
+    </p>
     <h2 class="govuk-heading-l">Supporting vulnerable children, including children with a social worker</h2>
     <p class="govuk-body">
-      Where vulnerable pupils are self-isolating, it is important that systems are in place to keep in contact with them.
+      Where vulnerable pupils are self-isolating, it is important that systems are in place to keep in contact with
+      them.
     </p>
     <p class="govuk-body">
       When a vulnerable pupil is required to self-isolate, you should:
@@ -64,33 +82,39 @@
       <li>agree with the social worker the best way to maintain contact and offer support</li>
     </ul>
     <p class="govuk-body">
-      You should have procedures in place to: 
+      You should have procedures in place to:
     </p>
     <ul
       class="govuk-list govuk-list--bullet"
     >
-      <li>check if a vulnerable pupil is able to access remote education support </li>
-      <li>support them to access remote education (as far as possible) </li>
-      <li>regularly check if they are accessing remote education </li>
+      <li>check if a vulnerable pupil is able to access remote education support</li>
+      <li>support them to access remote education (as far as possible)</li>
+      <li>regularly check if they are accessing remote education</li>
     </ul>
 
     <h2 class="govuk-heading-l">Get devices for those who cannot attend school</h2>
     <p class="govuk-body">
-      If a child or young person without access to a device is advised not to attend school by a GP or specialist clinician, their school should contact the Department for Education (DfE) for support. You can read further guidance on
-      <%= link_to_govuk_content("getting laptops and tablets for those who cannot attend school", "https://www.gov.uk/guidance/get-laptops-and-tablets-for-children-who-cannot-attend-school-due-to-coronavirus-covid-19") %>.
+      If a child or young person without access to a device is advised not to attend school by a GP or specialist
+      clinician, their school should contact the Department for Education (DfE) for support. You can read further
+      guidance on
+      <%= link_to_govuk_content("getting laptops and tablets for those who cannot attend school", "https://www.gov.uk/guidance/get-laptops-and-tablets-for-children-who-cannot-attend-school-due-to-coronavirus-covid-19") %>
+      .
     </p>
 
     <h2 class="govuk-heading-l">Support for low-income families</h2>
     <p class="govuk-body">
-      Further support for low-income families with disabled and critically ill children, including helping to buy specialist equipment, has been made available through the Family Fund. You can read further
+      Further support for low-income families with disabled and critically ill children, including helping to buy
+      specialist equipment, has been made available through the Family Fund. You can read further
       <%= govuk_link_to("guidance on how to apply for the Family Fund", "https://www.familyfund.org.uk/") %>.
     </p>
 
     <h2 class="govuk-heading-l">Safeguarding and working with other agencies</h2>
     <p class="govuk-body">
       Keeping pupils, students and teachers safe during remote education is essential. DfE has published guidance on
-      <%= link_to_govuk_content("Safeguarding and remote education during coronavirus (COVID-19)", "https://www.gov.uk/guidance/safeguarding-and-remote-education-during-coronavirus-covid-19") %>.
-      This guidance details how to follow safeguarding procedures when planning remote education strategies and teaching remotely during the coronavirus outbreak.
+      <%= link_to_govuk_content("Safeguarding and remote education during coronavirus (COVID-19)", "https://www.gov.uk/guidance/safeguarding-and-remote-education-during-coronavirus-covid-19") %>
+      .
+      This guidance details how to follow safeguarding procedures when planning remote education strategies and teaching
+      remotely during the coronavirus outbreak.
     </p>
     <p class="govuk-body">
       The guidance covers
@@ -106,9 +130,12 @@
       <li>Personal data and GDPR</li>
     </ul>
     <p class="govuk-body">
-      DfE revised Keeping Children Safe in Education, which came into force on 1 September 2020, and it now includes additional information and 
-      support to help schools and colleges keep children and young people safe online. It includes for the first time a dedicated collection of 
-      resources (at Annex C) to support safe remote education, virtual lessons and live streaming. It also includes support for schools and colleges 
+      DfE revised Keeping Children Safe in Education, which came into force on 1 September 2020, and it now includes
+      additional information and
+      support to help schools and colleges keep children and young people safe online. It includes for the first time a
+      dedicated collection of
+      resources (at Annex C) to support safe remote education, virtual lessons and live streaming. It also includes
+      support for schools and colleges
       to signpost parents and carers to help them keep their children safe online.
     </p>
   </div>
