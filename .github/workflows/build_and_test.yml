@@ -19,85 +19,17 @@ jobs:
       run:
         working-directory: ghre-rails
     runs-on: ubuntu-latest
-    # Service containers to run with `container-job`
-    services:
-      # Label used to access the service container
-      postgres:
-        # Docker Hub image
-        image: postgres:12
-        # Provide the password for postgres
-        env:
-          POSTGRES_PASSWORD: postgres
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          # Maps tcp port 5432 on service container to the host
-          - 5432:5432
-
     env:
-      DB_HOSTNAME: localhost
-      DB_PORT: 5432
-      DB_USERNAME: postgres
-      DB_PASSWORD: postgres
-
+      RAILS_ENV: test
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Gemfile.lock cache
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7.2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      # Cache the nodejs packages for yarn
-      - name: Setup yarn cache
-        uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install gems with bundler
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-      - name: Install Node.js packages with yarn
-        run: yarn --frozen-lockfile
-
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: docker-compose up -d
       - name: Setup DB
-        run: bundle exec rails db:setup
-        env:
-          RAILS_ENV: test
-
-      - name: Compile assets
-        run: bundle exec rails webpacker:compile
-      - name: Dump out manifest contents in case of JSON::ParserError
-        run: cat public/packs/manifest.json
-      - name: Run rubocop
-        run: bundle exec rubocop app config db lib spec Gemfile --format clang --parallel
-      - name: Run rspec
-        run: bundle exec rspec
-        env:
-          RAILS_ENV: test
-      - name: Run scss linter
-        run: bundle exec scss-lint app/webpacker/styles
+        run: docker-compose run web rake db:create
+      - name: Rspec
+        run: docker-compose run web rake spec
+      - name: lint Ruby
+        run: docker-compose run web rake lint:ruby
+      - name: lint SCSS
+        run: docker-compose run web rake lint:scss
