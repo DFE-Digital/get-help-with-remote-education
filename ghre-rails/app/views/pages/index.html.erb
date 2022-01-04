@@ -5,9 +5,35 @@
         <h1 class="govuk-heading-xl">
           Get help with remote education
         </h1>
-        <p class="govuk-body">Information, guidance and support for teachers and leaders on educating pupils and students who are remote learning during coronavirus (COVID-19). </p>
+        <p class="govuk-body">Information, guidance and support for teachers and leaders on educating pupils and
+          students who are remote learning during coronavirus (COVID-19). </p>
       </div>
     </div>
+  </div>
+</div>
+<div class="govuk-grid-row govuk-grid-row__no-margin">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">EdTech Demonstrator Programme Urgent Support for schools and colleges</h2>
+    <p class="govuk-body">Schools and colleges requiring 1-to-1 support with meeting remote education expectations
+      can <%= govuk_link_to("access urgent support for free", "https://edtechdemo.ucst.uk/") %></p>
+    <p class="govuk-body">Online drop-in surgeries are also available. Details are on the EdTech Demonstrator
+      website</p>
+    <p class="govuk-body">Schools and colleges can
+      also <%= govuk_link_to("access existing EdTech resources", "https://edtechdemo.ucst.uk/resources") %></p>
+    <h2 class="govuk-heading-m">Support from peers on managing workforce absences</h2>
+    <p class="govuk-body">This <%= govuk_link_to("case study", "https://drive.google.com/file/d/1txfPyWZPuAyQ-DB-KSseQBJu8AVuIta6/view?usp=sharing") %>
+      offers advice to schools
+      to manage possible pressure on staffing levels caused by COVID-19 related workforce absences.</p>
+    <h2 class="govuk-heading-m">Support from peers on blended delivery and live lessons</h2>
+    <p class="govuk-body">Schools have
+      written <%= link_to_govuk_content("case studies", "https://www.gov.uk/government/publications/schools-blended-delivery-case-studies") %>
+      to share how they have approached teaching classes of pupils both in school and remotely (which we refer to as
+      'blended delivery').</p>
+    <p class="govuk-body">There is
+      also <%= govuk_link_to("practical advice on overcoming the challenges of blended delivery.", "https://drive.google.com/drive/folders/1VXAfORN-5yMvPRlv0ZJpmfaumzyHiUWQ") %></p>
+    <p class="govuk-body">Approaches to
+      using <%= govuk_link_to("Oak National Academy", "https://www.thenational.academy") %> to
+      deliver <%= govuk_link_to("live lessons.", "https://www.thenational.academy/blog/using-oak-vs-live-lessons-does-it-have-to-be-one-or-the-other") %> </p>
   </div>
 </div>
 <hr>
@@ -19,36 +45,41 @@
     </h2>
   </div>
   <div class="govuk-card">
-      <h2 class="govuk-heading-s"><a href="videos-webinars" class="govuk-link">Videos, webinars and training</a></h2>
-      <%= render 'date_badge', update_date: t('videos_webinars.last_update_date').to_date, today: @today %>
+    <h2 class="govuk-heading-s"><a href="videos-webinars" class="govuk-link">Videos, webinars and training</a></h2>
+    <%= render 'date_badge', update_date: t('videos_webinars.last_update_date').to_date, today: @today %>
   </div>
 </div>
 <div class="govuk-card-row">
   <div class="govuk-card">
-      <h2 class="govuk-heading-s"><a href="statutory-obligations" class="govuk-link">Statutory obligations and expectations</a></h2>
-      <%= render 'date_badge', update_date: t('statutory_obligations.last_update_date').to_date, today: @today %>
+    <h2 class="govuk-heading-s">
+      <a href="statutory-obligations" class="govuk-link">Statutory obligations and expectations</a></h2>
+    <%= render 'date_badge', update_date: t('statutory_obligations.last_update_date').to_date, today: @today %>
   </div>
   <div class="govuk-card">
-      <h2 class="govuk-heading-s"><a href="safeguarding" class="govuk-link">Safeguarding</a></h2>
-      <%= render 'date_badge', update_date: t('safeguarding.last_update_date').to_date, today: @today %>
-  </div>
-</div>
-<div class="govuk-card-row">
-  <div class="govuk-card">
-      <h2 class="govuk-heading-s"><a href="good-teaching-practice" class="govuk-link">Good teaching practice and resources</a></h2>
-      <%= render 'date_badge', update_date: t('good_teaching_practice.last_update_date').to_date, today: @today %>
-  </div>
-  <div class="govuk-card">
-      <h2 class="govuk-heading-s"><%= govuk_link_to("Get help with technology", "get-help-with-technology", class: "govuk-link") %></h2>
+    <h2 class="govuk-heading-s"><a href="safeguarding" class="govuk-link">Safeguarding</a></h2>
+    <%= render 'date_badge', update_date: t('safeguarding.last_update_date').to_date, today: @today %>
   </div>
 </div>
 <div class="govuk-card-row">
   <div class="govuk-card">
-      <h2 class="govuk-heading-s"><a href="send" class="govuk-link">Vulnerable pupils and students and those with special educational needs and disabilities (SEND)</a></h2>
-      <%= render 'date_badge', update_date: t('send.last_update_date').to_date, today: @today %>
+    <h2 class="govuk-heading-s">
+      <a href="good-teaching-practice" class="govuk-link">Good teaching practice and resources</a></h2>
+    <%= render 'date_badge', update_date: t('good_teaching_practice.last_update_date').to_date, today: @today %>
   </div>
   <div class="govuk-card">
-      <h2 class="govuk-heading-s"><a href="support-for-recovery" class="govuk-link">Support for education recovery</a></h2>
-      <%= render 'date_badge', update_date: t('support_recovery.last_update_date').to_date, today: @today %>
+    <h2 class="govuk-heading-s"><%= govuk_link_to("Get help with technology", "get-help-with-technology", class: "govuk-link") %></h2>
+  </div>
+</div>
+<div class="govuk-card-row">
+  <div class="govuk-card">
+    <h2 class="govuk-heading-s">
+      <a href="send" class="govuk-link">Vulnerable pupils and students and those with special educational needs and
+        disabilities (SEND)</a></h2>
+    <%= render 'date_badge', update_date: t('send.last_update_date').to_date, today: @today %>
+  </div>
+  <div class="govuk-card">
+    <h2 class="govuk-heading-s"><a href="support-for-recovery" class="govuk-link">Support for education recovery</a>
+    </h2>
+    <%= render 'date_badge', update_date: t('support_recovery.last_update_date').to_date, today: @today %>
   </div>
 </div>
