@@ -69,3 +69,11 @@ jobs:
           cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_PASSWORD_DEV }}"
           cf target -o dfe -s get-help-with-remote-education-dev
           cf push -f ./config/manifests/review_manifest.yml --var github-tag=$GH_IMAGE_COMMIT_TAG --var pull-request="${{ github.event.number }}"
+
+      - name: comment on PR
+        uses: unsplash/comment-on-pr@v1.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "Created review web app at https://get-help-with-remote-education-${{ github.event.number }}.london.cloudapps.digital"
+          check_for_duplicate_msg: true
