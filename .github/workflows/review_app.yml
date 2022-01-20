@@ -1,0 +1,71 @@
+name: Deploy rails to review env
+
+# Workflow will run on manual trigger in github actions UI
+on:
+  pull_request:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-and-push-container:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Declare some variables
+        id: vars
+        shell: bash
+        run: |
+          echo "::set-output name=image_commit_tag::ghcr.io/dfe-digital/get-help-with-remote-education:$(git rev-parse --short HEAD)"
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./ghre-rails
+          push: true
+          tags: ${{ steps.vars.outputs.image_commit_tag }}, ${{ steps.vars.outputs.image_latest_tag }}
+
+  deploy-to-paas:
+    defaults:
+      run:
+        working-directory: ghre-rails
+    runs-on: ubuntu-latest
+    needs: build-and-push-container
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Declare some variables
+        id: vars
+        shell: bash
+        run: |
+          echo "::set-output name=image_commit_tag::ghcr.io/dfe-digital/get-help-with-remote-education:$(git rev-parse --short HEAD)"
+      - name: Install CloudFoundry CLI
+        shell: bash
+        id: install-cf-cli
+        run: |
+          wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+          echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+          sudo apt-get update
+          sudo apt-get install cf7-cli
+      - name: Deploy to Gov.uk PaaS
+        id: deploy-to-paas
+        shell: bash
+        env:
+          GH_IMAGE_COMMIT_TAG: ${{ steps.vars.outputs.image_commit_tag }}
+        run: |
+          echo "ENVIRONMENT=review-pr-${{ github.event.number }}" >> $GITHUB_ENV
+          cf api https://api.london.cloud.service.gov.uk
+          cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_PASSWORD_DEV }}"
+          cf target -o dfe -s get-help-with-remote-education-dev
+          cf push -f ./config/manifests/review_manifest.yml --var github-tag=$GH_IMAGE_COMMIT_TAG --var pull-request="${{ github.event.number }}"
