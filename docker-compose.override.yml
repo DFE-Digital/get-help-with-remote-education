@@ -3,3 +3,5 @@ version: "3.9"
 services:
   web:
     build: ghre-rails
+    volumes:
+      - ./ghre-rails:/app
