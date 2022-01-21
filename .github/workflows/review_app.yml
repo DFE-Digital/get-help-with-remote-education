@@ -46,17 +46,19 @@ jobs:
       RAILS_ENV: test
       GH_IMAGE_COMMIT_TAG: ${{ needs.build-and-push-container.outputs.image_commit_tag }}
     steps:
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Install docker-compose
-        run: |
-          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
+      - uses: actions/checkout@v2
+      - name: Setup DB
+        run: docker-compose run web rake db:create
+      - name: Compose service
+        run: docker-compose -f docker-compose.yml -f docker-compose.ci.yml up -d
+      - name: Rspec
+        run: docker-compose exec -T web rake spec
+      - name: lint Ruby
+        run: docker-compose exec -T web rake lint:ruby
+      - name: lint SCSS
+        run: docker-compose exec -T web rake lint:scss
 
   deploy-to-paas:
-    defaults:
-      run:
-        working-directory: ghre-rails
     runs-on: ubuntu-latest
     needs: [test-image, build-and-push-container]
     steps:
