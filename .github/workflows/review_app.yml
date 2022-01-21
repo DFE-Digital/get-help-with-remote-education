@@ -72,6 +72,7 @@ jobs:
           echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
           sudo apt-get update
           sudo apt-get install cf7-cli
+
       - name: Deploy to Gov.uk PaaS
         id: deploy-to-paas
         shell: bash
@@ -82,7 +83,7 @@ jobs:
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_PASSWORD_DEV }}"
           cf target -o dfe -s get-help-with-remote-education-dev
-          cf push -f ./config/manifests/review_manifest.yml --var github-tag=$GH_IMAGE_COMMIT_TAG --var pull-request="${{ github.event.number }}"
+          cf push -f ./ghre-rails/config/manifests/review_manifest.yml --var github-tag=$GH_IMAGE_COMMIT_TAG --var pull-request="${{ github.event.number }}"
 
       - name: comment on PR
         uses: unsplash/comment-on-pr@v1.3.0
