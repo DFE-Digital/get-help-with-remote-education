@@ -11,6 +11,8 @@ jobs:
   deploy-image:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Get HEAD tag
         id: vars
         shell: bash
