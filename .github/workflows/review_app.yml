@@ -38,6 +38,8 @@ jobs:
           context: ./ghre-rails
           push: true
           tags: ghcr.io/dfe-digital/get-help-with-remote-education:${{ steps.vars.outputs.image_commit_tag }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   test-image:
     runs-on: ubuntu-latest
