@@ -12,15 +12,15 @@
 
 ### Environment variables
 
-| Environment variable 	    | Example                                	  | Notes                                                                |
-|------------------------   |------------------------------------------ |--------------------------------------------------------------------- |
-| `DB_HOSTNAME`             | `localhost`                              	| Development/test environment only                                    |
-| `DB_PORT`                 | `5432`                                   	| Development/test environment only                                    |
-| `DB_USERNAME`             | `postgres`                               	| Development/test environment only                                    |
-| `DB_PASSWORD`             | `password`                               	| Development/test environment only                                    |
-| `DATABASE_URL`            | `postgres://user:pass@localhost:5432/db` 	|                                                                      |
-| `GOOGLE_TAG_MGR_ID`       | `GTM-1234`                               	|                                                                      |
-| `GOOGLE_ANALYTICS_ID`     | `G-1234`                                 	|                                                                      |
+| Environment variable 	 | Example                                	   | Notes                             |
+|------------------------|--------------------------------------------|-----------------------------------|
+| `DB_HOSTNAME`          | `localhost`                              	 | Development/test environment only |
+| `DB_PORT`              | `5432`                                   	 | Development/test environment only |
+| `DB_USERNAME`          | `postgres`                               	 | Development/test environment only |
+| `DB_PASSWORD`          | `password`                               	 | Development/test environment only |
+| `DATABASE_URL`         | `postgres://user:pass@localhost:5432/db` 	 |                                   |
+| `GOOGLE_TAG_MGR_ID`    | `GTM-1234`                               	 |                                   |
+| `GOOGLE_ANALYTICS_ID`  | `G-1234`                                 	 |                                   |
 
 ## Running specs, linter(without auto correct) and annotate models and serializers
 ```
@@ -48,9 +48,11 @@ docker-compose exec web bundle exec scss-lint app/webpacker/styles
 
 This service is built to deploy to [GOV PaaS](https://www.cloud.service.gov.uk/) using Docker.
 
-[Github actions on the repo](https://github.com/DFE-Digital/get-help-with-remote-education/actions) can be manually triggered to deploy any branch to any of the 3 environments - dev, staging & prod
+**[Github actions on the repo](https://github.com/DFE-Digital/get-help-with-remote-education/actions) are automatically triggered once a branch has been merged.**
 
-It is sometimes useful to deploy from your local machine, here are the steps:
+It is sometimes useful to deploy from your local machine. This should only be done in an emergency! 
+
+Here are the steps:
 
 ### Prerequisites
 
@@ -61,10 +63,10 @@ It is sometimes useful to deploy from your local machine, here are the steps:
 ### Deploy
 
 1. Build the latest version of the app in Docker
-2. Push the image to the github dfe-digital docker registry: `ghcr.io/dfe-digital/get-help-with-remote-education-${dev/staging/prod}:latest`
+2. Push the image to the github dfe-digital docker registry: `ghcr.io/dfe-digital/get-help-with-remote-education-${dev/prod}:latest`
 3. Login to cloudfoundary
 4. Run the following
 ```
   cf target -o dfe-teacher-services -s get-help-with-remote-education-dev
-  cf push -f ./config/manifests/${dev/staging/prod}_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-${dev/staging/prod}:latest
+  cf push -f ./config/manifests/${dev/prod}_manifest.yml --docker-image ghcr.io/dfe-digital/get-help-with-remote-education-${dev/prod}:latest
 ```
