@@ -9,6 +9,6 @@ applications:
       RACK_ENV: test
       RAILS_SERVE_STATIC_FILES: true
     docker:
-      image: ((github-tag))
+      image: ghcr.io/dfe-digital/get-help-with-remote-education:((github-tag))
     services:
       - get-help-with-remote-education-pg-dev
