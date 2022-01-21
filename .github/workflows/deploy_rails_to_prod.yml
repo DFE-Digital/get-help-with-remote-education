@@ -52,7 +52,7 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "::set-output name=image_commit_tag::ghcr.io/dfe-digital/get-help-with-remote-education-prod:$(git rev-parse --short HEAD)"
+          echo "::set-output name=image_commit_tag::$(git rev-parse --short HEAD^2)"
       - name: Install CloudFoundry CLI
         shell: bash
         id: install-cf-cli
@@ -94,4 +94,4 @@ jobs:
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
           cf target -o dfe -s get-help-with-remote-education-prod
-          cf push -f ./config/manifests/prod_manifest.yml --docker-image $GH_IMAGE_COMMIT_TAG  --strategy rolling
+          cf push -f ./config/manifests/prod_manifest.yml --var github-tag=$GH_IMAGE_COMMIT_TAG  --strategy rolling
