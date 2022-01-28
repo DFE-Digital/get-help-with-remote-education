@@ -1,6 +1,6 @@
 name: Deploy rails to review env
 
-# Workflow will run on manual trigger in github actions UI
+# Workflow will run automatically on raising a PR
 on:
   pull_request:
     branches: [ main ]
