@@ -1,56 +1,23 @@
 name: Deploy rails to prod
 
-# Workflow will run on manual trigger in github actions UI
+# Workflow will run automatically on push to main
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-and-push-container:
+  deploy-image:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Declare some variables
+      - name: Get HEAD tag
         id: vars
         shell: bash
         run: |
-          echo "::set-output name=image_commit_tag::ghcr.io/dfe-digital/get-help-with-remote-education-prod:$(git rev-parse --short HEAD)"
-          echo "::set-output name=image_latest_tag::ghcr.io/dfe-digital/get-help-with-remote-education-prod:latest"
-
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: ./ghre-rails
-          push: true
-          tags: ${{ steps.vars.outputs.image_commit_tag }}, ${{ steps.vars.outputs.image_latest_tag }}
-
-  deploy-to-paas:
-    defaults:
-      run:
-        working-directory: ghre-rails
-    runs-on: ubuntu-latest
-    needs: build-and-push-container
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: Declare some variables
-        id: vars
-        shell: bash
-        run: |
-          echo "::set-output name=image_commit_tag::ghcr.io/dfe-digital/get-help-with-remote-education-prod:$(git rev-parse --short HEAD)"
+          echo "::set-output name=image_commit_tag::$(git rev-parse --short HEAD^2)"
       - name: Install CloudFoundry CLI
         shell: bash
         id: install-cf-cli
@@ -92,4 +59,4 @@ jobs:
           cf api https://api.london.cloud.service.gov.uk
           cf auth "${{ secrets.CF_USER_PROD }}" "${{ secrets.CF_PASSWORD_PROD }}"
           cf target -o dfe -s get-help-with-remote-education-prod
-          cf push -f ./config/manifests/prod_manifest.yml --docker-image $GH_IMAGE_COMMIT_TAG  --strategy rolling
+          cf push -f ./ghre-rails/config/manifests/prod_manifest.yml --var github-tag=$GH_IMAGE_COMMIT_TAG  --strategy rolling

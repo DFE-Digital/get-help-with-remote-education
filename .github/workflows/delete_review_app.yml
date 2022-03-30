@@ -1,0 +1,24 @@
+name: Delete review app
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout Code
+
+      - name: Terraform pin version
+        uses: hashicorp/setup-terraform@v1.3.2
+        with:
+          terraform_version: 0.14.0
+
+      - name: Destroy review app
+        run: |
+          echo "ENVIRONMENT=review-pr-${{ github.event.number }}" >> $GITHUB_ENV
+          cf api https://api.london.cloud.service.gov.uk
+          cf auth "${{ secrets.CF_USER_DEV }}" "${{ secrets.CF_PASSWORD_DEV }}"
+          cf target -o dfe -s get-help-with-remote-education-dev
+          cf delete get-help-with-remote-education-rails-${{ github.event.number }}

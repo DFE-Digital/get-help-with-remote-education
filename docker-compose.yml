@@ -7,7 +7,6 @@ services:
     environment:
       POSTGRES_PASSWORD: password
   web:
-    build: .
     environment:
       DB_HOSTNAME: db
       DB_USERNAME: postgres
@@ -18,5 +17,3 @@ services:
       - "3001:3000"
     depends_on:
       - db
-    volumes:
-      - ./app:/app/app
