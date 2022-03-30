@@ -1,0 +1,93 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ghre-rails
+
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Build and export
+        uses: docker/build-push-action@v2
+        with:
+          file: ghre-rails/Dockerfile
+          context: ./ghre-rails
+          tags: myimage:test
+          outputs: type=docker,dest=/tmp/myimage.tar
+      -
+        name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: myimage
+          tags: myimage:latest
+          path: /tmp/myimage.tar
+
+  test:
+    defaults:
+      run:
+        working-directory: ghre-rails
+    runs-on: ubuntu-latest
+    needs: build
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres:12
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+
+    env:
+      DB_HOSTNAME: localhost
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Download artifact
+        uses: actions/download/artifact@v2
+        with:
+          name: myimage
+          path: /tmp
+      - name: Load image
+        run: |
+          docker load --input /tmp/myimage.tar
+      - name: Setup DB
+        run: |
+          docker-compose run web rake db:create
+          docker-compose up -d --build
+        env:
+          RAILS_ENV: test
+      - name: Run rubocop
+        run: bundle exec rubocop app config db lib spec Gemfile --format clang --parallel
+      - name: Run rspec
+        run: bundle exec rspec
+        env:
+          RAILS_ENV: test
+      - name: Run scss linter
+        run: bundle exec scss-lint app/webpacker/styles
